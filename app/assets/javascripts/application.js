@@ -20,4 +20,7 @@
 $(document).ready(function() {
   $('#first-project').popup();
   $('#second-project').popup();
+  $('#third-project').popup();
+  $('#fourth-project').popup();
+  $('#fifth-project').popup();
 });
