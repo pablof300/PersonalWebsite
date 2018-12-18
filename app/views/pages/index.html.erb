@@ -4,16 +4,16 @@
     <a class="active item">
       About me
     </a>
-    <a class="item">
+    <a href="#projects" class="item">
       Projects
     </a>
-    <a class="item">
+    <a class="item" href="#skills">
       Skills
     </a>
-    <a class="item">
+    <a class="item" href="#resume">
       Resume
     </a>
-    <a class="item">
+    <a href="#contact" class="item">
       Contact
     </a>
   </div>
@@ -36,15 +36,15 @@
       <div class="ui grid stackable center aligned">
         <div class=""></div>
         <div class="sixteen wide column">
-          <button class="inverted grey ui huge circular mail icon button">
+          <a href="#contact" class="inverted grey ui huge circular mail icon button">
               <i class="grey mail icon"></i>
-          </button>
-          <button class="inverted grey ui huge circular linkedin icon button">
+          </a>
+          <a href="https://www.linkedin.com/in/pablo-estrada/" class="inverted grey ui huge circular linkedin icon button">
               <i class="grey linkedin icon"></i>
-          </button>
-          <button class="inverted grey ui huge circular github icon button">
+          </a>
+          <a href="https://github.com/pablof300" class="inverted grey ui huge circular github icon button">
               <i class="grey github icon"></i>
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -53,13 +53,13 @@
 
 <div class="ui grid centered" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
 
-<div class="ui segment raised" style="background: #d3fff2; margin-top:12vh; padding-bottom:12vh;">
+<div class="ui segment raised" id="projects" style="background: #d3fff2; margin-top:12vh; padding-bottom:12vh;">
   <h2 class="ui center aligned icon header" style='margin-top: 3vh; margin-bottom: 10vh; opacity: 0.75;'>
     <i class="circular code icon"></i>
     Projects
   </h2>
   <div class="ui centered stackable link cards">
-    <div class="blue card" id="first-project" data-content="This is my favorite project, and also one of the most stressful... (incredibly challenging, but equally satisfying)" data-title="Fun fact" data-position="top center">
+    <div class="ui blue card" id="first-project" data-content="This is my favorite project, and also one of the most stressful... (incredibly challenging, but equally satisfying)" data-title="Fun fact" data-position="top center">
       <div class="ui slide masked reveal image">
         <%= image_tag 'singularities-1.png', class: "visible content" %>
         <%= image_tag 'singularities-2.jpg', class: "hidden content" %>
@@ -78,8 +78,10 @@
           Developed in 2018
         </span>
         <span>
-          <i class="linkify icon"></i>
-          View more
+          <a href="https://itunes.apple.com/us/app/singularities/id1278565563">
+            <i class="linkify icon"></i>
+            View more
+          </a>
         </span>
       </div>
     </div>
@@ -102,8 +104,10 @@
           Developed in 2018
         </span>
         <span>
-          <i class="linkify icon"></i>
-          View more
+          <a href="https://github.com/pablof300/EarthSkipper">
+            <i class="linkify icon"></i>
+            View more
+          </a>
         </span>
       </div>
     </div>
@@ -126,8 +130,10 @@
           Developed in 2018
         </span>
         <span>
-          <i class="linkify icon"></i>
-          View more
+          <a href="https://github.com/pablof300/Orangutan-Animatronic">
+            <i class="linkify icon"></i>
+            View more
+          </a>
         </span>
       </div>
     </div>
@@ -150,9 +156,11 @@
         </div>
       </div>
       <div class="extra content">
-        <span class="right floated">
-          Developed in 2017
-        </span>
+        <a href="https://itunes.apple.com/us/app/cubical-world/id1273263048?mt=8">
+          <span class="right floated">
+            Developed in 2017
+          </span>
+        </a>
         <span>
           <i class="linkify icon"></i>
           View more
@@ -178,15 +186,18 @@
           Developed in 2017
         </span>
         <span>
-          <i class="linkify icon"></i>
-          View more
+          <a href="https://github.com/pablof300/Mancala">
+            <i class="linkify icon"></i>
+            View more
+          </a>
         </span>
       </div>
     </div>
   </div>
 </div>
 
-<div class="ui grid centered" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
+<div class="ui grid centered" id="skills" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
+
 <div class="ui grid stackable">
   <div class="two wide column"></div>
   <div class="twelve wide column" style="margin-top: 2vh;">
@@ -225,7 +236,7 @@
   </div>
 </div>
 
-<div class="ui grid centered" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
+<div class="ui grid centered" id="resume" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
 
 <div class="ui grid stackable">
   <div class="four wide column"></div>
@@ -237,18 +248,18 @@
       </div>
       <div class="ui divider hidden"></div>
       <div class="ui grid stackable centered">
-        <div class="ui primary animated button center aligned centered" tabindex="0">
+        <%= link_to asset_path('resume.pdf'), class: 'ui primary animated button center aligned centered', target: "_blank" do %>
           <div class="visible content">Pablo Estrada</div>
           <div class="hidden content">
             <i class="right arrow icon"></i>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="ui grid centered" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
+<div class="ui grid centered" id="contact" style="margin-top: 8vh;"><i class="big angle down icon centered" style="opacity: 0.9;"></i></div>
 
 <div class="ui grid stackable">
   <div class="four wide column"></div>

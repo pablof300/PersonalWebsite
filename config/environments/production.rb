@@ -82,6 +82,8 @@ Rails.application.configure do
   # Add the font path
   config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
+  config.assets.paths << Rails.root.join('app', 'assets', 'resume')
+
   # Include font files to Assets
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 

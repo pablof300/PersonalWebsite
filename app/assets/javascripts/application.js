@@ -23,4 +23,11 @@ $(document).ready(function() {
   $('#third-project').popup();
   $('#fourth-project').popup();
   $('#fifth-project').popup();
+
+  $('a[href*=\\#]').click(function( event ) {
+    event.preventDefault();
+    anchor = $(this).attr('href');
+    $('html, body').animate({ scrollTop: $(anchor).offset().top }, 1000);
+  });
+
 });
