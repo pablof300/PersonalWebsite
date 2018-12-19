@@ -4,9 +4,10 @@ class MessagesController < ApplicationController
     if message.save
   end
 
-  private
+private
 
   def message_params
     params.require(:message).permit(:sender, :email, :message)
   end
+
 end
