@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admins#panel'
 
-  get "/me", to: redirect('https://earthskipper.herokuapp.com')
+  get "/earthskipper", to: redirect('https://earthskipper.herokuapp.com')
 
   root 'pages#index'
 end
