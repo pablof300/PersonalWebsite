@@ -24,6 +24,11 @@ $(document).ready(function() {
   $('#fourth-project').popup();
   $('#fifth-project').popup();
 
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
+
+
   $('a[href*=\\#]').click(function( event ) {
     event.preventDefault();
     anchor = $(this).attr('href');
