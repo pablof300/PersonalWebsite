@@ -283,21 +283,21 @@
       </div>
 
       <div class="ui raised teal segment">
-        <form class="ui form">
+        <%= form_for(:message, html: { class: 'ui form', role: 'form' }, url: message_path) do |f|%>
           <div class="field">
             <label>Your name</label>
-            <input type="text" name="first-name" placeholder="Name">
+            <%= f.text_field :sender, placeholder: 'Name'  %>
           </div>
           <div class="field">
             <label>Your email</label>
-            <input type="text" name="first-name" placeholder="Email">
+            <%= f.text_field :email, placeholder: 'Email'  %>
           </div>
           <div class="field">
             <label>Your message</label>
-            <textarea rows="2"></textarea>
+            <%= f.text_area :message, rows: '2'  %>
           </div>
-          <button class="ui primary button" type="submit">Submit</button>
-        </form>
+          <%= f.submit 'Submit', class: 'ui primary button' %>
+        <% end %>
       </div>
     </div>
   </div>
