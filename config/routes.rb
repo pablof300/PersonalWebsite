@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   get "/earthskipper", to: redirect('https://earthskipper.herokuapp.com')
 
   root 'pages#index'
+
+  comfy_route :cms_admin, path: "/blogadmin"
+  # Ensure that this route is defined last
+  comfy_route :cms, path: "/blog"
 end

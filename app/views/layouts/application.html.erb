@@ -14,6 +14,8 @@
     <div class="ui container">
       <%= render 'layouts/messages' %>
     </div>
+    <%= render 'layouts/menu' %>
+    <%= render 'layouts/blogindex' if @cms_page.present? and @cms_page.label == "Homepage" %>
     <%= yield %>
   </body>
 </html>

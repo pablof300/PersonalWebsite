@@ -6,6 +6,8 @@ ruby '2.5.1'
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
 gem 'hirb'
+gem 'comfortable_mexican_sofa', '~> 2.0.0'
+gem 'pry-byebug'
 
 gem 'bcrypt', '~> 3.1.7'
 
