@@ -9,7 +9,7 @@
   </div>
   <% if @cms_site.present? %>
     <% @cms_site.pages.each do |page| %>
-      <% if page != @cms_site.pages.first %>
+      <% if page != @cms_site.pages.first and cms_fragment_content(:unpolished, page) != 'yes'%>
         <div class="ui row">
           <%= link_to(request.original_url + page.full_path) do %>
           <div class="ui raised card" style="padding: 10px; opacity: 0.9">

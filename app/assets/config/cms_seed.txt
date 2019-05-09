@@ -9,12 +9,13 @@
 <div class='ui centered grid'>
   <div class='ui row'>
 		<div class='ten wide column'>
-      <div class='card' style='box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); background: #fff; border-radius: 2px; padding: 10vw; margin-top: 10vh; margin-bottom: 10vh;'>
+      <div class='card' style='box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); background: #fff; border-radius: 2px; padding: 10vw; margin-top: 10vh; margin-bottom: 10vh; font-size: 1.2em;'>
         {{ cms:wysiwyg content }}
       </div>
     </div>
   </div>
 </div>
 {{ cms:markdown desc, render: false }}
+{{ cms:markdown unpolished, render: false }}
 
 # homepage layout (empty)
