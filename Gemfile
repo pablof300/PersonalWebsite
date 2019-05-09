@@ -9,6 +9,7 @@ gem 'hirb'
 gem 'comfortable_mexican_sofa', '~> 2.0.0'
 gem "aws-sdk-s3", require: false
 gem 'pry-byebug'
+gem "mini_magick"
 
 gem 'bcrypt', '~> 3.1.7'
 
