@@ -30,4 +30,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/config/initializers/comfortable_mexican_sofa.rb
+# /config/initializers/comfortable_mexican_sofa.rb
