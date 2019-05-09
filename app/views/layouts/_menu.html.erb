@@ -1,9 +1,7 @@
 <div class="ui grid" style="margin-top: 1vh;">
   <div class="ten wide column"></div>
   <div class="ui text menu stackable">
-    <a class="active item">
-      About me
-    </a>
+    <%= link_to 'About me', root_path, class: 'active item' %>
     <a href="#projects" class="item">
       Projects
     </a>
@@ -16,8 +14,6 @@
     <a href="#contact" class="item">
       Contact
     </a>
-    <a href="#contact" class="item">
-      Blog
-    </a>
+    <%= link_to 'Blog', comfy_cms_render_page_path, class: 'item' %>
   </div>
 </div>
