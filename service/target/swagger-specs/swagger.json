@@ -1,0 +1,30 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "PersonalWebsite"
+  },
+  "host" : "localhost:8080",
+  "tags" : [ {
+    "name" : "PersonalWebsite"
+  } ],
+  "schemes" : [ "http", "https" ],
+  "paths" : {
+    "/PersonalWebsite/dev" : {
+      "get" : {
+        "tags" : [ "PersonalWebsite" ],
+        "summary" : "Getting developer name",
+        "description" : "",
+        "operationId" : "getDeveloperName",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
