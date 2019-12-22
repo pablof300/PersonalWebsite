@@ -5,6 +5,7 @@ import { MenuComponent } from '../../menubar/MenuComponent/index'
 import { AboutComponent } from '../AboutComponent/index'
 import { ProjectsComponent } from '../projects/ProjectsComponent/index'
 import { DownIconComponent } from '../DownIconComponent/index'
+import { SkillsComponent } from '../skills/SkillsComponent/index'
 
 interface Props {
   name: string
@@ -28,6 +29,9 @@ export class LandingComponent extends React.Component<{}, State> {
       <AboutComponent />
       <DownIconComponent />
       <ProjectsComponent />
+      <DownIconComponent />
+      <SkillsComponent />
+      <DownIconComponent />
       </>
     )
   }

@@ -24,6 +24,8 @@ export class ProjectsComponent extends React.Component<{}, {}> {
     super(props)
   }
 
+  // Create componenet ProjectRowComponent
+
   render() {
     return (
       <>
@@ -33,6 +35,12 @@ export class ProjectsComponent extends React.Component<{}, {}> {
             Projects
           </Header>
           <Card.Group centered>
+            <ProjectComponent projectData={singularities} />
+            <ProjectComponent projectData={singularities} />
+            <ProjectComponent projectData={singularities} />
+          </Card.Group>
+          <Card.Group centered>
+            <ProjectComponent projectData={singularities} />
             <ProjectComponent projectData={singularities} />
           </Card.Group>
         </Segment>

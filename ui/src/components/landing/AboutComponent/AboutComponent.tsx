@@ -15,7 +15,7 @@ export class AboutComponent extends React.Component<{}, {}> {
   render() {
     return (
       <>
-      <Grid>
+      <Grid stackable>
         <Grid.Column width={4} />
         <Grid.Column width={8} className={styles.MainContainer}>
           <Segment className={styles.MainCard} padded='very' piled>
