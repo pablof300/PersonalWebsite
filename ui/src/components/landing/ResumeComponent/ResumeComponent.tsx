@@ -15,7 +15,7 @@ export class ResumeComponent extends React.Component<{}, {}> {
         <Grid.Column width={4} />
         <Grid.Column width={8}>
           <Segment textAlign='center' padded='very' piled className={styles.Container}>
-            <Header as='h2' icon className={styles.Header}>
+            <Header as='div' icon className={styles.Header}>
               <Icon name='file alternate outline' />
               View my resume
             </Header>
