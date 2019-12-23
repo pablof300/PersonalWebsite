@@ -6,6 +6,7 @@ import { AboutComponent } from '../AboutComponent/index'
 import { ProjectsComponent } from '../projects/ProjectsComponent/index'
 import { DownIconComponent } from '../DownIconComponent/index'
 import { SkillsComponent } from '../skills/SkillsComponent/index'
+import { ResumeComponent } from '../ResumeComponent/index'
 
 interface Props {
   name: string
@@ -31,6 +32,8 @@ export class LandingComponent extends React.Component<{}, State> {
       <ProjectsComponent />
       <DownIconComponent />
       <SkillsComponent />
+      <DownIconComponent />
+      <ResumeComponent />
       <DownIconComponent />
       </>
     )
