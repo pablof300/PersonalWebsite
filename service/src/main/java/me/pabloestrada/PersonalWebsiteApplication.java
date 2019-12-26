@@ -8,7 +8,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
-import me.pabloestrada.api.PersonalWebsiteRestMethods;
+import me.pabloestrada.api.ExerciseTrackerRestMethods;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import javax.servlet.DispatcherType;
@@ -47,13 +47,8 @@ public class PersonalWebsiteApplication
         cors.setInitParameter(CrossOriginFilter.ALLOW_CREDENTIALS_PARAM, "true");
 
         final Injector injector = Guice.createInjector(new PersonalWebsiteModule());
-        final PersonalWebsiteRestMethods api = injector.getInstance(PersonalWebsiteRestMethods.class);
+        final ExerciseTrackerRestMethods api = injector.getInstance(ExerciseTrackerRestMethods.class);
 
         environment.jersey().register(api);
-    }
-
-    @Override
-    public String getName() {
-        return "Hello Pablo :)";
     }
 }
