@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './BaseComponent.module.css'
-import { PersonalWebsiteApi } from '../../api/index'
+// import { PersonalWebsiteApi } from '../../api/index'
 import { Grid, Image, Segment } from 'semantic-ui-react'
 
 import { ReactLogo } from '../ReactLogo/index'
@@ -15,7 +15,7 @@ interface State {
 }
 
 export class BaseComponent extends React.Component<Props, State> {
-  private api: PersonalWebsiteApi = new PersonalWebsiteApi()
+  // private api: PersonalWebsiteApi = new PersonalWebsiteApi()
 
   constructor(props: Props) {
     super(props)
@@ -25,9 +25,9 @@ export class BaseComponent extends React.Component<Props, State> {
   }
 
   async getDeveloperName() {
-    this.api.getDeveloperName().then(devName => {
-      this.setState({ developerName: devName })
-    })
+    // this.api.getDeveloperName().then(devName => {
+    //   this.setState({ developerName: devName })
+    // })
   }
 
   render() {

@@ -1,0 +1,27 @@
+{
+  "swagger" : "2.0",
+  "info" : { },
+  "tags" : [ {
+    "name" : "exercise"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/exercise/dev" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Getting developer name",
+        "description" : "",
+        "operationId" : "getDeveloperName",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
