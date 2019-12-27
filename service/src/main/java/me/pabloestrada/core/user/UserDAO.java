@@ -12,6 +12,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.codecs.configuration.CodecRegistries;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -47,7 +48,7 @@ public class UserDAO {
         collection.insertOne(new User(username, password));
     }
 
-    public User getUser(final String username) {
-        return collection.find().first();
+    public Optional<User> getUser(final String username) {
+        return Optional.ofNullable(collection.find(eq("username", username)).first());
     }
 }
