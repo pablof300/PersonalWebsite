@@ -44,8 +44,20 @@ public class UserDAO {
         collection = database.getCollection(USER_COLLECTION_NAME, User.class);
     }
 
-    public void insertUser(final String username, final String password) {
+    public boolean insertUser(final String username, final String password) {
+        if (collection.find(eq("username", username)).first() != null) {
+            return false;
+        }
         collection.insertOne(new User(username, password));
+        return true;
+    }
+
+    public boolean insertUser(final User user) {
+        if (collection.find(eq("username", user.getUsername())).first() != null) {
+            return false;
+        }
+        collection.insertOne(user);
+        return true;
     }
 
     public Optional<User> getUser(final String username) {

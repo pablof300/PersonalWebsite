@@ -2,7 +2,7 @@ package me.pabloestrada.api.impl.exercise;
 
 import me.pabloestrada.api.ExerciseTrackerService;
 
-public class ExerciseTrackerServiceImpl
+final public class ExerciseTrackerServiceImpl
     extends ExerciseTrackerService
 {
     public String getDeveloperName() {

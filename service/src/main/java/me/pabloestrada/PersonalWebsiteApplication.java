@@ -8,6 +8,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+import me.pabloestrada.api.AuthenticationServiceRestMethods;
 import me.pabloestrada.api.ExerciseTrackerRestMethods;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
@@ -47,8 +48,10 @@ public class PersonalWebsiteApplication
         cors.setInitParameter(CrossOriginFilter.ALLOW_CREDENTIALS_PARAM, "true");
 
         final Injector injector = Guice.createInjector(new PersonalWebsiteModule());
-        final ExerciseTrackerRestMethods api = injector.getInstance(ExerciseTrackerRestMethods.class);
+        final ExerciseTrackerRestMethods exerciseTrackerApi = injector.getInstance(ExerciseTrackerRestMethods.class);
+        final AuthenticationServiceRestMethods authenticationApi = injector.getInstance(AuthenticationServiceRestMethods.class);
 
-        environment.jersey().register(api);
+        environment.jersey().register(exerciseTrackerApi);
+        environment.jersey().register(authenticationApi);
     }
 }
