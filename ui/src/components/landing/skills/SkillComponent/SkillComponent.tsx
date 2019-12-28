@@ -1,6 +1,14 @@
-import React from 'react';
-import styles from './SkillComponent.module.css'
-import { Grid, Image, Segment, Header, Divider, Icon, Button } from 'semantic-ui-react'
+import React from "react"
+import styles from "./SkillComponent.module.css"
+import {
+  Grid,
+  Image,
+  Segment,
+  Header,
+  Divider,
+  Icon,
+  Button
+} from "semantic-ui-react"
 
 interface Props {
   type: string
@@ -8,7 +16,6 @@ interface Props {
 }
 
 export class SkillComponent extends React.Component<Props, {}> {
-
   constructor(props: Props) {
     super(props)
   }
@@ -16,18 +23,16 @@ export class SkillComponent extends React.Component<Props, {}> {
   render() {
     return (
       <>
-      <Grid.Row>
-        <Grid.Column width={3} />
-        <Grid.Column width={3}>
-          <Header as='h4' centered>
-            <Icon name='info' />
-            {this.props.type}
-          </Header>
-        </Grid.Column>
-        <Grid.Column width={8}>
-          {this.props.list}
-        </Grid.Column>
-      </Grid.Row>
+        <Grid.Row>
+          <Grid.Column width={3} />
+          <Grid.Column width={3}>
+            <Header as="h4" centered>
+              <Icon name="info" />
+              {this.props.type}
+            </Header>
+          </Grid.Column>
+          <Grid.Column width={8}>{this.props.list}</Grid.Column>
+        </Grid.Row>
       </>
     )
   }

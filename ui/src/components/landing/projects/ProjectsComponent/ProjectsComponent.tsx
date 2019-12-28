@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './ProjectsComponent.module.css'
-import { ProjectComponent, ProjectData } from '../ProjectComponent/index'
-import { Grid, Image, Segment, Header, Divider, Icon, Button, Card } from 'semantic-ui-react'
+import React from "react"
+import styles from "./ProjectsComponent.module.css"
+import { ProjectComponent, ProjectData } from "../ProjectComponent/index"
+import { Segment, Header, Icon, Card } from "semantic-ui-react"
 
 interface Props {
   name: string
@@ -9,17 +9,17 @@ interface Props {
 
 // Add <strong> to technologies in maybe the backend?
 
-const singularities : ProjectData = {
-  image: 'singularities',
-  title: 'Singularities',
-  type: 'Hackathon project',
-  description: 'Lead developer of Singularities, an iOS game for iPhone and iPad. Developed using Swift and SpriteKit as a two-dimensional retro gravity game. It has been downloaded more than 500 times on the AppStore with a review of 4.8 stars.',
+const singularities: ProjectData = {
+  image: "singularities",
+  title: "Singularities",
+  type: "Hackathon project",
+  description:
+    "Lead developer of Singularities, an iOS game for iPhone and iPad. Developed using Swift and SpriteKit as a two-dimensional retro gravity game. It has been downloaded more than 500 times on the AppStore with a review of 4.8 stars.",
   year: 2018,
-  link: 'https://itunes.apple.com/us/app/singularities/id1278565563'
+  link: "https://itunes.apple.com/us/app/singularities/id1278565563"
 }
 
 export class ProjectsComponent extends React.Component<{}, {}> {
-
   constructor(props: {}) {
     super(props)
   }
@@ -30,8 +30,13 @@ export class ProjectsComponent extends React.Component<{}, {}> {
     return (
       <>
         <Segment raised className={styles.ProjectsContainer}>
-          <Header as='h2' textAlign='center' icon className={styles.ProjectsHeader}>
-            <Icon name='code' circular/>
+          <Header
+            as="h2"
+            textAlign="center"
+            icon
+            className={styles.ProjectsHeader}
+          >
+            <Icon name="code" circular />
             Projects
           </Header>
           <Card.Group centered>

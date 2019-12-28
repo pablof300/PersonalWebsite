@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './ProjectComponent.module.css'
-import { Grid, Image, Segment, Icon, Card } from 'semantic-ui-react'
+import React from "react"
+import styles from "./ProjectComponent.module.css"
+import { Grid, Image, Segment, Icon, Card } from "semantic-ui-react"
 
 interface Props {
   projectData: ProjectData
@@ -18,13 +18,12 @@ export interface ProjectData {
 
 const a = (
   <a>
-    <Icon name='user' />
+    <Icon name="user" />
     16 Friends
   </a>
 )
 
 export class ProjectComponent extends React.Component<Props, {}> {
-
   constructor(props: Props) {
     super(props)
   }
@@ -32,27 +31,33 @@ export class ProjectComponent extends React.Component<Props, {}> {
   render() {
     return (
       <>
-      <Card>
-        <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
-        <Card.Content>
-          <Card.Header textAlign='center'>{this.props.projectData.title}</Card.Header>
-          <Card.Meta textAlign='center'>
-            <a>Team Project</a>
-          </Card.Meta>
-          <Card.Description>
-            {this.props.projectData.description}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <a href={this.props.projectData.link}>
-            <Icon name='linkify' />
-            View more
-          </a>
-          <a className={styles.RightFloated}>
-            Developed in {this.props.projectData.year}
-          </a>
-        </Card.Content>
-      </Card>
+        <Card>
+          <Image
+            src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+            wrapped
+            ui={false}
+          />
+          <Card.Content>
+            <Card.Header textAlign="center">
+              {this.props.projectData.title}
+            </Card.Header>
+            <Card.Meta textAlign="center">
+              <a>Team Project</a>
+            </Card.Meta>
+            <Card.Description>
+              {this.props.projectData.description}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <a href={this.props.projectData.link}>
+              <Icon name="linkify" />
+              View more
+            </a>
+            <a className={styles.RightFloated}>
+              Developed in {this.props.projectData.year}
+            </a>
+          </Card.Content>
+        </Card>
       </>
     )
   }
