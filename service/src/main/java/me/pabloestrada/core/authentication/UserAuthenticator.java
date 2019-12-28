@@ -26,7 +26,6 @@ public final class UserAuthenticator
         if (!userDAO.verifyCredentials(username, password)) {
             return Optional.empty();
         }
-        System.out.println("Its authorized!");
         return Optional.of(Jwts.builder()
                 .setIssuer(issuer)
                 .setSubject(username)

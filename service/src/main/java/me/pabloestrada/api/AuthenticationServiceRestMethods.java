@@ -31,7 +31,6 @@ public final class AuthenticationServiceRestMethods
     @Path("/sign")
     public String getJWT(@QueryParam("username") final String username, @QueryParam("password") final String password,
                          @Context final HttpServletResponse response) {
-        System.out.println("    Handling request for user " + username + " and password " + password);
         if (username == null || password == null) {
             return sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing username or password)", response);
         }
