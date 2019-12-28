@@ -21,14 +21,14 @@ final class AuthenticatorTest {
 
     @BeforeAll
     static void setUp(){
-        userAuthenticator = new UserAuthenticator();
+        userAuthenticator = new UserAuthenticator(new UserDAO());
     }
 
 
     @DisplayName("Testing signing and verifying a JWT token given a username and password")
     @Test
     void testGenerationOfJWT() {
-        final String token = userAuthenticator.signJWT(BASE_USERNAME, PASSWORD);
+        final String token = userAuthenticator.signJWT(BASE_USERNAME, PASSWORD).get();
         userAuthenticator.verifyJWT(token);
         Assertions.assertEquals(Optional.of(BASE_USERNAME), userAuthenticator.verifyJWT(token));
     }

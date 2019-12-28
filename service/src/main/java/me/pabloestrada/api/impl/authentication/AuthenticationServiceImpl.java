@@ -4,6 +4,8 @@ import com.google.inject.Inject;
 import me.pabloestrada.api.AuthenticationService;
 import me.pabloestrada.core.authentication.UserAuthenticator;
 
+import java.util.Optional;
+
 final public class AuthenticationServiceImpl
     extends AuthenticationService
 {
@@ -15,8 +17,7 @@ final public class AuthenticationServiceImpl
     }
 
     @Override
-    public String signJWT(String username, String password) {
-        // Check if username is empty or password
+    public Optional<String> signJWT(final String username, final String password) {
         return userAuthenticator.signJWT(username, password);
     }
 }

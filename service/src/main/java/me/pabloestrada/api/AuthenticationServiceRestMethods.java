@@ -5,26 +5,55 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.pabloestrada.core.authentication.UserAuthenticator;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.Optional;
 
 @Path("/auth")
 @Api(value = "/auth")
 public class AuthenticationServiceRestMethods {
+
+    private final static String INVALID_REQUEST = "";
+
     private AuthenticationService delegate;
-    private UserAuthenticator userAuthenticator;
 
     @Inject
-    public AuthenticationServiceRestMethods(final AuthenticationService delegate, final UserAuthenticator userAuthenticator) {
+    public AuthenticationServiceRestMethods(final AuthenticationService delegate) {
         this.delegate = delegate;
-        this.userAuthenticator = userAuthenticator;
     }
 
     @GET
     @ApiOperation(value = "Sign a new JWT token with username and password information")
     @Path("/sign")
-    public String getJWT(@QueryParam("username") final String username, @QueryParam("password") final String password) {
-        return delegate.signJWT(username, password);
+    public String getJWT(@QueryParam("username") final String username, @QueryParam("password") final String password,
+                         @Context final HttpServletResponse response) {
+        if (username == null || password == null) {
+            sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing username or password)", response);
+            return INVALID_REQUEST;
+        }
+        final Optional<String> token = delegate.signJWT(username, password);
+        if (token.isPresent()) {
+            return token.get();
+        } else {
+            sendError(Response.Status.UNAUTHORIZED,"Invalid password or user", response);
+            return INVALID_REQUEST;
+        }
+    }
+
+    private void sendError(final Response.Status status, final String message, final HttpServletResponse response) {
+        try {
+            final String jsonError = "{ error: '" + message + "' }";
+            response.setContentType("application/json");
+            response.setStatus(status.getStatusCode());
+            response.getOutputStream().write(jsonError.getBytes());
+            response.getOutputStream().close();
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
     }
 }

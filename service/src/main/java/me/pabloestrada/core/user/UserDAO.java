@@ -44,6 +44,15 @@ public class UserDAO {
         collection = database.getCollection(USER_COLLECTION_NAME, User.class);
     }
 
+    public boolean verifyCredentials(final String username, final String password) {
+        final Optional<User> possibleUser = getUser(username);
+        if (possibleUser.isPresent()) {
+            return possibleUser.get().getPassword().equals(password);
+        } else {
+            return false;
+        }
+    }
+
     public boolean insertUser(final String username, final String password) {
         if (collection.find(eq("username", username)).first() != null) {
             return false;
