@@ -5,25 +5,16 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.result.DeleteResult;
-import com.mongodb.client.result.UpdateResult;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.codecs.configuration.CodecRegistries;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.gt;
-import static com.mongodb.client.model.Filters.not;
-import static com.mongodb.client.model.Updates.combine;
-import static com.mongodb.client.model.Updates.set;
-import static java.util.Arrays.asList;
 
-public class UserDAO {
-
+public final class UserDAO
+{
     private final static String DATABASE_NAME = "persian";
     private final static String USER_COLLECTION_NAME = "users";
 

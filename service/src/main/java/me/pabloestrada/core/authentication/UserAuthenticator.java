@@ -9,8 +9,8 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.Optional;
 
-final public class UserAuthenticator {
-
+public final class UserAuthenticator
+{
     private final static int EXPIRATION_TIME_IN_DAYS = 1;
     private final static String issuer = "https://pabloestrada.me/";
     private final static String key = "9D3C30CA5665C28AE9D7CA874BBF90B5818E81265B2808898FB85F1CA08136D4";

@@ -7,9 +7,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 final class UserDAOTest
 {
     private final static String BASE_USERNAME = "Pablo";

@@ -6,7 +6,7 @@ import me.pabloestrada.core.authentication.UserAuthenticator;
 
 import java.util.Optional;
 
-final public class AuthenticationServiceImpl
+public final class AuthenticationServiceImpl
     extends AuthenticationService
 {
     private UserAuthenticator userAuthenticator;

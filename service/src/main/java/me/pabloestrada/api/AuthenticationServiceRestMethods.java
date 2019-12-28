@@ -14,8 +14,8 @@ import java.io.IOException;
 
 @Path("/auth")
 @Api(value = "/auth")
-public class AuthenticationServiceRestMethods {
-
+public final class AuthenticationServiceRestMethods
+{
     private final static String INVALID_REQUEST = "";
 
     private AuthenticationService delegate;

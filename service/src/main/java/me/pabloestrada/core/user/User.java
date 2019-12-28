@@ -4,14 +4,13 @@ import org.bson.types.ObjectId;
 
 import java.util.Objects;
 
-final public class User {
-
+public final class User
+{
     private String username;
     private String password;
     private ObjectId id;
 
     public User() {
-
     }
 
     public User(String username, String password) {

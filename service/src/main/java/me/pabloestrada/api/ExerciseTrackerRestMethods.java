@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 
 @Path("/exercise")
 @Api(value = "/exercise")
-public class ExerciseTrackerRestMethods
+public final class ExerciseTrackerRestMethods
 {
     private ExerciseTrackerService delegate;
 

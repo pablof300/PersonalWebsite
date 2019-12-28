@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-final class AuthenticatorTest {
-
+final class AuthenticatorTest
+{
     private final static String BASE_USERNAME = "Pablo";
     private final static String PASSWORD = "123456";
 
