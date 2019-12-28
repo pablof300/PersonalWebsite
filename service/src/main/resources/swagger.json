@@ -2,10 +2,39 @@
   "swagger" : "2.0",
   "info" : { },
   "tags" : [ {
+    "name" : "auth"
+  }, {
     "name" : "exercise"
   } ],
   "schemes" : [ "http" ],
   "paths" : {
+    "/auth/sign" : {
+      "get" : {
+        "tags" : [ "auth" ],
+        "summary" : "Sign a new JWT token with username and password information",
+        "description" : "",
+        "operationId" : "getJWT",
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
     "/exercise/dev" : {
       "get" : {
         "tags" : [ "exercise" ],

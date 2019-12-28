@@ -3,8 +3,6 @@ import styles from './BaseComponent.module.css'
 // import { PersonalWebsiteApi } from '../../api/index'
 import { Grid, Image, Segment } from 'semantic-ui-react'
 
-import { ReactLogo } from '../ReactLogo/index'
-
 interface Props {
   name: string
 }

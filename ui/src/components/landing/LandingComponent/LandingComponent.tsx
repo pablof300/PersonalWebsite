@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './LandingComponent.module.css'
 import { Grid, Image, Segment } from 'semantic-ui-react'
-import { MenuComponent } from '../../menubar/MenuComponent/index'
 import { AboutComponent } from '../AboutComponent/index'
 import { ProjectsComponent } from '../projects/ProjectsComponent/index'
 import { DownIconComponent } from '../DownIconComponent/index'
@@ -27,7 +26,6 @@ export class LandingComponent extends React.Component<{}, State> {
   render() {
     return (
       <>
-      <MenuComponent />
       <AboutComponent />
       <DownIconComponent />
       <ProjectsComponent />

@@ -11,6 +11,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.util.Optional;
 
 @Path("/auth")
 @Api(value = "/auth")
@@ -30,12 +31,11 @@ public final class AuthenticationServiceRestMethods
     @Path("/sign")
     public String getJWT(@QueryParam("username") final String username, @QueryParam("password") final String password,
                          @Context final HttpServletResponse response) {
+        System.out.println("    Handling request for user " + username + " and password " + password);
         if (username == null || password == null) {
             return sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing username or password)", response);
         }
-        return delegate
-                .signJWT(username, password)
-                .orElse(sendError(Response.Status.UNAUTHORIZED,"Invalid password or user", response));
+        return delegate.signJWT(username, password).orElseGet(() -> sendError(Response.Status.UNAUTHORIZED, "Invalid password or user", response));
     }
 
     private String sendError(final Response.Status status, final String message, final HttpServletResponse response) {

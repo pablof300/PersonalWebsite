@@ -36,7 +36,10 @@ public final class UserDAO
     }
 
     public boolean verifyCredentials(final String username, final String password) {
-        return getUser(username).map(user -> user.getPassword().equals(password)).get();
+        System.out.println("Username queued is " + getUser(username));
+        System.out.println("Next step is " + getUser(username).map(user -> user.getPassword().equals(password)));
+        System.out.println("Last step is " + getUser(username).map(user -> user.getPassword().equals(password)).orElse(false));
+        return getUser(username).map(user -> user.getPassword().equals(password)).orElse(false);
     }
 
     public boolean insertUser(final String username, final String password) {
