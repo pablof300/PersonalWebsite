@@ -45,12 +45,7 @@ public class UserDAO {
     }
 
     public boolean verifyCredentials(final String username, final String password) {
-        final Optional<User> possibleUser = getUser(username);
-        if (possibleUser.isPresent()) {
-            return possibleUser.get().getPassword().equals(password);
-        } else {
-            return false;
-        }
+        return getUser(username).map(user -> user.getPassword().equals(password)).get();
     }
 
     public boolean insertUser(final String username, final String password) {
