@@ -34,7 +34,9 @@ public final class AuthenticationServiceRestMethods
         if (username == null || password == null) {
             return sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing username or password)", response);
         }
-        return delegate.signJWT(username, password).orElseGet(() -> sendError(Response.Status.UNAUTHORIZED, "Invalid password or user", response));
+        return delegate
+                .signJWT(username, password)
+                .orElseGet(() -> sendError(Response.Status.UNAUTHORIZED, "Invalid password or user", response));
     }
 
     private String sendError(final Response.Status status, final String message, final HttpServletResponse response) {
