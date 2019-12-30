@@ -39,6 +39,17 @@ public final class AuthenticationServiceRestMethods
                 .orElseGet(() -> sendError(Response.Status.UNAUTHORIZED, "Invalid password or user", response));
     }
 
+    @GET
+    @ApiOperation(value = "Verify a JWT token")
+    @Path("/verify")
+    public boolean verifyJWT(@QueryParam("token") final String token, @Context final HttpServletResponse response) {
+        if (token == null) {
+            sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing token)", response);
+            return false;
+        }
+        return delegate.verifyJWT(token);
+    }
+
     private String sendError(final Response.Status status, final String message, final HttpServletResponse response) {
         try {
             final String jsonError = "{ error: '" + message + "' }";

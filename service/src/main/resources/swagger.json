@@ -8,6 +8,28 @@
   } ],
   "schemes" : [ "http" ],
   "paths" : {
+    "/auth/verify" : {
+      "get" : {
+        "tags" : [ "auth" ],
+        "summary" : "Verify a JWT token",
+        "description" : "",
+        "operationId" : "verifyJWT",
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      }
+    },
     "/auth/sign" : {
       "get" : {
         "tags" : [ "auth" ],

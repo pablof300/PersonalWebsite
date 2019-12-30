@@ -1,6 +1,8 @@
 import React from "react"
+import Cookies from 'js-cookie'
 import styles from "./LoginComponent.module.css"
 import { AuthApi } from "../../../api/index"
+import { Redirect } from 'react-router-dom'
 import {
   Grid,
   Segment,
@@ -15,6 +17,7 @@ import {
 interface State {
   username: string
   password: string
+  redirect: boolean
 }
 
 export class LoginComponent extends React.Component<{}, State> {
@@ -22,6 +25,12 @@ export class LoginComponent extends React.Component<{}, State> {
 
   constructor(props: {}) {
     super(props)
+
+    this.state = {
+      username: '',
+      password: '',
+      redirect: false
+    }
 
     this.setUsername = this.setUsername.bind(this)
     this.setPassword = this.setPassword.bind(this)
@@ -43,12 +52,12 @@ export class LoginComponent extends React.Component<{}, State> {
   }
 
   async getJWT() {
-    const l = { username: this.state.username, password: this.state.password }
+    const requestParams = { username: this.state.username, password: this.state.password }
     this.authApi
-      .getJWT(l)
+      .getJWT(requestParams)
       .then(token => {
-        console.log("The response is ")
-        console.log(token)
+        Cookies.set('jwt', token)
+        this.setState({redirect: true})
       })
       .catch(e => {
         console.log(e)
@@ -56,6 +65,9 @@ export class LoginComponent extends React.Component<{}, State> {
   }
 
   render() {
+    if (this.state.redirect) {
+      return (<Redirect to='/dashboard' />)
+    }
     return (
       <>
         <Grid stackable>

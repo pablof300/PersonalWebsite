@@ -20,4 +20,9 @@ public final class AuthenticationServiceImpl
     public Optional<String> signJWT(final String username, final String password) {
         return userAuthenticator.signJWT(username, password);
     }
+
+    @Override
+    public boolean verifyJWT(final String token) {
+        return userAuthenticator.verifyJWT(token).isPresent();
+    }
 }
