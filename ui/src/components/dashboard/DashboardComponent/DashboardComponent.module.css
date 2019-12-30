@@ -1,0 +1,25 @@
+.Container {
+  margin-top: 5vh;
+  background: #d3fff2 !important;
+  width: 70vw !important;
+}
+
+.Header {
+  opacity: 0.75 !important;
+}
+
+.ButtonContainer {
+  margin-top: 0.75vh !important;
+}
+
+.Margin {
+  margin-top: 2vh !important;
+}
+
+.Card {
+  /* width: 80% !important; */
+}
+
+.Spacer {
+  margin-top: 5%;
+}

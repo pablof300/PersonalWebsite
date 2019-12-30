@@ -1,0 +1,78 @@
+{
+  "swagger" : "2.0",
+  "info" : { },
+  "tags" : [ {
+    "name" : "auth"
+  }, {
+    "name" : "exercise"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/auth/verify" : {
+      "get" : {
+        "tags" : [ "auth" ],
+        "summary" : "Verify a JWT token",
+        "description" : "",
+        "operationId" : "verifyJWT",
+        "parameters" : [ {
+          "name" : "token",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/auth/sign" : {
+      "get" : {
+        "tags" : [ "auth" ],
+        "summary" : "Sign a new JWT token with username and password information",
+        "description" : "",
+        "operationId" : "getJWT",
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "/exercise/dev" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Getting developer name",
+        "description" : "",
+        "operationId" : "getDeveloperName",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
