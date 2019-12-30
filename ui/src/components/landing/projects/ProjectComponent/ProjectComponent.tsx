@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./ProjectComponent.module.css"
-import { Grid, Image, Segment, Icon, Card } from "semantic-ui-react"
+import { Image, Icon, Card } from "semantic-ui-react"
 
 interface Props {
   projectData: ProjectData
