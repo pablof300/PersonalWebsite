@@ -3,3 +3,5 @@ service/.idea/
 ui/node_modules/.cache/
 service/target/*
 service/PersonalWebsite.iml
+scheduler/target/*
+scheduler/logs/

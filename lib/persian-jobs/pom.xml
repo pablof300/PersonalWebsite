@@ -5,31 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.pabloestrada</groupId>
-    <artifactId>scheduler</artifactId>
+    <artifactId>persian-jobs</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <repositories>
-        <repository>
-            <id>local-persian-repository</id>
-            <url>file://${project.basedir}/../service/local-persian-repository</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
             <version>2.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>4.0</version>
-        </dependency>
-        <dependency>
-            <groupId>net.halflite</groupId>
-            <artifactId>guice-quartz-sample</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -57,4 +40,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
