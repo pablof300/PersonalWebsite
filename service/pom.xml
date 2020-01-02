@@ -16,6 +16,13 @@
 
     <name>PersonalWebsite</name>
 
+    <repositories>
+        <repository>
+            <id>local-persian-repository</id>
+            <url>file://${project.basedir}/local-persian-repository</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
