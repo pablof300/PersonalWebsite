@@ -1,14 +1,6 @@
 import React from "react"
 import styles from "./SkillComponent.module.css"
-import {
-  Grid,
-  Image,
-  Segment,
-  Header,
-  Divider,
-  Icon,
-  Button
-} from "semantic-ui-react"
+import { Grid, Header, Icon } from "semantic-ui-react"
 
 interface Props {
   type: string

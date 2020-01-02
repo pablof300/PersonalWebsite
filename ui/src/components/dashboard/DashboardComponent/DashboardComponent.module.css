@@ -1,6 +1,6 @@
 .Container {
-  margin-top: 5vh;
-  background: #d3fff2 !important;
+  /* background: #d3fff2 !important; */
+  margin-top: 5vh !important;
   width: 70vw !important;
 }
 
@@ -12,12 +12,13 @@
   margin-top: 0.75vh !important;
 }
 
-.Margin {
-  margin-top: 2vh !important;
+.Card {
+  opacity: 0.5;
+  /* width: 80% !important; */
 }
 
-.Card {
-  /* width: 80% !important; */
+.Header {
+  margin-top: 5vh !important;
 }
 
 .Spacer {

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>net.halflite</groupId>
+  <artifactId>guice-quartz-sample</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <localCopy>true</localCopy>
+    </snapshot>
+    <lastUpdated>20200102165453</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier>sources</classifier>
+        <extension>jar</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20200102165453</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20200102165453</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20200102165453</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>war</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20200102155137</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
