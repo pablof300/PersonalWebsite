@@ -8,6 +8,7 @@ import me.pabloestrada.api.impl.authentication.AuthenticationServiceImpl;
 import me.pabloestrada.api.impl.exercise.ExerciseTrackerServiceImpl;
 import me.pabloestrada.core.authentication.UserAuthenticator;
 import me.pabloestrada.core.user.UserDAO;
+import me.pabloestrada.credentials.CredentialsHelper;
 
 public class PersonalWebsiteModule
     extends AbstractModule
@@ -18,5 +19,6 @@ public class PersonalWebsiteModule
         bind(AuthenticationService.class).to(AuthenticationServiceImpl.class);
         bind(UserDAO.class).in(Singleton.class);
         bind(UserAuthenticator.class).in(Singleton.class);
+        bind(CredentialsHelper.class).in(Singleton.class);
     }
 }

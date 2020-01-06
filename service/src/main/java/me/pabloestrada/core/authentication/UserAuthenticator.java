@@ -3,6 +3,7 @@ package me.pabloestrada.core.authentication;
 import com.google.inject.Inject;
 import io.jsonwebtoken.*;
 import me.pabloestrada.core.user.UserDAO;
+import me.pabloestrada.credentials.CredentialsHelper;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -13,19 +14,21 @@ public final class UserAuthenticator
 {
     private final static int EXPIRATION_TIME_IN_DAYS = 1;
     private final static String issuer = "https://pabloestrada.me/";
-    private final static String key = "9D3C30CA5665C28AE9D7CA874BBF90B5818E81265B2808898FB85F1CA08136D4";
 
     private final UserDAO userDAO;
+    private final String key;
 
     @Inject
-    public UserAuthenticator(final UserDAO userDAO) {
+    public UserAuthenticator(final UserDAO userDAO, final CredentialsHelper credentialsHelper) {
         this.userDAO = userDAO;
+        key = credentialsHelper.getCredential("jwt_signing_key").orElse("");
     }
 
     public Optional<String> signJWT(final String username, final String password) {
         if (!userDAO.verifyCredentials(username, password)) {
             return Optional.empty();
         }
+        System.out.println("Authenticated (signed JWT) user with username of " + username);
         return Optional.of(Jwts.builder()
                 .setIssuer(issuer)
                 .setSubject(username)
@@ -41,6 +44,7 @@ public final class UserAuthenticator
                     .parseClaimsJws(jwt)
                     .getBody()
                     .getSubject();
+            System.out.println("Authenticated (verified JWT) user with username of " + username);
             return Optional.of(username);
         } catch (final JwtException ex) {
             ex.printStackTrace();

@@ -5,3 +5,10 @@ service/target/*
 service/PersonalWebsite.iml
 scheduler/target/*
 scheduler/logs/
+.credentials
+lib/credentials/.idea/
+persian-services/exercise-tracker/.idea/
+persian-services/exercise-tracker/exercise-tracker.iml
+scheduler/.idea/
+scheduler/scheduler.iml
+persian-services/exercise-tracker/target/
