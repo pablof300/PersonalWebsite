@@ -1,7 +1,6 @@
 package me.pabloestrada.exercise.client;
 
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import me.pabloestrada.credentials.CredentialsHelper;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
@@ -12,13 +11,6 @@ import java.io.IOException;
 import java.util.Optional;
 
 public final class StravaClient {
-
-//    https://www.strava.com/oauth/token?
-//    client_id=31413&
-//    client_secret=bed486fb58bb5bb544471422e9a7f4f20bf34356&
-//    code=12d57237613319b23a266aa15b30a3620b5f1349&
-//    grant_type=authorization_code
-
     private static final String STRAVA_API_BASE_URL = "https://www.strava.com/";
     private static final String GRANT_TYPE = "authorization_code";
     private static final String INVALID_KEY = "";
