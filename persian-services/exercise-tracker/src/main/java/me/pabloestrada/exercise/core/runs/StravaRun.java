@@ -134,6 +134,7 @@ public final class StravaRun
     @Override
     public String toString() {
         return "StravaRun{" +
+                "date=" + getStartDate() + ", " +
                 "distance=" + getDistance() + ", " +
                 "stravaId=" + stravaId +
                 ", movingTimeInSeconds=" + movingTimeInSeconds +

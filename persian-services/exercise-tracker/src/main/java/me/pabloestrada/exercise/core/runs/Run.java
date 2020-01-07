@@ -18,6 +18,7 @@ public class Run {
 
     private float distance;
     private RunType typeOfRun;
+    private boolean successfulStrengtheningExercise;
 
     public Run(final RunType typeOfRun) {
         this.typeOfRun = typeOfRun;
@@ -53,5 +54,13 @@ public class Run {
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    public boolean isSuccessfulStrengtheningExercise() {
+        return successfulStrengtheningExercise;
+    }
+
+    public void setSuccessfulStrengtheningExercise(boolean successfulStrengtheningExercise) {
+        this.successfulStrengtheningExercise = successfulStrengtheningExercise;
     }
 }

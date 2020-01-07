@@ -54,9 +54,6 @@ public final class StravaClient {
         final Optional<String> accessToken = getAuthorizationToken();
 
         return accessToken.map(token -> {
-            System.out.println("WORKING");
-
-            System.out.println("token " + accessToken);
             try {
                 return summaryActivityClient
                         .getSummaryActivity("Bearer " + token, epoch)
