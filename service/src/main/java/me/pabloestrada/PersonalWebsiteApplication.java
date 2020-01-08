@@ -8,8 +8,8 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
-import me.pabloestrada.api.AuthenticationServiceRestMethods;
-import me.pabloestrada.api.ExerciseTrackerRestMethods;
+import me.pabloestrada.api.rest.AuthenticationServiceRestMethods;
+import me.pabloestrada.api.rest.ExerciseTrackerRestMethods;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import javax.servlet.DispatcherType;
