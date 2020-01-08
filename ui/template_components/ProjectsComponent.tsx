@@ -9,6 +9,8 @@ interface Props {
 
 // Add <strong> to technologies in maybe the backend?
 
+{$project_data}
+
 const singularities: ProjectData = {
   image: "singularities",
   title: "Singularities",
@@ -40,6 +42,8 @@ export class ProjectsComponent extends React.Component<{}, {}> {
             Projects
           </Header>
           <Card.Group centered>
+            <ProjectComponent projectData={singularities} />
+            <ProjectComponent projectData={singularities} />
             <ProjectComponent projectData={singularities} />
             <ProjectComponent projectData={singularities} />
             <ProjectComponent projectData={singularities} />

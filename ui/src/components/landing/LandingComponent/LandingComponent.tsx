@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./LandingComponent.module.css"
-import { AboutComponent } from "../AboutComponent/index"
+import { AboutComponent } from "../about/AboutComponent/index"
 import { ProjectsComponent } from "../projects/ProjectsComponent/index"
 import { DownIconComponent } from "../DownIconComponent/index"
 import { SkillsComponent } from "../skills/SkillsComponent/index"

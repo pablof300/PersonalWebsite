@@ -1,11 +1,10 @@
 import React from "react"
-import styles from "./ProjectsComponent.module.css"
+import styles from "./ProjectRowComponent.module.css"
 import { ProjectComponent, ProjectData } from "../ProjectComponent/index"
 import { Segment, Header, Icon, Card } from "semantic-ui-react"
-import { ProjectRowComponent } from "../ProjectRowComponent/index"
 
 interface Props {
-  name: string
+  projects: ProjectData[]
 }
 
 // Add <strong> to technologies in maybe the backend?
@@ -20,28 +19,22 @@ const singularities: ProjectData = {
   link: "https://itunes.apple.com/us/app/singularities/id1278565563"
 }
 
-export class ProjectsComponent extends React.Component<{}, {}> {
-  constructor(props: {}) {
+export class ProjectRowComponent extends React.Component<Props, {}> {
+  constructor(props: Props) {
     super(props)
   }
 
+  // Create componenet ProjectRowComponent
+
   render() {
     return (
-      <>
-        <Segment raised className={styles.ProjectsContainer}>
-          <Header
-            as="h2"
-            textAlign="center"
-            icon
-            className={styles.ProjectsHeader}
-          >
-            <Icon name="code" circular />
-            Projects
-          </Header>
-          <ProjectRowComponent projects={[singularities, singularities, singularities]} />
-          <ProjectRowComponent projects={[singularities, singularities]} />
-        </Segment>
-      </>
+      <Card.Group centered stackable>
+        {
+          this.props.projects.map(projectData => {
+            return <Card><ProjectComponent projectData={projectData} /></Card>
+          })
+        }
+      </Card.Group>
     )
   }
 }

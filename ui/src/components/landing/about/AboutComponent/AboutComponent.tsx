@@ -1,5 +1,7 @@
 import React from "react"
 import styles from "./AboutComponent.module.css"
+import { Link } from 'react-router-dom';
+import { SocialMediaButton } from '../SocialMediaButton/index'
 import {
   Grid,
   Image,
@@ -59,36 +61,9 @@ export class AboutComponent extends React.Component<{}, {}> {
                 </Header>
               </Divider>
               <Grid centered stackable className={styles.SocialMediaContainer}>
-                <Button
-                  color="grey"
-                  size="huge"
-                  centered
-                  icon
-                  inverted
-                  circular
-                >
-                  <Icon name="mail" color="grey" />
-                </Button>
-                <Button
-                  color="grey"
-                  size="huge"
-                  centered
-                  icon
-                  inverted
-                  circular
-                >
-                  <Icon name="linkedin" color="grey" />
-                </Button>
-                <Button
-                  color="grey"
-                  size="huge"
-                  centered
-                  icon
-                  inverted
-                  circular
-                >
-                  <Icon name="github" color="grey" />
-                </Button>
+                <SocialMediaButton icon="mail" link="#contact" />
+                <SocialMediaButton icon="linkedin" link="https://www.linkedin.com/in/pablo-estrada/" />
+                <SocialMediaButton icon="github" link="https://github.com/pablof300" />
               </Grid>
             </Segment>
           </Grid.Column>

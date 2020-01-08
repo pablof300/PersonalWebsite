@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./ProjectComponent.module.css"
-import { Image, Icon, Card } from "semantic-ui-react"
+import { Image, Icon, Card, Reveal, Popup, Rating } from "semantic-ui-react"
 
 interface Props {
   projectData: ProjectData
@@ -16,27 +16,29 @@ export interface ProjectData {
   description: string
 }
 
-const a = (
-  <a>
-    <Icon name="user" />
-    16 Friends
-  </a>
-)
-
 export class ProjectComponent extends React.Component<Props, {}> {
   constructor(props: Props) {
     super(props)
   }
 
+  // TODO:
+  // Randomize move & move right
   render() {
     return (
-      <>
+      <Popup
+        header='Fun Fact'
+        position='top center'
+        content='After testing this game thousands of times, I have become really good at mancala.'
+        trigger={
         <Card>
-          <Image
-            src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-            wrapped
-            ui={false}
-          />
+          <Reveal animated='move'>
+            <Reveal.Content visible>
+              <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
+            </Reveal.Content>
+            <Reveal.Content hidden>
+              <Image src='https://react.semantic-ui.com/images/avatar/large/chris.jpg' />
+            </Reveal.Content>
+          </Reveal>
           <Card.Content>
             <Card.Header textAlign="center">
               {this.props.projectData.title}
@@ -58,15 +60,8 @@ export class ProjectComponent extends React.Component<Props, {}> {
             </a>
           </Card.Content>
         </Card>
-      </>
+        }
+      / >
     )
   }
 }
-
-// <Card
-//   image='https://react.semantic-ui.com/images/avatar/large/elliot.jpg'
-//   header={this.props.projectData.title}
-//   meta='Friend'
-//   description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-//   extra={a}
-// />
