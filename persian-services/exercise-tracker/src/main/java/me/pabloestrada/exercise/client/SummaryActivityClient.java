@@ -1,6 +1,6 @@
 package me.pabloestrada.exercise.client;
 
-import me.pabloestrada.exercise.core.runs.StravaRun;
+import me.pabloestrada.exercise.core.exercise.StravaRun;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;

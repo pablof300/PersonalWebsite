@@ -1,11 +1,12 @@
-package me.pabloestrada.exercise.core.runs;
+package me.pabloestrada.exercise.core.exercise;
 
 import com.google.gson.annotations.SerializedName;
+import me.pabloestrada.exercise.core.ExerciseThresholds;
 
 import java.util.List;
 
 public final class StravaRun
-        extends Run {
+        extends Exercise {
     @SerializedName("id")
     private long stravaId;
 
@@ -40,7 +41,12 @@ public final class StravaRun
     private float kilojoules;
 
     public StravaRun() {
-        super(RunType.STRAVA);
+        super(ExerciseType.STRAVA);
+    }
+
+    @Override
+    public void establishSuccessfulStatus() {
+        setSuccessfulExercise(getRunningDistanceInMeters() > ExerciseThresholds.NUMBER_OF_METERS_FOR_SUCCESSFUL_RUN);
     }
 
     public long getStravaId() {
@@ -135,7 +141,7 @@ public final class StravaRun
     public String toString() {
         return "StravaRun{" +
                 "date=" + getStartDate() + ", " +
-                "distance=" + getDistance() + ", " +
+                "distance=" + getRunningDistanceInMeters() + ", " +
                 "stravaId=" + stravaId +
                 ", movingTimeInSeconds=" + movingTimeInSeconds +
                 ", elapsedTimeInSeconds=" + elapsedTimeInSeconds +

@@ -2,7 +2,7 @@ package me.pabloestrada.exercise.client;
 
 import com.google.inject.Inject;
 import me.pabloestrada.credentials.CredentialsHelper;
-import me.pabloestrada.exercise.core.runs.StravaRun;
+import me.pabloestrada.exercise.core.exercise.StravaRun;
 import okhttp3.OkHttpClient;
 import retrofit2.Response;
 import retrofit2.Retrofit;
