@@ -3,6 +3,7 @@ import Cookies from "js-cookie"
 import styles from "./LoginComponent.module.css"
 import { AuthApi } from "../../../api/index"
 import { Redirect } from "react-router-dom"
+import { MessageComponent } from "../../messages/MessageComponent/index"
 import {
   Grid,
   Segment,
@@ -18,6 +19,7 @@ interface State {
   username: string
   password: string
   redirect: boolean
+  failedToLogin: boolean
 }
 
 export class LoginComponent extends React.Component<{}, State> {
@@ -29,7 +31,8 @@ export class LoginComponent extends React.Component<{}, State> {
     this.state = {
       username: "",
       password: "",
-      redirect: false
+      redirect: false,
+      failedToLogin: false
     }
 
     this.setUsername = this.setUsername.bind(this)
@@ -63,6 +66,7 @@ export class LoginComponent extends React.Component<{}, State> {
         this.setState({ redirect: true })
       })
       .catch(e => {
+        this.setState({ failedToLogin: true })
         console.log(e)
       })
   }
@@ -76,6 +80,9 @@ export class LoginComponent extends React.Component<{}, State> {
         <Grid stackable>
           <Grid.Column width={4} />
           <Grid.Column width={8} className={styles.Margin}>
+            {this.state.failedToLogin &&
+              <MessageComponent type='failure' title='Uh no!' content='Could not login with that info?' />
+            }
             <Segment padded="very" stacked className={styles.Container}>
               <Header
                 centered

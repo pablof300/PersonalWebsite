@@ -21,7 +21,7 @@ final class AuthenticatorTest
 
     @BeforeAll
     static void setUp(){
-        userAuthenticator = new UserAuthenticator(new UserDAO());
+        userAuthenticator = new UserAuthenticator(new UserDAO(), null);
     }
 
 

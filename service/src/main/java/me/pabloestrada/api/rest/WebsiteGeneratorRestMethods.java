@@ -3,12 +3,12 @@ package me.pabloestrada.api.rest;
 import com.google.inject.Inject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import me.pabloestrada.api.ExerciseTrackerService;
 import me.pabloestrada.api.WebsiteGeneratorService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 
 @Path("/website-generator")
 @Api(value = "/website-generator")
@@ -26,4 +26,11 @@ public final class WebsiteGeneratorRestMethods {
     public void generateWebsite() {
         delegate.generateWebsite();
     }
+
+//    @GET
+//    @ApiOperation(value = "Get current website information")
+//    @Path("/website-info")
+//    public void getWebsiteInformation(@QueryParam("")) {
+//
+//    }
 }

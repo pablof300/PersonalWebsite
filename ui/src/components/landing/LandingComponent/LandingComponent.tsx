@@ -11,12 +11,7 @@ interface Props {
   name: string
 }
 
-interface State {
-  count: number
-  developerName: string
-}
-
-export class LandingComponent extends React.Component<{}, State> {
+export class LandingComponent extends React.Component<{}, {}> {
   constructor(props: {}) {
     super(props)
   }

@@ -5,6 +5,8 @@
     "name" : "auth"
   }, {
     "name" : "exercise"
+  }, {
+    "name" : "website-generator"
   } ],
   "schemes" : [ "http" ],
   "paths" : {
@@ -70,6 +72,20 @@
             "schema" : {
               "type" : "string"
             }
+          }
+        }
+      }
+    },
+    "/website-generator/generate-website" : {
+      "post" : {
+        "tags" : [ "website-generator" ],
+        "summary" : "Generating the website UI landing page with new update information from website_data.json",
+        "description" : "",
+        "operationId" : "generateWebsite",
+        "parameters" : [ ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
           }
         }
       }
