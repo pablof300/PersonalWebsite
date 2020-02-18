@@ -15,6 +15,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "semantic-ui-react": "^0.88.2",
+    "serialize-javascript": "2.1.2",
     "typescript": "3.7.2"
   },
   "scripts": {
