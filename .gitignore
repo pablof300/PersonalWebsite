@@ -12,3 +12,4 @@ persian-services/exercise-tracker/exercise-tracker.iml
 scheduler/.idea/
 scheduler/scheduler.iml
 persian-services/exercise-tracker/target/
+ui/node_modules/*
