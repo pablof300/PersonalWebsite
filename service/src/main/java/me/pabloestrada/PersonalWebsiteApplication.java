@@ -10,7 +10,7 @@ import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import me.pabloestrada.api.rest.AuthenticationServiceRestMethods;
 import me.pabloestrada.api.rest.ExerciseTrackerRestMethods;
-import me.pabloestrada.api.rest.WebsiteGeneratorRestMethods;
+import me.pabloestrada.api.rest.PersonalWebsiteRestMethods;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import javax.servlet.DispatcherType;
@@ -51,7 +51,7 @@ public class PersonalWebsiteApplication
         final Injector injector = Guice.createInjector(new PersonalWebsiteModule());
         final ExerciseTrackerRestMethods exerciseTrackerApi = injector.getInstance(ExerciseTrackerRestMethods.class);
         final AuthenticationServiceRestMethods authenticationApi = injector.getInstance(AuthenticationServiceRestMethods.class);
-        final WebsiteGeneratorRestMethods websiteGeneratorApi = injector.getInstance(WebsiteGeneratorRestMethods.class);
+        final PersonalWebsiteRestMethods websiteGeneratorApi = injector.getInstance(PersonalWebsiteRestMethods.class);
 
         environment.jersey().register(exerciseTrackerApi);
         environment.jersey().register(authenticationApi);

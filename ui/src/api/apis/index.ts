@@ -1,3 +1,3 @@
 export * from './AuthApi';
 export * from './ExerciseApi';
-export * from './WebsiteGeneratorApi';
+export * from './PersonalWebsiteApi';

@@ -3,6 +3,7 @@ package me.pabloestrada.api.rest;
 import com.google.inject.Inject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import me.pabloestrada.api.AuthenticationService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +30,8 @@ public final class AuthenticationServiceRestMethods
     @GET
     @ApiOperation(value = "Sign a new JWT token with username and password information")
     @Path("/sign")
-    public String getJWT(@QueryParam("username") final String username, @QueryParam("password") final String password,
+    public String getJWT(@ApiParam(required = true) @QueryParam("username") final String username,
+                         @ApiParam(required = true) @QueryParam("password") final String password,
                          @Context final HttpServletResponse response) {
         if (username == null || password == null) {
             return sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing username or password)", response);
@@ -42,7 +44,7 @@ public final class AuthenticationServiceRestMethods
     @GET
     @ApiOperation(value = "Verify a JWT token")
     @Path("/verify")
-    public boolean verifyJWT(@QueryParam("token") final String token, @Context final HttpServletResponse response) {
+    public boolean verifyJWT(@ApiParam(required = true) @QueryParam("token") final String token, @Context final HttpServletResponse response) {
         if (token == null) {
             sendError(Response.Status.BAD_REQUEST,"Invalid parameters (missing token)", response);
             return false;

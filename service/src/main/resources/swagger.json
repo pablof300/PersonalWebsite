@@ -6,7 +6,7 @@
   }, {
     "name" : "exercise"
   }, {
-    "name" : "website-generator"
+    "name" : "personal-website"
   } ],
   "schemes" : [ "http" ],
   "paths" : {
@@ -19,7 +19,7 @@
         "parameters" : [ {
           "name" : "token",
           "in" : "query",
-          "required" : false,
+          "required" : true,
           "type" : "string"
         } ],
         "responses" : {
@@ -41,12 +41,12 @@
         "parameters" : [ {
           "name" : "username",
           "in" : "query",
-          "required" : false,
+          "required" : true,
           "type" : "string"
         }, {
           "name" : "password",
           "in" : "query",
-          "required" : false,
+          "required" : true,
           "type" : "string"
         } ],
         "responses" : {
@@ -76,17 +76,275 @@
         }
       }
     },
-    "/website-generator/generate-website" : {
-      "post" : {
-        "tags" : [ "website-generator" ],
-        "summary" : "Generating the website UI landing page with new update information from website_data.json",
+    "/personal-website/website" : {
+      "get" : {
+        "tags" : [ "personal-website" ],
+        "summary" : "Get full website info using the model FullWebsiteInfo",
         "description" : "",
-        "operationId" : "generateWebsite",
+        "operationId" : "getWebsiteInfo",
+        "produces" : [ "application/json" ],
         "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/FullWebsiteInfo"
+            }
+          }
+        }
+      }
+    },
+    "/personal-website/base-website" : {
+      "put" : {
+        "tags" : [ "personal-website" ],
+        "summary" : "Update base website info",
+        "description" : "",
+        "operationId" : "updateBaseWebsiteInfo",
+        "parameters" : [ {
+          "name" : "firstParagraphOfAboutMe",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "secondParagraphOfAboutMe",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "listOfTechnicalLanguages",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "listOfFrameworks",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "listOfTools",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "listOfLanguages",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "resumePath",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
         "responses" : {
           "default" : {
             "description" : "successful operation"
           }
+        }
+      }
+    },
+    "/personal-website/projects" : {
+      "post" : {
+        "tags" : [ "personal-website" ],
+        "summary" : "Get website info using the model WebsiteInfo",
+        "description" : "",
+        "operationId" : "addProjectInfo",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "funFact",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "imagePath",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "year",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "personal-website" ],
+        "summary" : "Get website info using the model WebsiteInfo",
+        "description" : "",
+        "operationId" : "updateProjectInfo",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "funFact",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "url",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "imagePath",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "year",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "FullWebsiteInfo" : {
+      "type" : "object",
+      "required" : [ "firstParagraphOfAboutMe", "id", "listOfFrameworks", "listOfLanguages", "listOfTechnicalLanguages", "listOfTools", "resumePath", "secondParagraphOfAboutMe" ],
+      "properties" : {
+        "firstParagraphOfAboutMe" : {
+          "type" : "string"
+        },
+        "secondParagraphOfAboutMe" : {
+          "type" : "string"
+        },
+        "listOfTechnicalLanguages" : {
+          "type" : "string"
+        },
+        "listOfFrameworks" : {
+          "type" : "string"
+        },
+        "listOfTools" : {
+          "type" : "string"
+        },
+        "listOfLanguages" : {
+          "type" : "string"
+        },
+        "resumePath" : {
+          "type" : "string"
+        },
+        "id" : {
+          "$ref" : "#/definitions/ObjectId"
+        },
+        "projectInfoList" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ProjectInfo"
+          }
+        }
+      }
+    },
+    "ObjectId" : {
+      "type" : "object",
+      "properties" : {
+        "timestamp" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "machineIdentifier" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "processIdentifier" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "counter" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "time" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "date" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "timeSecond" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
+    "ProjectInfo" : {
+      "type" : "object",
+      "required" : [ "description", "funFact", "id", "imagePath", "name", "type", "url", "year" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "funFact" : {
+          "type" : "string"
+        },
+        "url" : {
+          "type" : "string"
+        },
+        "imagePath" : {
+          "type" : "string"
+        },
+        "year" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "id" : {
+          "$ref" : "#/definitions/ObjectId"
         }
       }
     }

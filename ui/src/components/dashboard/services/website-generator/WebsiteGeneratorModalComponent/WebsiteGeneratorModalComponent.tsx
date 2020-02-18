@@ -136,7 +136,7 @@ export class WebsiteGeneratorModalComponent extends React.Component<{}, State> {
                 className={styles.Header}
               >
                 <Icon name="lock" />
-                Resume
+                Projects
               </Header>
               <Divider hidden />
               <Segment raised color="teal">

@@ -16,12 +16,12 @@
 import * as runtime from '../runtime';
 
 export interface GetJWTRequest {
-    username?: string;
-    password?: string;
+    username: string;
+    password: string;
 }
 
 export interface VerifyJWTRequest {
-    token?: string;
+    token: string;
 }
 
 /**
@@ -33,6 +33,14 @@ export class AuthApi extends runtime.BaseAPI {
      * Sign a new JWT token with username and password information
      */
     async getJWTRaw(requestParameters: GetJWTRequest): Promise<runtime.ApiResponse<string>> {
+        if (requestParameters.username === null || requestParameters.username === undefined) {
+            throw new runtime.RequiredError('username','Required parameter requestParameters.username was null or undefined when calling getJWT.');
+        }
+
+        if (requestParameters.password === null || requestParameters.password === undefined) {
+            throw new runtime.RequiredError('password','Required parameter requestParameters.password was null or undefined when calling getJWT.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.username !== undefined) {
@@ -67,6 +75,10 @@ export class AuthApi extends runtime.BaseAPI {
      * Verify a JWT token
      */
     async verifyJWTRaw(requestParameters: VerifyJWTRequest): Promise<runtime.ApiResponse<boolean>> {
+        if (requestParameters.token === null || requestParameters.token === undefined) {
+            throw new runtime.RequiredError('token','Required parameter requestParameters.token was null or undefined when calling verifyJWT.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.token !== undefined) {
