@@ -3,17 +3,12 @@ import Cookies from "js-cookie"
 import styles from "./DashboardComponent.module.css"
 import { AuthApi } from "../../../api/index"
 import { Redirect } from "react-router-dom"
-import { WebsiteGeneratorServiceComponent } from "../services/website-generator/WebsiteGeneratorServiceComponent/index"
+import { PersonalWebsiteServiceComponent } from "../services/personal-website/PWServiceComponent/index"
 import {
   Grid,
   Icon,
   Header,
-  Button,
-  Image,
-  Card,
   Container,
-  List,
-  Accordion,
   Divider
 } from "semantic-ui-react"
 
@@ -64,7 +59,7 @@ export class DashboardComponent extends React.Component<{}, State> {
         <Container className={styles.Container}>
         <Divider />
           <Grid padded stackable className={styles.Grid} columns={4}>
-            <WebsiteGeneratorServiceComponent />
+            <PersonalWebsiteServiceComponent />
           </Grid>
         </Container>
       </>

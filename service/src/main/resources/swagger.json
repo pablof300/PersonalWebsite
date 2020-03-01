@@ -76,24 +76,6 @@
         }
       }
     },
-    "/personal-website/website" : {
-      "get" : {
-        "tags" : [ "personal-website" ],
-        "summary" : "Get full website info using the model FullWebsiteInfo",
-        "description" : "",
-        "operationId" : "getWebsiteInfo",
-        "produces" : [ "application/json" ],
-        "parameters" : [ ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/FullWebsiteInfo"
-            }
-          }
-        }
-      }
-    },
     "/personal-website/base-website" : {
       "put" : {
         "tags" : [ "personal-website" ],
@@ -146,7 +128,7 @@
     "/personal-website/projects" : {
       "post" : {
         "tags" : [ "personal-website" ],
-        "summary" : "Get website info using the model WebsiteInfo",
+        "summary" : "Add a new project and get its id",
         "description" : "",
         "operationId" : "addProjectInfo",
         "parameters" : [ {
@@ -187,8 +169,11 @@
           "format" : "int32"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "successful operation"
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
           }
         }
       },
@@ -245,12 +230,30 @@
           }
         }
       }
+    },
+    "/personal-website/website" : {
+      "get" : {
+        "tags" : [ "personal-website" ],
+        "summary" : "Get full website info using the model FullWebsiteInfo",
+        "description" : "",
+        "operationId" : "getWebsiteInfo",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/FullWebsiteInfo"
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
     "FullWebsiteInfo" : {
       "type" : "object",
-      "required" : [ "firstParagraphOfAboutMe", "id", "listOfFrameworks", "listOfLanguages", "listOfTechnicalLanguages", "listOfTools", "resumePath", "secondParagraphOfAboutMe" ],
+      "required" : [ "firstParagraphOfAboutMe", "id", "listOfFrameworks", "listOfLanguages", "listOfTechnicalLanguages", "listOfTools", "projectInfoList", "resumePath", "secondParagraphOfAboutMe" ],
       "properties" : {
         "firstParagraphOfAboutMe" : {
           "type" : "string"
@@ -274,46 +277,14 @@
           "type" : "string"
         },
         "id" : {
-          "$ref" : "#/definitions/ObjectId"
+          "type" : "string"
         },
         "projectInfoList" : {
           "type" : "array",
+          "readOnly" : true,
           "items" : {
             "$ref" : "#/definitions/ProjectInfo"
           }
-        }
-      }
-    },
-    "ObjectId" : {
-      "type" : "object",
-      "properties" : {
-        "timestamp" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "machineIdentifier" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "processIdentifier" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "counter" : {
-          "type" : "integer",
-          "format" : "int32"
-        },
-        "time" : {
-          "type" : "integer",
-          "format" : "int64"
-        },
-        "date" : {
-          "type" : "string",
-          "format" : "date-time"
-        },
-        "timeSecond" : {
-          "type" : "integer",
-          "format" : "int32"
         }
       }
     },
@@ -344,7 +315,7 @@
           "format" : "int32"
         },
         "id" : {
-          "$ref" : "#/definitions/ObjectId"
+          "type" : "string"
         }
       }
     }

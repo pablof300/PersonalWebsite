@@ -14,10 +14,6 @@
 
 import { exists, mapValues } from '../runtime';
 import {
-    ObjectId,
-    ObjectIdFromJSON,
-    ObjectIdFromJSONTyped,
-    ObjectIdToJSON,
     ProjectInfo,
     ProjectInfoFromJSON,
     ProjectInfoFromJSONTyped,
@@ -74,16 +70,16 @@ export interface FullWebsiteInfo {
     resumePath: string;
     /**
      * 
-     * @type {ObjectId}
+     * @type {string}
      * @memberof FullWebsiteInfo
      */
-    id: ObjectId;
+    id: string;
     /**
      * 
      * @type {Array<ProjectInfo>}
      * @memberof FullWebsiteInfo
      */
-    projectInfoList?: Array<ProjectInfo>;
+    readonly projectInfoList: Array<ProjectInfo>;
 }
 
 export function FullWebsiteInfoFromJSON(json: any): FullWebsiteInfo {
@@ -103,8 +99,8 @@ export function FullWebsiteInfoFromJSONTyped(json: any, ignoreDiscriminator: boo
         'listOfTools': json['listOfTools'],
         'listOfLanguages': json['listOfLanguages'],
         'resumePath': json['resumePath'],
-        'id': ObjectIdFromJSON(json['id']),
-        'projectInfoList': !exists(json, 'projectInfoList') ? undefined : ((json['projectInfoList'] as Array<any>).map(ProjectInfoFromJSON)),
+        'id': json['id'],
+        'projectInfoList': ((json['projectInfoList'] as Array<any>).map(ProjectInfoFromJSON)),
     };
 }
 
@@ -124,8 +120,7 @@ export function FullWebsiteInfoToJSON(value?: FullWebsiteInfo | null): any {
         'listOfTools': value.listOfTools,
         'listOfLanguages': value.listOfLanguages,
         'resumePath': value.resumePath,
-        'id': ObjectIdToJSON(value.id),
-        'projectInfoList': value.projectInfoList === undefined ? undefined : ((value.projectInfoList as Array<any>).map(ProjectInfoToJSON)),
+        'id': value.id,
     };
 }
 

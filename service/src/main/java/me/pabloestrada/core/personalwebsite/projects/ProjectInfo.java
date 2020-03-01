@@ -2,7 +2,8 @@ package me.pabloestrada.core.personalwebsite.projects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import io.swagger.annotations.ApiModelProperty;
+import me.pabloestrada.core.personalwebsite.ObjectIdSerializer;
 import org.bson.types.ObjectId;
 
 public final class ProjectInfo
@@ -28,8 +29,9 @@ public final class ProjectInfo
     @JsonProperty(required = true)
     private int year;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     @JsonProperty(required = true)
+    @JsonSerialize(using = ObjectIdSerializer.class)
+    @ApiModelProperty(dataType = "string", required = true)
     private ObjectId id;
 
     public ProjectInfo() {
@@ -50,6 +52,12 @@ public final class ProjectInfo
                        final String url, final String imagePath, final int year, final String id) {
         this(name, type, description, funFact, url, imagePath, year);
         this.id = new ObjectId(id);
+    }
+
+    public ProjectInfo(final String name, final String type, final String description, final String funFact,
+                       final String url, final String imagePath, final int year, final ObjectId id) {
+        this(name, type, description, funFact, url, imagePath, year);
+        this.id = id;
     }
 
     public String getName() {

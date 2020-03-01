@@ -2,7 +2,8 @@ package me.pabloestrada.core.personalwebsite.websiteinfo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import io.swagger.annotations.ApiModelProperty;
+import me.pabloestrada.core.personalwebsite.ObjectIdSerializer;
 import org.bson.types.ObjectId;
 
 public class BaseWebsiteInfo
@@ -28,8 +29,9 @@ public class BaseWebsiteInfo
     @JsonProperty(required = true)
     private String resumePath;
 
-    @JsonSerialize(using = ToStringSerializer.class)
     @JsonProperty(required = true)
+    @JsonSerialize(using = ObjectIdSerializer.class)
+    @ApiModelProperty(dataType = "string", required = true)
     private ObjectId id;
 
     public BaseWebsiteInfo() {
@@ -111,5 +113,19 @@ public class BaseWebsiteInfo
 
     public void setId(ObjectId id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseWebsiteInfo{" +
+                "firstParagraphOfAboutMe='" + firstParagraphOfAboutMe + '\'' +
+                ", secondParagraphOfAboutMe='" + secondParagraphOfAboutMe + '\'' +
+                ", listOfTechnicalLanguages='" + listOfTechnicalLanguages + '\'' +
+                ", listOfFrameworks='" + listOfFrameworks + '\'' +
+                ", listOfTools='" + listOfTools + '\'' +
+                ", listOfLanguages='" + listOfLanguages + '\'' +
+                ", resumePath='" + resumePath + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

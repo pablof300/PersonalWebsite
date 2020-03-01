@@ -1,19 +1,10 @@
 import React from "react"
 import styles from "./ProjectComponent.module.css"
 import { Image, Icon, Card, Reveal, Popup, Rating } from "semantic-ui-react"
+import { ProjectInfo } from '../../../../api/index'
 
 interface Props {
-  projectData: ProjectData
-}
-
-// Add enum for type
-export interface ProjectData {
-  image: string
-  type: string
-  title: string
-  year: number
-  link: string
-  description: string
+  projectData: ProjectInfo
 }
 
 export class ProjectComponent extends React.Component<Props, {}> {
@@ -28,7 +19,7 @@ export class ProjectComponent extends React.Component<Props, {}> {
       <Popup
         header='Fun Fact'
         position='top center'
-        content='After testing this game thousands of times, I have become really good at mancala.'
+        content={this.props.projectData.funFact}
         trigger={
         <Card>
           <Reveal animated='move'>
@@ -41,17 +32,17 @@ export class ProjectComponent extends React.Component<Props, {}> {
           </Reveal>
           <Card.Content>
             <Card.Header textAlign="center">
-              {this.props.projectData.title}
+              {this.props.projectData.name}
             </Card.Header>
             <Card.Meta textAlign="center">
-              <a>Team Project</a>
+              <a>{this.props.projectData.type}</a>
             </Card.Meta>
             <Card.Description>
               {this.props.projectData.description}
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a href={this.props.projectData.link}>
+            <a href={this.props.projectData.url}>
               <Icon name="linkify" />
               View more
             </a>

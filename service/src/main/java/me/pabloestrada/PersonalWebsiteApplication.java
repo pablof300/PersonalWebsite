@@ -27,9 +27,7 @@ public class PersonalWebsiteApplication
     @Override
     public void initialize(final Bootstrap<PersonalWebsiteConfiguration> bootstrap) {
         bootstrap.addBundle(new SwaggerBundle<PersonalWebsiteConfiguration>() {
-            @Override
-            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(final PersonalWebsiteConfiguration configuration)
-            {
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(PersonalWebsiteConfiguration configuration) {
                 return configuration.swaggerBundleConfiguration;
             }
         });

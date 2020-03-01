@@ -3,8 +3,15 @@ import styles from "./SkillsComponent.module.css"
 import { Grid, Segment, Header, Icon } from "semantic-ui-react"
 import { SkillComponent } from "../SkillComponent/index"
 
-export class SkillsComponent extends React.Component<{}, {}> {
-  constructor(props: {}) {
+interface Props {
+  techLanguages: string
+  frameworks: string
+  tools: string
+  languages: string
+}
+
+export class SkillsComponent extends React.Component<Props, {}> {
+  constructor(props: Props) {
     super(props)
   }
 
@@ -24,16 +31,16 @@ export class SkillsComponent extends React.Component<{}, {}> {
                 </Grid.Row>
                 <SkillComponent
                   type="Tech Languages"
-                  list="Java, Ruby, Swift, C++, Python, HTML, CSS, JavaScript"
+                  list={this.props.techLanguages}
                 />
                 <SkillComponent
                   type="Frameworks"
-                  list="Rails, SpriteKit, JavaFX"
+                  list={this.props.frameworks}
                 />
-                <SkillComponent type="Tools" list="Git, Photoshop" />
+                <SkillComponent type="Tools" list={this.props.tools} />
                 <SkillComponent
                   type="Languages"
-                  list="English, Spanish (Fluent)"
+                  list={this.props.languages}
                 />
               </Grid>
             </Segment>

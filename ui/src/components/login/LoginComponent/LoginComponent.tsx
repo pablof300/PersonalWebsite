@@ -3,7 +3,7 @@ import Cookies from "js-cookie"
 import styles from "./LoginComponent.module.css"
 import { AuthApi } from "../../../api/index"
 import { Redirect } from "react-router-dom"
-import { MessageComponent } from "../../messages/MessageComponent/index"
+import { MessageComponent } from "../../utility/MessageComponent/index"
 import {
   Grid,
   Segment,

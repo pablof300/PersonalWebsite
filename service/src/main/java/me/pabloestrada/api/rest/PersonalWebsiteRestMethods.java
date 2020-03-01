@@ -3,7 +3,6 @@ package me.pabloestrada.api.rest;
 import com.google.inject.Inject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import me.pabloestrada.api.PersonalWebsiteService;
 import me.pabloestrada.core.personalwebsite.websiteinfo.FullWebsiteInfo;
 
@@ -61,9 +60,9 @@ public final class PersonalWebsiteRestMethods {
     }
 
     @POST
-    @ApiOperation(value = "Get website info using the model WebsiteInfo")
+    @ApiOperation(value = "Add a new project and get its id")
     @Path("/projects")
-    public void addProjectInfo(@QueryParam("name") final String name,
+    public String addProjectInfo(@QueryParam("name") final String name,
                                @QueryParam("type") final String type,
                                @QueryParam("description") final String description,
                                @QueryParam("funFact") final String funFact,
@@ -71,6 +70,6 @@ public final class PersonalWebsiteRestMethods {
                                @QueryParam("imagePath") final String imagePath,
                                @QueryParam("year") final int year)
     {
-        delegate.addProjectInfo(name, type, description, funFact, url, imagePath, year);
+        return delegate.addProjectInfo(name, type, description, funFact, url, imagePath, year).toString();
     }
 }

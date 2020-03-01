@@ -1,28 +1,27 @@
 import React from "react"
 import styles from "./ProjectsComponent.module.css"
-import { ProjectComponent, ProjectData } from "../ProjectComponent/index"
+import { ProjectComponent } from "../ProjectComponent/index"
 import { Segment, Header, Icon, Card } from "semantic-ui-react"
 import { ProjectRowComponent } from "../ProjectRowComponent/index"
+import { ProjectInfo } from '../../../../api/index'
 
 interface Props {
-  name: string
+  projects: ProjectInfo[]
 }
 
-// Add <strong> to technologies in maybe the backend?
 
-const singularities: ProjectData = {
-  image: "singularities",
-  title: "Singularities",
-  type: "Hackathon project",
-  description:
-    "Lead developer of Singularities, an iOS game for iPhone and iPad. Developed using Swift and SpriteKit as a two-dimensional retro gravity game. It has been downloaded more than 500 times on the AppStore with a review of 4.8 stars.",
-  year: 2018,
-  link: "https://itunes.apple.com/us/app/singularities/id1278565563"
-}
-
-export class ProjectsComponent extends React.Component<{}, {}> {
-  constructor(props: {}) {
+export class ProjectsComponent extends React.Component<Props, {}> {
+  constructor(props: Props) {
     super(props)
+  }
+
+  getProjectsInGroupsOfThree(): Array<Array<ProjectInfo>> {
+    const numberOfProjectsInRow = 3
+    let projects: Array<Array<ProjectInfo>> = []
+    for (let i = 0; i < this.props.projects.length; i += numberOfProjectsInRow) {
+      projects.push(this.props.projects.slice(i, i + numberOfProjectsInRow))
+    }
+    return projects
   }
 
   render() {
@@ -38,8 +37,10 @@ export class ProjectsComponent extends React.Component<{}, {}> {
             <Icon name="code" circular />
             Projects
           </Header>
-          <ProjectRowComponent projects={[singularities, singularities, singularities]} />
-          <ProjectRowComponent projects={[singularities, singularities]} />
+          { this.getProjectsInGroupsOfThree().map(projects => {
+            return <ProjectRowComponent projects={projects} />
+            })
+          }
         </Segment>
       </>
     )

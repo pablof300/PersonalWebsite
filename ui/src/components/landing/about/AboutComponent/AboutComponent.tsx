@@ -1,6 +1,5 @@
 import React from "react"
 import styles from "./AboutComponent.module.css"
-import { Link } from 'react-router-dom';
 import { SocialMediaButton } from '../SocialMediaButton/index'
 import {
   Grid,
@@ -8,16 +7,20 @@ import {
   Segment,
   Header,
   Divider,
-  Icon,
-  Button
+  Icon
 } from "semantic-ui-react"
+import {BoldedTextComponent} from "../../../utility/BoldedTextComponent";
 
 interface Props {
-  name: string
+  paragraphs: {first: string, second: string}
 }
 
-export class AboutComponent extends React.Component<{}, {}> {
-  constructor(props: {}) {
+const Highlight : React.ComponentType<any> = (props) => (
+  <strong className="highlighted-text">{props.children}</strong>
+);
+
+export class AboutComponent extends React.Component<Props, {}> {
+  constructor(props: Props) {
     super(props)
   }
 
@@ -43,18 +46,9 @@ export class AboutComponent extends React.Component<{}, {}> {
                   About me
                 </Header>
               </Divider>
-              <p>
-                I am software developer that likes to see technology solve
-                everyday problems. I spend most of my time learning new
-                languages and tools to make any of my crazy ideas a reality.
-              </p>
+              <BoldedTextComponent boldedWords={[]} text={this.props.paragraphs.first} />
               <Divider hidden />
-              <p>
-                I study computer science at the{" "}
-                <strong>University of Florida</strong>, currently a freshmen,
-                but if I am not hacking away or studying at the Library, I am
-                going for a run or playing ping pong.
-              </p>
+              <BoldedTextComponent boldedWords={["University of Florida"]} text={this.props.paragraphs.second} />
               <Divider horizontal>
                 <Header as="h4">
                   <Icon name="address book" />

@@ -57,9 +57,9 @@ export interface UpdateProjectInfoRequest {
 export class PersonalWebsiteApi extends runtime.BaseAPI {
 
     /**
-     * Get website info using the model WebsiteInfo
+     * Add a new project and get its id
      */
-    async addProjectInfoRaw(requestParameters: AddProjectInfoRequest): Promise<runtime.ApiResponse<void>> {
+    async addProjectInfoRaw(requestParameters: AddProjectInfoRequest): Promise<runtime.ApiResponse<string>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.name !== undefined) {
@@ -99,14 +99,15 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.VoidApiResponse(response);
+        return new runtime.TextApiResponse(response) as any;
     }
 
     /**
-     * Get website info using the model WebsiteInfo
+     * Add a new project and get its id
      */
-    async addProjectInfo(requestParameters: AddProjectInfoRequest): Promise<void> {
-        await this.addProjectInfoRaw(requestParameters);
+    async addProjectInfo(requestParameters: AddProjectInfoRequest): Promise<string> {
+        const response = await this.addProjectInfoRaw(requestParameters);
+        return await response.value();
     }
 
     /**

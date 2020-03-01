@@ -1,5 +1,7 @@
 package me.pabloestrada.core.user;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import me.pabloestrada.core.personalwebsite.ObjectIdSerializer;
 import org.bson.types.ObjectId;
 
 import java.util.Objects;
@@ -8,6 +10,8 @@ public final class User
 {
     private String username;
     private String password;
+
+    @JsonSerialize(using = ObjectIdSerializer.class)
     private ObjectId id;
 
     public User() {

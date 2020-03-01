@@ -6,6 +6,7 @@ import me.pabloestrada.core.personalwebsite.projects.ProjectInfo;
 import me.pabloestrada.core.personalwebsite.websiteinfo.BaseWebsiteInfo;
 import me.pabloestrada.core.personalwebsite.WebsiteInfoDAO;
 import me.pabloestrada.core.personalwebsite.websiteinfo.FullWebsiteInfo;
+import org.bson.types.ObjectId;
 
 public class PersonalWebsiteServiceImpl extends PersonalWebsiteService
 {
@@ -17,6 +18,7 @@ public class PersonalWebsiteServiceImpl extends PersonalWebsiteService
     }
 
     public FullWebsiteInfo getWebsiteInfo() {
+        System.out.println(new FullWebsiteInfo(websiteInfoDAO.getBaseWebsiteInfo(), websiteInfoDAO.getProjects()));
         return new FullWebsiteInfo(websiteInfoDAO.getBaseWebsiteInfo(), websiteInfoDAO.getProjects());
     }
 
@@ -34,8 +36,10 @@ public class PersonalWebsiteServiceImpl extends PersonalWebsiteService
         websiteInfoDAO.updateProjectInfo(new ProjectInfo(name, type, description, funFact, url, imagePath, year, id));
     }
 
-    public void addProjectInfo(final String name, final String type, final String description,
-                               final String funFact, final String url, final String imagePath, int year) {
-        websiteInfoDAO.addProjectInfo(new ProjectInfo(name, type, description, funFact, url, imagePath, year));
+    public ObjectId addProjectInfo(final String name, final String type, final String description,
+                                   final String funFact, final String url, final String imagePath, int year) {
+        final ObjectId idOfNewProject = new ObjectId();
+        websiteInfoDAO.addProjectInfo(new ProjectInfo(name, type, description, funFact, url, imagePath, year, idOfNewProject));
+        return idOfNewProject;
     }
 }

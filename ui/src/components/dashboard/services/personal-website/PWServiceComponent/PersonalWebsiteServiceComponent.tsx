@@ -1,24 +1,14 @@
 import React from "react"
-import styles from "./WebsiteGeneratorServiceComponent.module.css"
-import { WebsiteGeneratorModalComponent } from "../WebsiteGeneratorModalComponent/index"
-import {
-  Grid,
-  Icon,
-  Header,
-  Button,
-  Image,
-  Card,
-  Container,
-  List,
-  Accordion,
-  Divider
-} from "semantic-ui-react"
+import styles from "./PersonalWebsiteServiceComponent.module.css"
+import { PWServiceModalComponent } from "../PWServiceModalComponent/index"
+import { Grid, Icon, Image, Card, Accordion } from "semantic-ui-react"
 
-interface State {
-}
+interface State {}
 
-export class WebsiteGeneratorServiceComponent extends React.Component<{}, State> {
-
+export class PersonalWebsiteServiceComponent extends React.Component<
+  {},
+  State
+> {
   constructor(props: {}) {
     super(props)
   }
@@ -42,7 +32,9 @@ export class WebsiteGeneratorServiceComponent extends React.Component<{}, State>
                   description
                 </Accordion.Title>
                 <Accordion.Content active={false}>
-                  Manage what content goes on the landing website of pabloestrada.me. You can modify biography, projects, resume, skills, and contact information.
+                  Manage what content goes on the landing website of
+                  pabloestrada.me. You can modify biography, projects, resume,
+                  skills, and contact information.
                 </Accordion.Content>
               </Accordion>
               <Accordion styled className={styles.Spacer}>
@@ -58,7 +50,7 @@ export class WebsiteGeneratorServiceComponent extends React.Component<{}, State>
           </Card.Content>
           <Card.Content extra>
             <div className="ui two buttons">
-              <WebsiteGeneratorModalComponent />
+              <PWServiceModalComponent />
             </div>
           </Card.Content>
         </Card>

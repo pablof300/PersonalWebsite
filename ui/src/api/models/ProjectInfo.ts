@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import {
-    ObjectId,
-    ObjectIdFromJSON,
-    ObjectIdFromJSONTyped,
-    ObjectIdToJSON,
-} from './';
-
 /**
  * 
  * @export
@@ -70,10 +63,10 @@ export interface ProjectInfo {
     year: number;
     /**
      * 
-     * @type {ObjectId}
+     * @type {string}
      * @memberof ProjectInfo
      */
-    id: ObjectId;
+    id: string;
 }
 
 export function ProjectInfoFromJSON(json: any): ProjectInfo {
@@ -93,7 +86,7 @@ export function ProjectInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'url': json['url'],
         'imagePath': json['imagePath'],
         'year': json['year'],
-        'id': ObjectIdFromJSON(json['id']),
+        'id': json['id'],
     };
 }
 
@@ -113,7 +106,7 @@ export function ProjectInfoToJSON(value?: ProjectInfo | null): any {
         'url': value.url,
         'imagePath': value.imagePath,
         'year': value.year,
-        'id': ObjectIdToJSON(value.id),
+        'id': value.id,
     };
 }
 
