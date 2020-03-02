@@ -117,6 +117,11 @@
           "in" : "query",
           "required" : false,
           "type" : "string"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "default" : {
@@ -167,6 +172,11 @@
           "required" : false,
           "type" : "integer",
           "format" : "int32"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
         } ],
         "responses" : {
           "200" : {
@@ -221,6 +231,11 @@
         }, {
           "name" : "id",
           "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
           "required" : false,
           "type" : "string"
         } ],

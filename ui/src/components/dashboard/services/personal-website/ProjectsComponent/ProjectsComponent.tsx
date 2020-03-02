@@ -9,6 +9,7 @@ import {
   Message
 } from "semantic-ui-react"
 import { ProjectComponent } from "../ProjectComponent/index"
+import Cookies from "js-cookie";
 
 interface Props {
   personalWebsiteApi: PersonalWebsiteApi
@@ -35,7 +36,6 @@ export class ProjectsComponent extends React.Component<Props, State> {
     if (this.isNewProject(currentProjects[currentProjects.length - 1])) {
       return
     }
-
     currentProjects.push({
       description: "",
       funFact: "",
@@ -50,17 +50,19 @@ export class ProjectsComponent extends React.Component<Props, State> {
   }
 
   async sendProjectData(projectData: ProjectInfo): Promise<string> {
+    const requestData = {
+      bearerAuth: Cookies.get("jwt"),
+      name: projectData.name,
+      type: projectData.type,
+      description: projectData.description,
+      funFact: projectData.funFact,
+      url: projectData.url,
+      imagePath: projectData.imagePath,
+      year: projectData.year
+    }
     if (this.isNewProject(projectData)) {
       return this.props.personalWebsiteApi
-        .addProjectInfo({
-          name: projectData.name,
-          type: projectData.type,
-          description: projectData.description,
-          funFact: projectData.funFact,
-          url: projectData.url,
-          imagePath: projectData.imagePath,
-          year: projectData.year
-        })
+        .addProjectInfo(requestData)
         .then(id => {
           this.addNewProject()
           this.setState({ updateMessage: "Added new project" })
@@ -72,16 +74,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
         })
     } else {
       return this.props.personalWebsiteApi
-        .updateProjectInfo({
-          id: projectData.id,
-          name: projectData.name,
-          type: projectData.type,
-          description: projectData.description,
-          funFact: projectData.funFact,
-          url: projectData.url,
-          imagePath: projectData.imagePath,
-          year: projectData.year
-        })
+        .updateProjectInfo({...requestData, id: projectData.id})
         .then(id => {
           return "Successful"
         })

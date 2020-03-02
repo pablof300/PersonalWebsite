@@ -39,7 +39,7 @@ export class LandingComponent extends React.Component<{}, State> {
         <DownIconComponent />
         <ProjectsComponent projects={websiteInfo.projectInfoList}/>
         <DownIconComponent />
-        <SkillsComponent techLanguages={websiteInfo.listOfTechnicalLanguages} frameworks={websiteInfo.listOfFrameworks} tools={websiteInfo.listOfTools} languages={websiteInfo.resumePath} />
+        <SkillsComponent techLanguages={websiteInfo.listOfTechnicalLanguages} frameworks={websiteInfo.listOfFrameworks} tools={websiteInfo.listOfTools} languages={websiteInfo.listOfLanguages} />
         <DownIconComponent />
         <ResumeComponent />
         <DownIconComponent />

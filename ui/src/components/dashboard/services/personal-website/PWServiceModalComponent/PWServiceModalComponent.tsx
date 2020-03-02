@@ -16,6 +16,7 @@ import {
   TextArea
 } from "semantic-ui-react"
 import { ProjectsComponent } from "../ProjectsComponent"
+import Cookies from "js-cookie";
 
 interface State {
   isDataLoaded: boolean
@@ -63,6 +64,7 @@ export class PWServiceModalComponent extends React.Component<{}, State> {
   closeAndSubmitModal() {
     this.api
       .updateBaseWebsiteInfo({
+        bearerAuth: Cookies.get("jwt"),
         firstParagraphOfAboutMe: this.state.firstParagraphOfAboutMe,
         secondParagraphOfAboutMe: this.state.secondParagraphOfAboutMe,
         listOfTechnicalLanguages: this.state.listOfTechnicalLanguages,
@@ -93,7 +95,7 @@ export class PWServiceModalComponent extends React.Component<{}, State> {
       )
     }
     return (
-      <Modal size="fullscreen" dimmer="blurring" open={this.state.isDataLoaded}>
+      <Modal size="large" dimmer="blurring" open={this.state.isDataLoaded}>
         <Modal.Content scrolling>
           <Card.Group itemsPerRow={3} stackable>
             <Card>

@@ -28,6 +28,7 @@ export interface AddProjectInfoRequest {
     url?: string;
     imagePath?: string;
     year?: number;
+    bearerAuth?: string;
 }
 
 export interface UpdateBaseWebsiteInfoRequest {
@@ -38,6 +39,7 @@ export interface UpdateBaseWebsiteInfoRequest {
     listOfTools?: string;
     listOfLanguages?: string;
     resumePath?: string;
+    bearerAuth?: string;
 }
 
 export interface UpdateProjectInfoRequest {
@@ -49,6 +51,7 @@ export interface UpdateProjectInfoRequest {
     imagePath?: string;
     year?: number;
     id?: string;
+    bearerAuth?: string;
 }
 
 /**
@@ -91,6 +94,10 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
+            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
+        }
 
         const response = await this.request({
             path: `/personal-website/projects`,
@@ -172,6 +179,10 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
+            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
+        }
+
         const response = await this.request({
             path: `/personal-website/base-website`,
             method: 'PUT',
@@ -228,6 +239,10 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
+            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
+        }
 
         const response = await this.request({
             path: `/personal-website/projects`,

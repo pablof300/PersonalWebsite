@@ -1,16 +1,27 @@
 import React from "react"
-import styles from "./PersonalWebsiteServiceComponent.module.css"
+import styles from "./PWServiceComponent.module.css"
 import { PWServiceModalComponent } from "../PWServiceModalComponent/index"
 import { Grid, Icon, Image, Card, Accordion } from "semantic-ui-react"
 
-interface State {}
+interface State {
+  activeIndex: number
+}
 
-export class PersonalWebsiteServiceComponent extends React.Component<
+export class PWServiceComponent extends React.Component<
   {},
   State
 > {
   constructor(props: {}) {
     super(props)
+    this.state = { activeIndex: 3 }
+  }
+
+  handleClick = (e: any, titleProps: any) => {
+    const { index } = titleProps
+    const { activeIndex } = this.state
+    const newIndex = activeIndex === index ? -1 : index
+
+    this.setState({ activeIndex: newIndex })
   }
 
   render() {
@@ -27,22 +38,22 @@ export class PersonalWebsiteServiceComponent extends React.Component<
             <Card.Meta>status: online</Card.Meta>
             <Card.Description>
               <Accordion styled>
-                <Accordion.Title active={false} index={0}>
+                <Accordion.Title active={this.state.activeIndex === 0} onClick={this.handleClick} index={0}>
                   <Icon name="dropdown" />
                   description
                 </Accordion.Title>
-                <Accordion.Content active={false}>
+                <Accordion.Content active={this.state.activeIndex === 0}>
                   Manage what content goes on the landing website of
                   pabloestrada.me. You can modify biography, projects, resume,
                   skills, and contact information.
                 </Accordion.Content>
               </Accordion>
               <Accordion styled className={styles.Spacer}>
-                <Accordion.Title active={false} index={0}>
+                <Accordion.Title active={this.state.activeIndex === 1}  onClick={this.handleClick} index={1}>
                   <Icon name="dropdown" />
                   updated
                 </Accordion.Title>
-                <Accordion.Content active={false}>
+                <Accordion.Content active={this.state.activeIndex === 1}>
                   June 23, 2016
                 </Accordion.Content>
               </Accordion>

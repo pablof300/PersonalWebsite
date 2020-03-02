@@ -1,1 +1,1 @@
-export * from "./PersonalWebsiteServiceComponent"
+export * from "./PWServiceComponent"

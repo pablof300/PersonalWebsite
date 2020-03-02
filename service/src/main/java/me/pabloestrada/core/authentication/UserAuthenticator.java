@@ -47,7 +47,7 @@ public final class UserAuthenticator
             System.out.println("Authenticated (verified JWT) user with username of " + username);
             return Optional.of(username);
         } catch (final JwtException ex) {
-            ex.printStackTrace();
+            System.out.println("Unable to verify token");
             return Optional.empty();
         }
     }

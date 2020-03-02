@@ -3,7 +3,7 @@ import Cookies from "js-cookie"
 import styles from "./DashboardComponent.module.css"
 import { AuthApi } from "../../../api/index"
 import { Redirect } from "react-router-dom"
-import { PersonalWebsiteServiceComponent } from "../services/personal-website/PWServiceComponent/index"
+import { PWServiceComponent } from "../services/personal-website/PWServiceComponent/index"
 import {
   Grid,
   Icon,
@@ -28,13 +28,16 @@ export class DashboardComponent extends React.Component<{}, State> {
     }
   }
 
+  // TODO:
+  // Find source of bug for verified being of type string?
   componentDidMount() {
     const token = Cookies.get("jwt")
     if (token) {
       const requestParams = { token: token }
       console.log("Found JWT token, veryfing...")
       this.authApi.verifyJWT(requestParams).then(verified => {
-        this.setState({ authenticated: verified, loading: false })
+        // @ts-ignore
+        this.setState({ authenticated: verified == "true", loading: false })
         console.log("JWT token status is " + verified)
       })
     } else {
@@ -59,7 +62,7 @@ export class DashboardComponent extends React.Component<{}, State> {
         <Container className={styles.Container}>
         <Divider />
           <Grid padded stackable className={styles.Grid} columns={4}>
-            <PersonalWebsiteServiceComponent />
+            <PWServiceComponent />
           </Grid>
         </Container>
       </>

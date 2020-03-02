@@ -93,6 +93,9 @@ export class ProjectComponent extends React.Component<Props, ProjectInfo> {
             >
               {newProject ? "Create" : "Update"}
             </Button>
+            <Button color={'red'} disabled>
+              Delete
+            </Button>
           </Form>
         </Card.Content>
       </Card>

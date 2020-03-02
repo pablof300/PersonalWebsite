@@ -18,7 +18,6 @@ public class PersonalWebsiteServiceImpl extends PersonalWebsiteService
     }
 
     public FullWebsiteInfo getWebsiteInfo() {
-        System.out.println(new FullWebsiteInfo(websiteInfoDAO.getBaseWebsiteInfo(), websiteInfoDAO.getProjects()));
         return new FullWebsiteInfo(websiteInfoDAO.getBaseWebsiteInfo(), websiteInfoDAO.getProjects());
     }
 
