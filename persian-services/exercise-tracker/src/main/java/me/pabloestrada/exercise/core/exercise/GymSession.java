@@ -2,11 +2,17 @@ package me.pabloestrada.exercise.core.exercise;
 
 import me.pabloestrada.exercise.core.ExerciseThresholds;
 
+import java.time.LocalDateTime;
+
 public final class GymSession
         extends Exercise {
 
     public GymSession() {
         super(ExerciseType.GYM);
+    }
+
+    public GymSession(final float runningDistanceInMeters, final int durationInMinutes) {
+        super(LocalDateTime.now(), runningDistanceInMeters, durationInMinutes, ExerciseType.GYM);
     }
 
     @Override

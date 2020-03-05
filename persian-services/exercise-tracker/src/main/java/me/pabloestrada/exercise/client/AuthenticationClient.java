@@ -12,4 +12,12 @@ public interface AuthenticationClient {
             @Query("code") String code,
             @Query("grant_type") String grantType
     );
+
+    @POST("/oauth/token")
+    Call<AuthenticationToken> getRefreshAuthenticationToken(
+            @Query("client_id") String clientId,
+            @Query("client_secret") String clientSecret,
+            @Query("refresh_token") String refresh_token,
+            @Query("grant_type") String grantType
+    );
 }

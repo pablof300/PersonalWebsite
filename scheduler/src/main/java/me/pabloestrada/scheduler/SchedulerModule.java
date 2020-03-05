@@ -1,6 +1,7 @@
 package me.pabloestrada.scheduler;
 
 import com.google.inject.AbstractModule;
+import me.pabloestrada.exercise.stravajob.StravaRunTrackerModule;
 import net.halflite.guicequartzsample.config.ConfigModule;
 
 final class SchedulerModule
@@ -9,5 +10,6 @@ final class SchedulerModule
     @Override
     protected void configure() {
         install(new ConfigModule());
+        install(new StravaRunTrackerModule());
     }
 }

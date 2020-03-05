@@ -1,71 +1,64 @@
 package me.pabloestrada.exercise.core.exercise;
 
-import java.util.Date;
+import me.pabloestrada.exercise.core.helpers.MeasurementHelper;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public final class ExerciseSummary {
-    private Date lastTimeOfSummaryUpdate;
-    private int numberOfDaysInStreak;
+    private LocalDate date;
+    private List<StravaRun> stravaRuns;
+    private List<GymSession> gymSessions;
 
-    // Make an object of LastExercise
-    private Date lastTimeExercise;
-    private float distanceRanInMiles;
-    private int durationOfExercise;
-    private ExerciseType typeOfExercise;
-
-    public ExerciseSummary(Date lastTimeOfSummaryUpdate, int numberOfDaysInStreak, Date lastTimeExercise, float distanceRanInMiles, int durationOfExercise, ExerciseType typeOfExercise) {
-        this.lastTimeOfSummaryUpdate = lastTimeOfSummaryUpdate;
-        this.numberOfDaysInStreak = numberOfDaysInStreak;
-        this.lastTimeExercise = lastTimeExercise;
-        this.distanceRanInMiles = distanceRanInMiles;
-        this.durationOfExercise = durationOfExercise;
-        this.typeOfExercise = typeOfExercise;
+    public ExerciseSummary() {
     }
 
-    public Date getLastTimeOfSummaryUpdate() {
-        return lastTimeOfSummaryUpdate;
+    public ExerciseSummary(final LocalDate date) {
+        this.date = date;
+        this.stravaRuns = new ArrayList<StravaRun>();
+        this.gymSessions = new ArrayList<GymSession>();
     }
 
-    public void setLastTimeOfSummaryUpdate(Date lastTimeOfSummaryUpdate) {
-        this.lastTimeOfSummaryUpdate = lastTimeOfSummaryUpdate;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public int getNumberOfDaysInStreak() {
-        return numberOfDaysInStreak;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public void setNumberOfDaysInStreak(int numberOfDaysInStreak) {
-        this.numberOfDaysInStreak = numberOfDaysInStreak;
+    public List<StravaRun> getStravaRuns() {
+        return stravaRuns;
     }
 
-    public Date getLastTimeExercise() {
-        return lastTimeExercise;
+    public void setStravaRuns(List<StravaRun> stravaRuns) {
+        this.stravaRuns = stravaRuns;
     }
 
-    public void setLastTimeExercise(Date lastTimeExercise) {
-        this.lastTimeExercise = lastTimeExercise;
+    public List<GymSession> getGymSessions() {
+        return gymSessions;
     }
 
-    public float getDistanceRanInMiles() {
-        return distanceRanInMiles;
+    public void setGymSessions(List<GymSession> gymSessions) {
+        this.gymSessions = gymSessions;
     }
 
-    public void setDistanceRanInMiles(float distanceRanInMiles) {
-        this.distanceRanInMiles = distanceRanInMiles;
+    public boolean isSuccessfulDay() {
+        return stravaRuns.stream().anyMatch(Exercise::isSuccessfulExercise) || gymSessions.stream().anyMatch(Exercise::isSuccessfulExercise);
     }
 
-    public int getDurationOfExercise() {
-        return durationOfExercise;
+    public float getNumberOfMilesRan() {
+        System.out.println("Number of strava runs are " + stravaRuns.size());
+        System.out.println("And the runs are " + stravaRuns);
+        double numberOfMetersRan = stravaRuns.stream().mapToDouble(Exercise::getRunningDistanceInMeters).sum()
+                + gymSessions.stream().mapToDouble(Exercise::getRunningDistanceInMeters).sum();
+        return MeasurementHelper.convertMetersToMiles(numberOfMetersRan);
     }
 
-    public void setDurationOfExercise(int durationOfExercise) {
-        this.durationOfExercise = durationOfExercise;
-    }
-
-    public ExerciseType getTypeOfExercise() {
-        return typeOfExercise;
-    }
-
-    public void setTypeOfExercise(ExerciseType typeOfExercise) {
-        this.typeOfExercise = typeOfExercise;
+    public int getNumberOfMinutesInGym() {
+        return gymSessions
+                .stream()
+                .mapToInt(Exercise::getDurationInMinutes).sum();
     }
 }

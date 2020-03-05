@@ -3,7 +3,7 @@ package me.pabloestrada.exercise.core.exercise;
 import com.google.gson.annotations.SerializedName;
 import org.bson.types.ObjectId;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 // TODO:
 // Research more about Jackson serialization
@@ -11,8 +11,8 @@ import java.util.Date;
 
 public abstract class Exercise {
 
-    @SerializedName("start_date")
-    private Date startDate;
+    @SerializedName("start_date_local")
+    private LocalDateTime startDate;
 
     @SerializedName("mongo_id")
     private ObjectId id;
@@ -29,13 +29,20 @@ public abstract class Exercise {
         this.typeOfExercise = typeOfExercise;
     }
 
+    Exercise(final LocalDateTime startDate, final float runningDistanceInMeters, final int durationInMinutes, final ExerciseType typeOfExercise) {
+        this(typeOfExercise);
+        this.startDate = startDate;
+        this.runningDistanceInMeters = runningDistanceInMeters;
+        this.durationInMinutes = durationInMinutes;
+    }
+
     public abstract void establishSuccessfulStatus();
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 

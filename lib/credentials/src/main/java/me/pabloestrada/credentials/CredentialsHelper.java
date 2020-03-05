@@ -10,16 +10,17 @@ import java.util.stream.Stream;
 
 public final class CredentialsHelper {
 
-    private static final String CREDENTIALS_PATH = "/Users/pabloestrada/Desktop/PersonalWebsite/.credentials";
-
+    private final String credentialsPath;
     private Map<String, String> entityToCredential;
 
     // TODO:
     // Encrypt credentials
-    // Get rid of absolute path
     public CredentialsHelper() {
         this.entityToCredential = new HashMap<>();
-        try (Stream<String> stream = Files.lines(Paths.get(CREDENTIALS_PATH))) {
+        final File serviceFolderPath = new File(
+                CredentialsHelper.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile().getParentFile();
+        this.credentialsPath = serviceFolderPath.getAbsolutePath() + "/.credentials";
+        try (Stream<String> stream = Files.lines(Paths.get(credentialsPath))) {
             stream.forEach(line -> {
                 final int delimiter = line.indexOf('=');
                 if (line.length() > 3 && delimiter != -1)
@@ -31,6 +32,45 @@ public final class CredentialsHelper {
     }
 
     public Optional<String> getCredential(final String entity) {
+        if (!entityToCredential.containsKey(entity)) {
+            return Optional.empty();
+        }
         return Optional.of(entityToCredential.get(entity));
+    }
+
+    public void putCredential(final String entity, final String credential) {
+        entityToCredential.put(entity, credential);
+        replaceSelected(entity, credential);
+    }
+
+    private void replaceSelected(String entity, String credential) {
+        try {
+            final BufferedReader file = new BufferedReader(new FileReader(credentialsPath));
+            final StringBuffer inputBuffer = new StringBuffer();
+            boolean foundEntity = false;
+            String line;
+
+            while ((line = file.readLine()) != null) {
+                if (line.contains(entity)) {
+                    line = entity + "=" + credential;
+                    foundEntity = true;
+                }
+                inputBuffer.append(line);
+                inputBuffer.append('\n');
+            }
+
+            if (!foundEntity) {
+                inputBuffer.append(entity + "=" + credential);
+                inputBuffer.append('\n');
+            }
+
+            file.close();
+            final FileOutputStream fileOut = new FileOutputStream(credentialsPath);
+            fileOut.write(inputBuffer.toString().getBytes());
+            fileOut.close();
+
+        } catch (final Exception e) {
+            System.out.println("Problem reading file.");
+        }
     }
 }

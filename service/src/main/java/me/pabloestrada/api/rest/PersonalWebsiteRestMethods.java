@@ -81,7 +81,7 @@ public final class PersonalWebsiteRestMethods {
                                  @Context final HttpServletResponse response)
     {
         return responseAuthenticator.authenticateAndCatchErrors(
-                () -> delegate.addProjectInfo(name, type, description, funFact, url, imagePath, year).toString(), name, response);
+                name, response, () -> delegate.addProjectInfo(name, type, description, funFact, url, imagePath, year).toString());
     }
 }
 

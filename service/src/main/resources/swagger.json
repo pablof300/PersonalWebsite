@@ -59,19 +59,145 @@
         }
       }
     },
-    "/exercise/dev" : {
+    "/exercise/exercise-summary" : {
       "get" : {
         "tags" : [ "exercise" ],
-        "summary" : "Getting developer name",
+        "summary" : "Getting exercise summary",
         "description" : "",
-        "operationId" : "getDeveloperName",
-        "parameters" : [ ],
+        "operationId" : "getExerciseSummary",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ExerciseSummaryDTO"
+            }
+          }
+        }
+      }
+    },
+    "/exercise/gym-session" : {
+      "post" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Add gym session",
+        "description" : "",
+        "operationId" : "addGymSession",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "runningDistanceInMiles",
+          "in" : "query",
+          "required" : false,
+          "type" : "number",
+          "format" : "float"
+        }, {
+          "name" : "durationInMinutes",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/exercise/strava" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Get authorization code for Strava auth",
+        "description" : "",
+        "operationId" : "getStravaCode",
+        "parameters" : [ {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
         "responses" : {
           "200" : {
             "description" : "successful operation",
             "schema" : {
               "type" : "string"
             }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "exercise" ],
+        "summary" : "add strava code",
+        "description" : "",
+        "operationId" : "addStravaCode",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/exercise/strava-status" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "getStravaStatus",
+        "description" : "",
+        "operationId" : "getStravaStatus",
+        "parameters" : [ {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "exercise" ],
+        "summary" : "setStravaStatus",
+        "description" : "",
+        "operationId" : "setStravaStatus",
+        "parameters" : [ {
+          "name" : "status",
+          "in" : "query",
+          "required" : false,
+          "type" : "boolean"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
           }
         }
       }
@@ -266,6 +392,23 @@
     }
   },
   "definitions" : {
+    "ExerciseSummaryDTO" : {
+      "type" : "object",
+      "properties" : {
+        "lengthOfStreakInDays" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "milesRanToday" : {
+          "type" : "number",
+          "format" : "float"
+        },
+        "numberOfMinutesInGym" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      }
+    },
     "FullWebsiteInfo" : {
       "type" : "object",
       "required" : [ "firstParagraphOfAboutMe", "id", "listOfFrameworks", "listOfLanguages", "listOfTechnicalLanguages", "listOfTools", "projectInfoList", "resumePath", "secondParagraphOfAboutMe" ],

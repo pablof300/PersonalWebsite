@@ -17,16 +17,24 @@ public final class ResponseAuthenticator {
         this.authenticator = userAuthenticator;
     }
 
-    public <T> T authenticateAndCatchErrors(final Supplier<T> data, final String token, final HttpServletResponse response) {
-        return authenticate(token, response) ? data.get() : null;
+    public <T> T authenticateAndCatchErrors(final String token, final HttpServletResponse response, final Supplier<T> data) {
+        if (!authenticate(token, response)) {
+            return null;
+        }
+        final T responseData = data.get();
+        if (responseData == null) {
+            sendError(Response.Status.BAD_REQUEST, "Could not find any result for this request", response);
+            return null;
+        }
+        return responseData;
     }
 
-    public boolean authenticate(final String token, final HttpServletResponse response) {
+    private boolean authenticate(final String token, final HttpServletResponse response) {
         if (token == null) {
             sendError(Response.Status.BAD_REQUEST, "Invalid parameters (missing token)", response);
             return false;
         }
-        if (!authenticator.verifyJWT(token).isPresent()) {
+        if (authenticator.verifyJWT(token).isEmpty()) {
             sendError(Response.Status.UNAUTHORIZED, "Invalid token", response);
             return false;
         }

@@ -2,8 +2,13 @@ package me.pabloestrada.scheduler;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import me.pabloestrada.credentials.CredentialsHelper;
+import me.pabloestrada.exercise.client.StravaClient;
+import me.pabloestrada.exercise.stravajob.StravaRunTrackerJob;
+import me.pabloestrada.exercise.stravajob.StravaRunTrackerModule;
 import net.halflite.guicequartzsample.scheduler.Quartz;
 import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
@@ -17,20 +22,19 @@ public final class SchedulerApplication {
 
         try {
             scheduler.start();
-//            JobDetail jobDetail = newJob(Cat.class)
-//                    .withIdentity("job1", "group1")
-//                    .build();
-//
-//            // Trigger the job to run at what time and frequency
-//            Trigger trigger = newTrigger()
-//                    .withIdentity("trigger1", "group 1")
-//                    .startNow()
-//                    .withSchedule(simpleSchedule().withIntervalInMilliseconds(1000L).repeatForever())
-//                    .build();
-//
-//            // tell scheduler to schedule the job using the trigger
-//            scheduler.scheduleJob(jobDetail, trigger);
+            final JobDetail stravaRunTrackerJob = newJob(StravaRunTrackerJob.class)
+                    .withIdentity("stravaRunTrackerJob", "exercise")
+                    .build();
 
+            // Trigger the job to run at what time and frequency
+            final Trigger stravaRunTrackerJobTrigger = newTrigger()
+                    .withIdentity("stravaRunTrackerTrigger", "exercise")
+                    .startNow()
+                    .withSchedule(simpleSchedule().withIntervalInMinutes(1).repeatForever())
+                    .build();
+
+            // tell scheduler to schedule the job using the trigger
+            scheduler.scheduleJob(stravaRunTrackerJob, stravaRunTrackerJobTrigger);
         } catch (final SchedulerException e) {
             e.printStackTrace();
         }

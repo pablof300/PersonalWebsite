@@ -4,6 +4,9 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import me.pabloestrada.exercise.client.StravaClient;
 import me.pabloestrada.exercise.core.exercise.ExerciseSummary;
 import me.pabloestrada.exercise.core.exercise.Exercise;
 import me.pabloestrada.exercise.core.exercise.GymSession;
@@ -12,11 +15,13 @@ import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.conversions.Bson;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+
 
 // TODO:
 // Generalize DAO classes for Mongo (lib class)
@@ -25,14 +30,12 @@ import java.util.stream.StreamSupport;
 public class ExerciseDAO {
     private final static String DATABASE_NAME = "persian";
 
-    private final static String RUNS_COLLECTION_NAME = "runs";
+    private final static String RUNS_COLLECTION_NAME = "run_sessions";
     private final static String GYM_SESSIONS_COLLECTION_NAME = "gym_sessions";
-    private final static String UNPROCESSED_GYM_SESSION_COLLECTION_NAME = "unprocessed_gym_sessions";
     private final static String EXERCISE_SUMMARY_COLLECTION_NAME = "exercise_summary";
 
-    private final MongoCollection<Exercise> runsCollection;
+    private final MongoCollection<StravaRun> runsCollection;
     private final MongoCollection<GymSession> gymSessionsCollection;
-    private final MongoCollection<GymSession> unprocessedGymSessionsCollection;
     private final MongoCollection<ExerciseSummary> exerciseSummaryCollection;
 
     public ExerciseDAO() {
@@ -43,83 +46,46 @@ public class ExerciseDAO {
                 .codecRegistry(userCodecRegistry)
                 .build();
         final MongoDatabase database = MongoClients.create(settings).getDatabase(DATABASE_NAME);
-        runsCollection = database.getCollection(RUNS_COLLECTION_NAME, Exercise.class);
+        runsCollection = database.getCollection(RUNS_COLLECTION_NAME, StravaRun.class);
         gymSessionsCollection = database.getCollection(GYM_SESSIONS_COLLECTION_NAME, GymSession.class);
-        unprocessedGymSessionsCollection = database.getCollection(UNPROCESSED_GYM_SESSION_COLLECTION_NAME, GymSession.class);
         exerciseSummaryCollection = database.getCollection(EXERCISE_SUMMARY_COLLECTION_NAME, ExerciseSummary.class);
     }
 
     // Strava Runs
-
     private boolean containsStravaRun(final StravaRun stravaRun) {
         final Document runDocument = new Document();
         runDocument.put("stravaId", stravaRun.getStravaId());
         return runsCollection.find(runDocument).first() != null;
     }
 
-    public List<Exercise> getAllRuns() {
-        return StreamSupport
-                .stream(runsCollection.find().spliterator(), false)
-                .collect(Collectors.toList());
-    }
-
     public void insertManyStravaRuns(final List<StravaRun> runs) {
-       runs.forEach(run -> {
+        runs.forEach(run -> {
            if (!containsStravaRun(run)) {
                run.establishSuccessfulStatus();
                runsCollection.insertOne(run);
+               updateExerciseToSummary(run.getStartDate().toLocalDate(), Updates.push("stravaRuns", run));
            }
-       });
+        });
     }
 
     // Exercise Summary
-
-    public void updateExerciseSummary(final ExerciseSummary exerciseSummary) {
-        if (exerciseSummaryCollection.countDocuments() == 0) {
-            exerciseSummaryCollection.insertOne(exerciseSummary);
-        } else {
-            final Document updatedExerciseSummaryData = new Document();
-            updatedExerciseSummaryData.put("lastTimeOfSummaryUpdate", exerciseSummary.getLastTimeOfSummaryUpdate());
-            updatedExerciseSummaryData.put("lastTimeExercise", exerciseSummary.getLastTimeExercise());
-            updatedExerciseSummaryData.put("numberOfDaysInStreak", exerciseSummary.getNumberOfDaysInStreak());
-            updatedExerciseSummaryData.put("milesRanToday", exerciseSummary.getDistanceRanInMiles());
-
-            exerciseSummaryCollection.findOneAndUpdate(new Document(), updatedExerciseSummaryData);
+    public void updateExerciseToSummary(final LocalDate date, Bson update) {
+        final Bson findQuery = Filters.eq("date", date);
+        if (exerciseSummaryCollection.find(findQuery).first() == null) {
+            exerciseSummaryCollection.insertOne(new ExerciseSummary(date));
         }
+        exerciseSummaryCollection.updateOne(findQuery, update);
     }
 
-    public Optional<ExerciseSummary> getExerciseSummary() {
-        final ExerciseSummary exerciseSummary = exerciseSummaryCollection.find().first();
-        if (exerciseSummary != null) {
-            return Optional.of(exerciseSummary);
-        }
-        return Optional.empty();
-    }
-
-    public boolean isExerciseSummaryCollectionEmpty() {
-        return exerciseSummaryCollection.countDocuments() == 0;
+    public Optional<ExerciseSummary> getExerciseSummary(final LocalDate date) {
+        final ExerciseSummary exerciseSummary = exerciseSummaryCollection.find(Filters.eq("date", date)).first();
+        return exerciseSummary == null ? Optional.empty() : Optional.of(exerciseSummary);
     }
 
     // Gym exercise
-
-    public List<GymSession> getAllGymExercise() {
-        return StreamSupport
-                .stream(gymSessionsCollection.find().spliterator(), false)
-                .collect(Collectors.toList());
+    public void insertGymExercise(final float runningDistanceInMeters, final int durationInMinutes) {
+        final GymSession gymExercise = new GymSession(runningDistanceInMeters, durationInMinutes);
+        gymSessionsCollection.insertOne(gymExercise);
+        updateExerciseToSummary(gymExercise.getStartDate().toLocalDate(), Updates.push("gymSessions", gymExercise));
     }
-
-
-//    public void convertAllUnprocessedRuns(final List<Exercise> unprocessedExercises) {
-//        if (unprocessedExercises.isEmpty()) {
-//            return;
-//        }
-//        runsCollection.insertMany(unprocessedExercises);
-//        unprocessedRunsCollection.deleteMany(new Document());
-//    }
-//
-//    public List<Exercise> getAllUnprocessedRuns() {
-//        return StreamSupport
-//                .stream(unprocessedRunsCollection.find().spliterator(), false)
-//                .collect(Collectors.toList());
-//    }
 }

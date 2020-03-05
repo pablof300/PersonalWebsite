@@ -16,12 +16,14 @@ public final class UserAuthenticator
     private final static String issuer = "https://pabloestrada.me/";
 
     private final UserDAO userDAO;
-    private final String key;
+    private final String jwtKey;
+    private final String persianServiceToken;
 
     @Inject
     public UserAuthenticator(final UserDAO userDAO, final CredentialsHelper credentialsHelper) {
         this.userDAO = userDAO;
-        key = credentialsHelper.getCredential("jwt_signing_key").orElse("");
+        this.persianServiceToken = credentialsHelper.getCredential("persian_service_token").orElseThrow();
+        jwtKey = credentialsHelper.getCredential("jwt_signing_key").orElseThrow();
     }
 
     public Optional<String> signJWT(final String username, final String password) {
@@ -33,14 +35,18 @@ public final class UserAuthenticator
                 .setIssuer(issuer)
                 .setSubject(username)
                 .setExpiration(asDate(LocalDate.now().plusDays(EXPIRATION_TIME_IN_DAYS)))
-                .signWith(SignatureAlgorithm.HS256, key)
+                .signWith(SignatureAlgorithm.HS256, jwtKey)
                 .compact());
     }
 
     public Optional<String> verifyJWT(final String jwt) {
+        if (jwt.equals(persianServiceToken)) {
+            System.out.println("Authenticated persian service");
+            return Optional.of("Persian Application");
+        }
         try {
             final String username = Jwts.parser()
-                    .setSigningKey(key)
+                    .setSigningKey(jwtKey)
                     .parseClaimsJws(jwt)
                     .getBody()
                     .getSubject();

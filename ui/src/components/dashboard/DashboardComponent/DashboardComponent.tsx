@@ -2,6 +2,7 @@ import React from "react"
 import Cookies from "js-cookie"
 import styles from "./DashboardComponent.module.css"
 import { AuthApi } from "../../../api/index"
+import { ExerciseApi } from "../../../api/index"
 import { Redirect } from "react-router-dom"
 import { PWServiceComponent } from "../services/personal-website/PWServiceComponent/index"
 import {
@@ -19,6 +20,7 @@ interface State {
 
 export class DashboardComponent extends React.Component<{}, State> {
   private authApi: AuthApi = new AuthApi()
+  private exerciseApi: ExerciseApi = new ExerciseApi()
 
   constructor(props: {}) {
     super(props)
@@ -44,6 +46,8 @@ export class DashboardComponent extends React.Component<{}, State> {
       console.log("No JWT token available")
       this.setState({ authenticated: false, loading: false })
     }
+
+    this.exerciseApi.getExerciseSummary({bearerAuth: token}).then(e => console.log(e))
   }
 
   render() {

@@ -6,7 +6,6 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.UpdateOptions;
 import me.pabloestrada.core.Database;
 import me.pabloestrada.core.personalwebsite.websiteinfo.BaseWebsiteInfo;
 import me.pabloestrada.core.personalwebsite.projects.ProjectInfo;
