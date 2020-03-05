@@ -7,7 +7,7 @@
             value="logs/" />
     <property
             name="ROOT_LEVEL"
-            value="TRACE" />
+            value="INFO" />
     <timestamp
             key="byDate"
             datePattern="yyyyMMdd" />

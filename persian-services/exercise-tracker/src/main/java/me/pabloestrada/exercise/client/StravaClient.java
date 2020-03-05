@@ -23,7 +23,7 @@ public final class StravaClient {
     // TODO:
     // Create lib for all these consts
     private static final String AUTH_GRANT_TYPE = "authorization_code";
-    private static final String REFRESH_GRANT_TYPE = "authorization_code";
+    private static final String REFRESH_GRANT_TYPE = "refresh_token";
     private static final String REFRESH_TOKEN = "strava_refresh_token";
     private static final String ACCESS_TOKEN = "strava_access_token";
     private static final String INVALID_KEY = "";
@@ -150,7 +150,7 @@ public final class StravaClient {
     private Optional<AuthenticationToken> getAuthenticationToken(final String code) {
         try {
             return Optional.ofNullable(authenticationClient
-                    .getAuthenticationToken(clientId, clientSecret, code, REFRESH_GRANT_TYPE)
+                    .getAuthenticationToken(clientId, clientSecret, code, AUTH_GRANT_TYPE)
                     .execute()
                     .body());
         } catch (IOException e) {

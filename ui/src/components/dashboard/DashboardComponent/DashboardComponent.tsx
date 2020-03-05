@@ -12,6 +12,7 @@ import {
   Container,
   Divider
 } from "semantic-ui-react"
+import {ETServiceComponent} from "../services/exercise-tracker/ETServiceComponent";
 
 interface State {
   authenticated: boolean
@@ -67,6 +68,7 @@ export class DashboardComponent extends React.Component<{}, State> {
         <Divider />
           <Grid padded stackable className={styles.Grid} columns={4}>
             <PWServiceComponent />
+            <ETServiceComponent />
           </Grid>
         </Container>
       </>

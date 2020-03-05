@@ -2,6 +2,7 @@ import React from "react"
 import styles from "./PWServiceComponent.module.css"
 import { PWServiceModalComponent } from "../PWServiceModalComponent/index"
 import { Grid, Icon, Image, Card, Accordion } from "semantic-ui-react"
+import logo from '../../../../../assets/images/personal-website-service.png'
 
 interface State {
   activeIndex: number
@@ -32,7 +33,7 @@ export class PWServiceComponent extends React.Component<
             <Image
               floated="right"
               size="mini"
-              src="https://react.semantic-ui.com/images/avatar/large/steve.jpg"
+              src={logo}
             />
             <Card.Header>Personal Website</Card.Header>
             <Card.Meta>status: online</Card.Meta>

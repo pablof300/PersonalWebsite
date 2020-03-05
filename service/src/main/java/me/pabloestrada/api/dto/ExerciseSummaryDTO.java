@@ -1,5 +1,7 @@
 package me.pabloestrada.api.dto;
 
+import java.text.DecimalFormat;
+
 public class ExerciseSummaryDTO {
     public int lengthOfStreakInDays;
     public float milesRanToday;
@@ -7,7 +9,7 @@ public class ExerciseSummaryDTO {
 
     public ExerciseSummaryDTO(int lengthOfStreakInDays, float milesRanToday, int numberOfMinutesInGym) {
         this.lengthOfStreakInDays = lengthOfStreakInDays;
-        this.milesRanToday = milesRanToday;
+        this.milesRanToday = Float.parseFloat(new DecimalFormat("#.#").format(milesRanToday));
         this.numberOfMinutesInGym = numberOfMinutesInGym;
     }
 

@@ -15,3 +15,8 @@ scheduler/scheduler.iml
 persian-services/exercise-tracker/target/
 ui/node_modules/*
 lib/credentials/target/*
+service/dependency-reduced-pom.xml
+.idea/
+service/logs
+persian-services/exercise-tracker/logs
+scheduler/dependency-reduced-pom.xml
