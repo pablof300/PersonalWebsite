@@ -3,6 +3,7 @@ package me.pabloestrada;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.jersey.filter.AllowedMethodsFilter;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -27,10 +28,11 @@ public class PersonalWebsiteApplication
     @Override
     public void initialize(final Bootstrap<PersonalWebsiteConfiguration> bootstrap) {
         bootstrap.addBundle(new SwaggerBundle<PersonalWebsiteConfiguration>() {
-            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(PersonalWebsiteConfiguration configuration) {
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(final PersonalWebsiteConfiguration configuration) {
                 return configuration.swaggerBundleConfiguration;
             }
         });
+//        bootstrap.addBundle(new AssetsBundle("/build", "/", "index.html"));
     }
 
     @Override

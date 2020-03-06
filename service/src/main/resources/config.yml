@@ -1,2 +1,5 @@
+server:
+  rootPath: /api
 swagger:
   resourcePackage: me.pabloestrada.api
+  uriPrefix: '/api'

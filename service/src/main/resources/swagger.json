@@ -1,6 +1,7 @@
 {
   "swagger" : "2.0",
   "info" : { },
+  "basePath" : "/api",
   "tags" : [ {
     "name" : "auth"
   }, {
