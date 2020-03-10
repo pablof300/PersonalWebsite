@@ -18,7 +18,7 @@ final class UserDAOTest
     @BeforeAll
     static void setUp(){
         user = new User(BASE_USERNAME, PASSWORD, true);
-        userDAO = new UserDAO();
+        userDAO = new UserDAO(null);
         userDAO.insertUser(user);
     }
 

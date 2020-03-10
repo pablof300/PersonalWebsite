@@ -2,11 +2,12 @@ package me.pabloestrada.core.personalwebsite;
 
 import com.google.gson.Gson;
 import com.google.inject.Inject;
+import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import me.pabloestrada.core.Database;
+import me.pabloestrada.core.DatabaseConstants;
 import me.pabloestrada.core.personalwebsite.websiteinfo.BaseWebsiteInfo;
 import me.pabloestrada.core.personalwebsite.projects.ProjectInfo;
 import org.bson.Document;
@@ -28,17 +29,18 @@ public final class WebsiteInfoDAO
     private final MongoCollection<ProjectInfo> projectInfoCollection;
 
     @Inject
-    public WebsiteInfoDAO(final Gson gson) {
+    public WebsiteInfoDAO(final Gson gson, final ConnectionString connectionString) {
         this.gson = gson;
         final CodecRegistry userCodecRegistry = CodecRegistries.fromRegistries(
                 MongoClientSettings.getDefaultCodecRegistry(),
                 CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         final MongoClientSettings settings = MongoClientSettings.builder()
                 .codecRegistry(userCodecRegistry)
+                .applyConnectionString(connectionString)
                 .build();
-        final MongoDatabase database = MongoClients.create(settings).getDatabase(Database.DATABASE_NAME);
-        baseWebsiteInfoCollection = database.getCollection(Database.BASE_WEBSITE_INFO_COLLECTION_NAME, BaseWebsiteInfo.class);
-        projectInfoCollection = database.getCollection(Database.PROJECT_INFO_COLLECTION_NAME, ProjectInfo.class);
+        final MongoDatabase database = MongoClients.create(settings).getDatabase(DatabaseConstants.DATABASE_NAME);
+        baseWebsiteInfoCollection = database.getCollection(DatabaseConstants.BASE_WEBSITE_INFO_COLLECTION_NAME, BaseWebsiteInfo.class);
+        projectInfoCollection = database.getCollection(DatabaseConstants.PROJECT_INFO_COLLECTION_NAME, ProjectInfo.class);
     }
 
     public BaseWebsiteInfo getBaseWebsiteInfo() {

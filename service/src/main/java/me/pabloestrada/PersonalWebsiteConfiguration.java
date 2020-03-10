@@ -9,4 +9,7 @@ class PersonalWebsiteConfiguration
 {
     @JsonProperty("swagger")
     public SwaggerBundleConfiguration swaggerBundleConfiguration;
+
+    @JsonProperty("databaseURI")
+    public String databaseURI;
 }

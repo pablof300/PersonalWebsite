@@ -3,3 +3,4 @@ server:
 swagger:
   resourcePackage: me.pabloestrada.api
   uriPrefix: '/api'
+databaseURI: 'mongodb://localhost:27017/'

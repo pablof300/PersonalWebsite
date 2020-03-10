@@ -12,6 +12,7 @@ import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import me.pabloestrada.api.rest.AuthenticationServiceRestMethods;
 import me.pabloestrada.api.rest.ExerciseTrackerRestMethods;
 import me.pabloestrada.api.rest.PersonalWebsiteRestMethods;
+import me.pabloestrada.core.DatabaseConstants;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import javax.servlet.DispatcherType;
@@ -27,18 +28,19 @@ public class PersonalWebsiteApplication
 
     @Override
     public void initialize(final Bootstrap<PersonalWebsiteConfiguration> bootstrap) {
-        bootstrap.addBundle(new SwaggerBundle<PersonalWebsiteConfiguration>() {
+        bootstrap.addBundle(new SwaggerBundle<>() {
             protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(final PersonalWebsiteConfiguration configuration) {
                 return configuration.swaggerBundleConfiguration;
             }
         });
-//        bootstrap.addBundle(new AssetsBundle("/build", "/", "index.html"));
     }
 
     @Override
     public void run(final PersonalWebsiteConfiguration configuration, final Environment environment) {
         final FilterRegistration.Dynamic cors = environment.servlets()
                 .addFilter("CORSFilter", CrossOriginFilter.class);
+
+        DatabaseConstants.setMongoConnectionString(configuration.databaseURI);
 
         cors.addMappingForUrlPatterns(
                 EnumSet.allOf(DispatcherType.class), false, environment.getApplicationContext().getContextPath() + "*");

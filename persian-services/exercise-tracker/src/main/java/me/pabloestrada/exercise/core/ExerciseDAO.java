@@ -1,14 +1,14 @@
 package me.pabloestrada.exercise.core;
 
+import com.google.inject.Inject;
+import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
-import me.pabloestrada.exercise.client.StravaClient;
 import me.pabloestrada.exercise.core.exercise.ExerciseSummary;
-import me.pabloestrada.exercise.core.exercise.Exercise;
 import me.pabloestrada.exercise.core.exercise.GymSession;
 import me.pabloestrada.exercise.core.exercise.StravaRun;
 import org.bson.Document;
@@ -18,7 +18,6 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.conversions.Bson;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,12 +37,14 @@ public class ExerciseDAO {
     private final MongoCollection<GymSession> gymSessionsCollection;
     private final MongoCollection<ExerciseSummary> exerciseSummaryCollection;
 
-    public ExerciseDAO() {
+    @Inject
+    public ExerciseDAO(final ConnectionString connectionString) {
         final CodecRegistry userCodecRegistry = CodecRegistries.fromRegistries(
                 MongoClientSettings.getDefaultCodecRegistry(),
                 CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         final MongoClientSettings settings = MongoClientSettings.builder()
                 .codecRegistry(userCodecRegistry)
+                .applyConnectionString(connectionString)
                 .build();
         final MongoDatabase database = MongoClients.create(settings).getDatabase(DATABASE_NAME);
         runsCollection = database.getCollection(RUNS_COLLECTION_NAME, StravaRun.class);

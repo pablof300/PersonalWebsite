@@ -1,9 +1,11 @@
 package me.pabloestrada.core.user;
 
+import com.google.inject.Inject;
+import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import me.pabloestrada.core.Database;
+import me.pabloestrada.core.DatabaseConstants;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.codecs.configuration.CodecRegistries;
@@ -16,16 +18,18 @@ public final class UserDAO
 {
     private final MongoCollection<User> userCollection;
 
-    public UserDAO() {
+    @Inject
+    public UserDAO(final ConnectionString connectionString) {
         final CodecRegistry userCodecRegistry = CodecRegistries.fromRegistries(
                 MongoClientSettings.getDefaultCodecRegistry(),
                 CodecRegistries.fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         final MongoClientSettings settings = MongoClientSettings.builder()
                 .codecRegistry(userCodecRegistry)
+                .applyConnectionString(connectionString)
                 .build();
         userCollection = MongoClients.create(settings)
-                .getDatabase(Database.DATABASE_NAME)
-                .getCollection(Database.USER_COLLECTION_NAME, User.class);
+                .getDatabase(DatabaseConstants.DATABASE_NAME)
+                .getCollection(DatabaseConstants.USER_COLLECTION_NAME, User.class);
     }
 
     public boolean verifyCredentials(final String username, final String password) {
