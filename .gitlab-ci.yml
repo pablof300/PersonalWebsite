@@ -18,9 +18,9 @@ build_stage:
     - mvn clean package -f scheduler
     - sudo npm install --prefix ui/
     - sudo npm run build --prefix ui/
+    - docker-compose build
 
 deploy_stage:
   stage: deploy
   script:
-    - ls
-    - ls ui/
+    - docker-compose up
