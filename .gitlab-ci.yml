@@ -9,8 +9,9 @@ after_script:
 build_stage:
   stage: build
   script:
-    - mvn dependency:purge-local-repository
-    -
+    - rm -rf ~/.m2/repository/me/pabloestrada/
+    # - mvn install -f lib/guice-quartz
+    # - mvn install -f lib/guice-quartz
 
 deploy_stage:
   stage: deploy
