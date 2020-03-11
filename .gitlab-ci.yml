@@ -10,10 +10,17 @@ build_stage:
   stage: build
   script:
     - rm -rf ~/.m2/repository/me/pabloestrada/
-    # - mvn install -f lib/guice-quartz
-    # - mvn install -f lib/guice-quartz
+    - sh lib/credentials/prod_build-persian.sh
+    - sh lib/guice-quartz/prod_build-persian.sh
+    - sh lib/persian-jobs/prod_build-persian.sh
+    - sh persian-services/exercise-tracker/prod_build-persian.sh
+    - mvn clean package -f service
+    - mvn clean package -f scheduler
+    - sudo npm install --prefix ui/
+    - sudo npm run build --prefix ui/
 
 deploy_stage:
   stage: deploy
   script:
-    - echo "Do your deploy here"
+    - ls
+    - ls ui/
