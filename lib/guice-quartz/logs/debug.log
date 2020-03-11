@@ -1,0 +1,534 @@
+time:2020-Jan-02 10:43:51.109 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:43:51.165 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:43:51.171 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:43:51.172 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:43:51.173 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:43:51.174 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:43:51.175 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:43:51.175 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:43:51.175 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@68dc098b
+time:2020-Jan-02 10:43:51.186 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:43:51.202 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:43:51.424 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:43:51.426 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:43:51.428 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:43:51.429 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:43:51.431 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:43:51.432 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:43:51.442 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:43:51.459 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:43:51.460 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:43:51.474 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:43:51.474 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:43:51.475 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:43:51.475 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:43:51.478 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:43:51.479 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 10:44:08.468 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:44:08.488 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:44:08.490 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:44:08.491 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:44:08.492 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:44:08.493 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:44:08.493 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:44:08.494 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:44:08.494 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@f107c50
+time:2020-Jan-02 10:44:08.502 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:44:08.512 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:44:08.752 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:44:08.753 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:44:08.754 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:44:08.755 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:44:08.756 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:44:08.757 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:44:08.758 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:44:08.766 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:44:08.769 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:44:08.784 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:44:08.785 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:44:08.785 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:44:08.786 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:44:08.790 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:44:08.790 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:44:17.162 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:44:17.185 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:44:17.188 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:44:17.205 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:44:17.206 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:44:17.208 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:44:17.211 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:44:17.212 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:44:17.212 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@51133c06
+time:2020-Jan-02 10:44:17.224 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:44:17.240 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:44:17.527 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:44:17.529 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:44:17.530 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:44:17.531 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:44:17.532 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:44:17.536 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:44:17.537 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:44:17.552 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:44:17.553 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:44:17.574 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:44:17.575 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:44:17.579 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:44:17.582 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:44:17.591 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:44:17.587 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:44:25.937 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:44:25.981 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:44:25.998 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:44:26.000 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:44:26.003 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:44:26.004 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:44:26.020 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:44:26.027 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:44:26.035 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@f107c50
+time:2020-Jan-02 10:44:26.062 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:44:26.147 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:44:26.471 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:44:26.472 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:44:26.473 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:44:26.475 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:44:26.478 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:44:26.479 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:44:26.479 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:44:26.487 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:44:26.488 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:44:26.503 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:44:26.504 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:44:26.504 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:44:26.504 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:44:26.507 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:44:26.507 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:44:26.796 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T004426+0900, done.
+time:2020-Jan-02 10:44:33.592 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:44:33.619 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:44:33.623 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:44:33.624 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:44:33.626 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:44:33.627 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:44:33.631 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:44:33.633 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:44:33.635 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@38604b81
+time:2020-Jan-02 10:44:33.643 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:44:33.727 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:44:34.038 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:44:34.041 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:44:34.042 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:44:34.043 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:44:34.045 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:44:34.045 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:44:34.046 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:44:34.057 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:44:34.059 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:44:34.083 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:44:34.084 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:44:34.086 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:44:34.089 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:44:34.091 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:44:34.092 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 10:46:18.909 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:46:18.924 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:46:18.926 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:46:18.927 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:46:18.929 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:46:18.929 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:46:18.930 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:46:18.930 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:46:18.930 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@332796d3
+time:2020-Jan-02 10:46:18.936 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:46:18.944 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:46:19.048 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:46:19.049 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:46:19.050 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:46:19.051 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:46:19.052 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:46:19.053 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:46:19.054 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:46:19.060 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:46:19.062 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:46:19.074 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:46:19.074 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:46:19.075 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:46:19.075 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:46:19.078 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:46:19.078 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:46:19.185 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@5a85c92
+time:2020-Jan-02 10:46:19.185 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:46:19.185 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:46:19.388 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T004619+0900, done.
+time:2020-Jan-02 10:50:23.384 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:50:23.402 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:50:23.403 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:50:23.404 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:50:23.406 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:50:23.407 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:50:23.407 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:50:23.408 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:50:23.408 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@332796d3
+time:2020-Jan-02 10:50:23.416 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:50:23.426 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:50:23.538 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:50:23.539 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:50:23.540 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:50:23.541 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:50:23.543 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:50:23.544 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:50:23.545 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:50:23.555 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:50:23.557 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:50:23.569 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:50:23.570 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:50:23.570 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:50:23.570 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:50:23.574 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:50:23.573 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:50:23.737 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@5a85c92
+time:2020-Jan-02 10:50:23.738 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 10:50:23.738 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:50:23.964 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T005023+0900, done.
+time:2020-Jan-02 10:51:34.526 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 10:51:34.551 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 10:51:34.561 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 10:51:34.565 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 10:51:34.567 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 10:51:34.569 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 10:51:34.571 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 10:51:34.572 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 10:51:34.573 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@1e097d59
+time:2020-Jan-02 10:51:34.589 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 10:51:34.602 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 10:51:34.709 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 10:51:34.711 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 10:51:34.712 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 10:51:34.713 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 10:51:34.714 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 10:51:34.715 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 10:51:34.716 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 10:51:34.722 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 10:51:34.723 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 10:51:34.734 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 10:51:34.735 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 10:51:34.736 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 10:51:34.737 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 10:51:34.741 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 10:51:34.740 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:51:34.848 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@47c4ecdc
+time:2020-Jan-02 10:51:34.850 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 10:51:35.060 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T005135+0900, done.
+time:2020-Jan-02 11:46:54.996 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:46:55.017 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:46:55.019 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:46:55.020 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:46:55.021 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:46:55.022 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:46:55.022 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:46:55.022 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:46:55.022 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@1e097d59
+time:2020-Jan-02 11:46:55.030 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:46:55.040 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:46:55.169 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:46:55.170 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:46:55.171 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:46:55.172 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:46:55.173 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:46:55.174 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:46:55.175 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:46:55.183 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:46:55.184 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:46:55.199 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:46:55.199 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:46:55.200 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:46:55.200 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:46:55.203 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:46:55.205 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 11:46:55.321 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@47c4ecdc
+time:2020-Jan-02 11:46:55.321 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:46:55.535 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T014655+0900, done.
+time:2020-Jan-02 11:47:04.383 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:47:04.409 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:47:04.412 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:47:04.414 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:47:04.416 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:47:04.417 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:47:04.418 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:47:04.419 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:47:04.420 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@1e097d59
+time:2020-Jan-02 11:47:04.428 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:47:04.446 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:47:04.571 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:47:04.574 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:47:04.576 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:47:04.576 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:47:04.577 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:47:04.578 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:47:04.579 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:47:04.588 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:47:04.590 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:47:04.604 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:47:04.605 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:47:04.606 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:47:04.607 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:47:04.615 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 11:47:04.615 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:47:04.755 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@47c4ecdc
+time:2020-Jan-02 11:47:04.755 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 11:47:04.755 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:47:04.988 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T014704+0900, done.
+time:2020-Jan-02 11:47:48.612 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:47:48.650 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:47:48.669 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:47:48.671 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:47:48.684 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:47:48.687 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:47:48.689 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:47:48.689 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:47:48.691 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@1e097d59
+time:2020-Jan-02 11:47:48.706 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:47:48.753 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:47:48.967 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:47:48.969 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:47:48.970 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:47:48.971 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:47:48.972 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:47:48.973 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:47:48.975 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:47:48.983 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:47:48.986 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:47:49.003 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:47:49.007 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:47:49.013 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:47:49.014 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:47:49.019 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 11:47:49.018 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:47:49.150 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@47c4ecdc
+time:2020-Jan-02 11:47:49.151 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:47:49.532 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T014749+0900, done.
+time:2020-Jan-02 11:52:44.253 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:52:44.275 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:52:44.277 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:52:44.278 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:52:44.280 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:52:44.282 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:52:44.284 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:52:44.289 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:52:44.291 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@332796d3
+time:2020-Jan-02 11:52:44.325 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:52:44.379 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:52:44.523 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:52:44.524 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:52:44.526 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:52:44.529 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:52:44.530 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:52:44.532 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:52:44.533 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:52:44.544 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:52:44.545 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:52:44.565 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:52:44.568 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:52:44.589 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:52:44.591 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:52:44.598 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 11:52:44.598 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:52:44.729 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@5a85c92
+time:2020-Jan-02 11:52:44.731 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:52:44.996 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T015244+0900, done.
+time:2020-Jan-02 11:53:00.151 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:53:00.169 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:53:00.171 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:53:00.172 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:53:00.174 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:53:00.176 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:53:00.176 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:53:00.176 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:53:00.177 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@1e097d59
+time:2020-Jan-02 11:53:00.184 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:53:00.195 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:53:00.304 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:53:00.305 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:53:00.306 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:53:00.308 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:53:00.310 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:53:00.311 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:53:00.313 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:53:00.319 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:53:00.320 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:53:00.332 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:53:00.332 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:53:00.332 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:53:00.332 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:53:00.336 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:53:00.336 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 11:53:00.375 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 11:53:00.377 level:DEBUG  thread:QuartzScheduler_Worker-1 logger:org.quartz.core.JobRunShell message:Calling execute on job default_job_group.default_job
+time:2020-Jan-02 11:53:00.474 level:DEBUG  thread:QuartzScheduler_Worker-1 logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T015300+0900, done.
+time:2020-Jan-02 11:53:00.482 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@2e9fda69
+time:2020-Jan-02 11:53:00.482 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 11:53:00.482 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:53:00.639 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T015300+0900, done.
+time:2020-Jan-02 11:54:06.287 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:54:06.307 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:54:06.308 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:54:06.309 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:54:06.311 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:54:06.311 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:54:06.312 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:54:06.312 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:54:06.314 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@332796d3
+time:2020-Jan-02 11:54:06.322 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:54:06.338 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:54:06.500 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:54:06.501 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:54:06.502 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:54:06.503 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:54:06.504 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:54:06.505 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:54:06.507 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:54:06.515 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:54:06.517 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:54:06.533 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:54:06.533 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:54:06.534 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:54:06.535 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:54:06.540 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 11:54:06.540 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:54:06.698 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@5a85c92
+time:2020-Jan-02 11:54:06.699 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 0 triggers
+time:2020-Jan-02 11:54:06.699 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:54:06.996 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T015406+0900, done.
+time:2020-Jan-02 11:54:50.014 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Using default implementation for ThreadExecutor
+time:2020-Jan-02 11:54:50.050 level:INFO  thread:main logger:org.quartz.core.SchedulerSignalerImpl message:Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+time:2020-Jan-02 11:54:50.053 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Quartz Scheduler v.2.2.1 created.
+time:2020-Jan-02 11:54:50.056 level:INFO  thread:main logger:org.quartz.plugins.xml.XMLSchedulingDataProcessorPlugin message:Registering Quartz Job Initialization Plug-in.
+time:2020-Jan-02 11:54:50.065 level:INFO  thread:main logger:org.quartz.simpl.RAMJobStore message:RAMJobStore initialized.
+time:2020-Jan-02 11:54:50.068 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler meta-data: Quartz Scheduler (v2.2.1) 'QuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 5 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+time:2020-Jan-02 11:54:50.070 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler 'QuartzScheduler' initialized from an externally provided properties instance.
+time:2020-Jan-02 11:54:50.081 level:INFO  thread:main logger:org.quartz.impl.StdSchedulerFactory message:Quartz scheduler version: 2.2.1
+time:2020-Jan-02 11:54:50.082 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@1e097d59
+time:2020-Jan-02 11:54:50.106 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Utilizing schema packaged in local quartz distribution jar.
+time:2020-Jan-02 11:54:50.124 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsing XML file: quartz-config.xml with systemId: quartz-config.xml
+time:2020-Jan-02 11:54:50.279 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job group commands.
+time:2020-Jan-02 11:54:50.281 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger group commands.
+time:2020-Jan-02 11:54:50.282 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete job commands.
+time:2020-Jan-02 11:54:50.283 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 0 delete trigger commands.
+time:2020-Jan-02 11:54:50.284 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'overwrite-existing-data' not specified, defaulting to true
+time:2020-Jan-02 11:54:50.285 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Directive 'ignore-duplicates' not specified, defaulting to false
+time:2020-Jan-02 11:54:50.286 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 job definitions.
+time:2020-Jan-02 11:54:50.294 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed job definition: JobDetail 'default_job_group.default_job':  jobClass: 'net.halflite.guicequartzsample.job.DefaultJob concurrentExectionDisallowed: false persistJobDataAfterExecution: false isDurable: false requestsRecovers: false
+time:2020-Jan-02 11:54:50.298 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Found 1 trigger definitions.
+time:2020-Jan-02 11:54:50.310 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Parsed trigger definition: Trigger 'minute_trriger_group.minute_trriger':  triggerClass: 'org.quartz.impl.triggers.CronTriggerImpl calendar: 'null' misfireInstruction: 0 nextFireTime: null
+time:2020-Jan-02 11:54:50.311 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding 1 jobs, 1 triggers.
+time:2020-Jan-02 11:54:50.312 level:INFO  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Adding job: default_job_group.default_job
+time:2020-Jan-02 11:54:50.312 level:DEBUG  thread:main logger:org.quartz.xml.XMLSchedulingDataProcessor message:Scheduling job: default_job_group.default_job with trigger: minute_trriger_group.minute_trriger
+time:2020-Jan-02 11:54:50.318 level:DEBUG  thread:QuartzScheduler_QuartzSchedulerThread logger:org.quartz.core.QuartzSchedulerThread message:batch acquisition of 1 triggers
+time:2020-Jan-02 11:54:50.317 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:54:50.506 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:JobFactory set to: net.halflite.guicequartzsample.scheduler.GuiceJobFactory@47c4ecdc
+time:2020-Jan-02 11:54:50.508 level:INFO  thread:main logger:org.quartz.core.QuartzScheduler message:Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+time:2020-Jan-02 11:54:50.749 level:DEBUG  thread:main logger:net.halflite.guicequartzsample.job.DefaultJob message:20200103T015450+0900, done.
