@@ -9,7 +9,7 @@ after_script:
 build_stage:
   stage: build
   script:
-    - rm -rf ~/.m2/repository/me/pabloestrada/
+    - sudo rm -rf ~/.m2/repository/me/pabloestrada/
     - sh lib/credentials/prod_build-persian.sh
     - sh lib/guice-quartz/prod_build-persian.sh
     - sh lib/persian-jobs/prod_build-persian.sh
