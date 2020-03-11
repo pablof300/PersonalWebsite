@@ -1,0 +1,35 @@
+version: '3'
+services:
+  rest:
+    build: './service/'
+    ports:
+      - 8080:8080
+    networks:
+      - persian_net
+    volumes:
+      - persian_volume:/data
+  scheduler:
+    build: './scheduler/'
+    networks:
+      - persian_net
+  ui:
+    build: './ui/'
+    ports:
+      - 5000:5000
+  database:
+    image: 'mongo:latest'
+    container_name: 'database'
+    networks:
+      - persian_net
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=persian_admin
+      - MONGO_INITDB_ROOT_PASSWORD=123456
+    ports:
+      - 27017:27017
+    volumes:
+      - persian_volume:/data
+volumes:
+  persian_volume:
+networks:
+  persian_net:
+    driver: bridge
