@@ -24,4 +24,5 @@ build_stage:
 deploy_stage:
   stage: deploy
   script:
+    - echo "DOGS are raining"
     # - docker-compose up
