@@ -9,17 +9,18 @@ after_script:
 build_stage:
   stage: build
   script:
-    - echo "JWT_SIGNING_KEY=${JWT_SIGNING_KEY}"
-    # - sudo rm -rf ~/.m2/repository/me/pabloestrada/
-    # - sh lib/credentials/prod_build-persian.sh
-    # - sh lib/guice-quartz/prod_build-persian.sh
-    # - sh lib/persian-jobs/prod_build-persian.sh
-    # - sh persian-services/exercise-tracker/prod_build-persian.sh
-    # - mvn clean package -f service
-    # - mvn clean package -f scheduler
-    # - sudo npm install --prefix ui/
-    # - sudo npm run build --prefix ui/
-    # - sudo docker-compose build
+    - sudo echo $'jwt_signing_key=${JWT_SIGNING_KEY}\npersian_service_token={PERSIAN_SERVICE_TOKEN}' > service/.credentials
+    - sudo echo $'strava_client_id=${STRAVA_CLIENT_ID}\nstrava_client_secret={STRAVA_CLIENT_SECRET}\nstrava_access_token={STRAVA_ACCESS_TOKEN}\nstrava_refresh_token={STRAVA_REFRESH_TOKEN}' > scheduler/.credentials
+    - sudo rm -rf ~/.m2/repository/me/pabloestrada/
+    - sh lib/credentials/prod_build-persian.sh
+    - sh lib/guice-quartz/prod_build-persian.sh
+    - sh lib/persian-jobs/prod_build-persian.sh
+    - sh persian-services/exercise-tracker/prod_build-persian.sh
+    - mvn clean package -f service
+    - mvn clean package -f scheduler
+    - sudo npm install --prefix ui/
+    - sudo npm run build --prefix ui/
+    - sudo docker-compose build
 
 deploy_stage:
   stage: deploy
