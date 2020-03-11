@@ -9,18 +9,19 @@ after_script:
 build_stage:
   stage: build
   script:
-    - sudo rm -rf ~/.m2/repository/me/pabloestrada/
-    - sh lib/credentials/prod_build-persian.sh
-    - sh lib/guice-quartz/prod_build-persian.sh
-    - sh lib/persian-jobs/prod_build-persian.sh
-    - sh persian-services/exercise-tracker/prod_build-persian.sh
-    - mvn clean package -f service
-    - mvn clean package -f scheduler
-    - sudo npm install --prefix ui/
-    - sudo npm run build --prefix ui/
-    - docker-compose build
+    - echo "CATs are raining"
+    # - sudo rm -rf ~/.m2/repository/me/pabloestrada/
+    # - sh lib/credentials/prod_build-persian.sh
+    # - sh lib/guice-quartz/prod_build-persian.sh
+    # - sh lib/persian-jobs/prod_build-persian.sh
+    # - sh persian-services/exercise-tracker/prod_build-persian.sh
+    # - mvn clean package -f service
+    # - mvn clean package -f scheduler
+    # - sudo npm install --prefix ui/
+    # - sudo npm run build --prefix ui/
+    # - docker-compose build
 
 deploy_stage:
   stage: deploy
   script:
-    - docker-compose up
+    # - docker-compose up
