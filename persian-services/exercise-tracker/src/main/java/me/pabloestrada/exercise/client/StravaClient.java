@@ -78,6 +78,7 @@ public final class StravaClient {
 
     private String getPersianConnectionString() {
         final Optional<String> rawConnectionString = Optional.ofNullable(System.getProperty("persianRestHost"));
+        System.out.println("\n\n\n\n Connecting TO ### " + "http://" + rawConnectionString.orElse(EXERCISE_API_DEV_HOST) + ":8080/" + "\n\n\n\n");
         return "http://" + rawConnectionString.orElse(EXERCISE_API_DEV_HOST) + ":8080/";
     }
 
