@@ -6,6 +6,14 @@ before_script:
 after_script:
   - echo "(!) Successfully ran process"
 
+build_ui:
+  stage: build
+  script:
+    - sudo npm install --prefix ui/
+    - sudo npm run build --prefix ui/
+    - sudo docker build -t persian_ui:latest ui/
+
+
 build_stage:
   stage: build
   script:
@@ -18,9 +26,8 @@ build_stage:
     - sh persian-services/exercise-tracker/prod_build-persian.sh
     - mvn clean package -f service
     - mvn clean package -f scheduler
-    - sudo npm install --prefix ui/
-    - sudo npm run build --prefix ui/
-    - sudo docker-compose build
+    - sudo docker build -t persian_rest:latest service/
+    - sudo docker build -t persian_scheduler:latest scheduler/
 
 deploy_stage:
   stage: deploy

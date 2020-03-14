@@ -1,7 +1,9 @@
 version: '3'
 services:
   rest:
-    build: './service/'
+    build:
+      context: './service/'
+    image: persian_rest:latest
     ports:
       - 8080:8080
     networks:
@@ -9,16 +11,20 @@ services:
     volumes:
       - persian_volume:/data
   scheduler:
-    build: './scheduler/'
+    build:
+      context: './scheduler/'
+    image: persian_scheduler:latest
     networks:
       - persian_net
   ui:
-    build: './ui/'
+    build:
+      context: './ui/'
+    image: persian_ui:latest
     ports:
       - 5000:5000
   database:
     image: 'mongo:latest'
-    container_name: 'database'
+    container_name: 'persian_database'
     networks:
       - persian_net
     environment:
