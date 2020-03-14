@@ -13,7 +13,6 @@ build_ui:
     - sudo npm run build --prefix ui/
     - sudo docker build -t persian_ui:latest ui/
 
-
 build_stage:
   stage: build
   script:
@@ -32,4 +31,5 @@ build_stage:
 deploy_stage:
   stage: deploy
   script:
+    - sudo docker ps -aq | sudo xargs docker rm -f
     - sudo docker-compose up -d
