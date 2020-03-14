@@ -18,7 +18,7 @@ import java.util.Optional;
 
 public final class StravaClient {
     private static final String STRAVA_API_BASE_URL = "https://www.strava.com/";
-    private static final String EXERCISE_API_BASE_URL = "http://localhost:8080/";
+    private static final String EXERCISE_API_DEV_HOST = "localhost";
 
     // TODO:
     // Create lib for all these consts
@@ -53,7 +53,7 @@ public final class StravaClient {
     }
 
     private Retrofit getExerciseTrackerRetrofitBuilder(final OkHttpClient.Builder httpClient) {
-        return getRetrofitBuilder(httpClient, EXERCISE_API_BASE_URL, ScalarsConverterFactory.create());
+        return getRetrofitBuilder(httpClient, getPersianConnectionString(), ScalarsConverterFactory.create());
 
     }
 
@@ -74,6 +74,11 @@ public final class StravaClient {
                 .addConverterFactory(converterFactory)
                 .client(httpClient.build())
                 .build();
+    }
+
+    private String getPersianConnectionString() {
+        final Optional<String> rawConnectionString = Optional.ofNullable(System.getProperty("persianRestHost"));
+        return "http://" + rawConnectionString.orElse(EXERCISE_API_DEV_HOST) + ":8080/";
     }
 
     private Optional<String> getAccessToken() {
