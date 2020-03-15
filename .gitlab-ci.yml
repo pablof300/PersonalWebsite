@@ -32,5 +32,8 @@ build_stage:
 deploy_stage:
   stage: deploy
   script:
-    - sudo docker ps -aq | sudo xargs docker rm -f
+    - sudo docker ps -q --filter "name=persian_rest" | grep -q . && sudo docker stop persian_rest && sudo docker rm -fv persian_rest
+    - sudo docker ps -q --filter "name=persian_ui" | grep -q . && sudo docker stop persian_ui && sudo docker rm -fv persian_ui
+    - sudo docker ps -q --filter "name=persian_scheduler" | grep -q . && sudo docker stop persian_scheduler && sudo docker rm -fv persian_scheduler
+    - sudo docker ps -q --filter "name=persian_database" | grep -q . && sudo docker stop persian_database && sudo docker rm -fv persian_database
     - sudo docker-compose up -d

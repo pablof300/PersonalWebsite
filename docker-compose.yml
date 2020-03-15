@@ -4,6 +4,7 @@ services:
     build:
       context: './service/'
     image: persian_rest:latest
+    container_name: persian_rest
     ports:
       - 8080:8080
     networks:
@@ -14,12 +15,14 @@ services:
     build:
       context: './scheduler/'
     image: persian_scheduler:latest
+    container_name: persian_scheduler
     networks:
       - persian_net
   ui:
     build:
       context: './ui/'
     image: persian_ui:latest
+    container_name: persian_ui
     ports:
       - 5000:5000
   database:
