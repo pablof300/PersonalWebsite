@@ -33,7 +33,7 @@ export class ProjectComponent extends React.Component<Props, ProjectInfo> {
   render() {
     const newProject: boolean = this.isNewProject()
     return (
-      <Card>
+      <Card centered>
         <Label color={newProject ? "green" : "blue"}>
           {newProject ? "new project" : "existing project"}
         </Label>

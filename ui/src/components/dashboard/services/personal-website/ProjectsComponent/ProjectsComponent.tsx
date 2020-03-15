@@ -33,7 +33,9 @@ export class ProjectsComponent extends React.Component<Props, State> {
 
   addNewProject() {
     let currentProjects = this.state.projects
-    if (this.isNewProject(currentProjects[currentProjects.length - 1])) {
+
+    if (currentProjects[currentProjects.length - 1] != undefined &&
+       this.isNewProject(currentProjects[currentProjects.length - 1])) {
       return
     }
     currentProjects.push({
@@ -51,14 +53,14 @@ export class ProjectsComponent extends React.Component<Props, State> {
 
   async sendProjectData(projectData: ProjectInfo): Promise<string> {
     const requestData = {
-      bearerAuth: Cookies.get("jwt"),
       name: projectData.name,
       type: projectData.type,
       description: projectData.description,
       funFact: projectData.funFact,
       url: projectData.url,
       imagePath: projectData.imagePath,
-      year: projectData.year
+      year: projectData.year,
+      bearerAuth: Cookies.get("jwt"),
     }
     if (this.isNewProject(projectData)) {
       return this.props.personalWebsiteApi
@@ -105,17 +107,15 @@ export class ProjectsComponent extends React.Component<Props, State> {
                 Projects
               </Header>
             </Grid.Row>
-            <Grid.Row>
+            <Grid.Row centered>
               <Card.Content className={styles.Padded}>
-                <Card.Group centered fluid itemsPerRow={5}>
+                <Card.Group centered={true} fluid itemsPerRow={Math.min(this.state.projects.length, 5).toString() as '1' | '2' | '3' | '4' | '5'}>
                   {this.state.projects.map(projectData => {
                     return (
-                      <Card>
                         <ProjectComponent
                           projectData={projectData}
                           sendProjectData={this.sendProjectData}
                         />
-                      </Card>
                     )
                   })}
                 </Card.Group>
