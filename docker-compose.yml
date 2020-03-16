@@ -9,8 +9,6 @@ services:
       - 8080:8080
     networks:
       - persian_net
-    volumes:
-      - persian_volume:/data
   scheduler:
     build:
       context: './scheduler/'
@@ -38,7 +36,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - persian_volume:/data
+      - persian_volume:/data/db
 volumes:
   persian_volume:
 networks:

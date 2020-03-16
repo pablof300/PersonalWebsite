@@ -13,7 +13,7 @@ build_ui:
     - sudo npm run build --prefix ui/
     - sudo docker build -t persian_ui:latest ui/
 
-build_stage:
+build_service:
   stage: build
   script:
     - sudo echo jwt_signing_key=$JWT_SIGNING_KEY >> service/.credentials
@@ -40,6 +40,3 @@ deploy_stage:
     - sudo docker ps -q --filter "name=persian_scheduler" | grep -q . && sudo docker stop persian_scheduler && sudo docker rm -fv persian_scheduler
     - sudo docker ps -q --filter "name=persian_database" | grep -q . && sudo docker stop persian_database && sudo docker rm -fv persian_database
     - sudo docker-compose up -d
-
-variables:
-  TEST_VAR: $JWT_SIGNING_KEY
