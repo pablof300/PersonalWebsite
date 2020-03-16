@@ -16,15 +16,12 @@ build_ui:
 build_stage:
   stage: build
   script:
-    - echo 'stuff and $JWT_SIGNING_KEY'
-    - echo $CI_JOB_STAGE
-    - echo $JWT_SIGNING_KEY
-    - echo '$JWT_SIGNING_KEY\notherstuff'
-    - echo -e '$JWT_SIGNING_KEY\notherstuff'
-    - sudo echo $'jwt_signing_key=$JWT_SIGNING_KEY\npersian_service_token=$PERSIAN_SERVICE_TOKEN'
-    - sudo echo $'strava_client_id=$STRAVA_CLIENT_ID\nstrava_client_secret=$STRAVA_CLIENT_SECRET\nstrava_access_token=$STRAVA_ACCESS_TOKEN\nstrava_refresh_token=$STRAVA_REFRESH_TOKEN'
-    - sudo echo $'jwt_signing_key=$JWT_SIGNING_KEY\npersian_service_token=$PERSIAN_SERVICE_TOKEN' > service/.credentials
-    - sudo echo $'strava_client_id=$STRAVA_CLIENT_ID\nstrava_client_secret=$STRAVA_CLIENT_SECRET\nstrava_access_token=$STRAVA_ACCESS_TOKEN\nstrava_refresh_token=$STRAVA_REFRESH_TOKEN' > scheduler/.credentials
+    - sudo echo jwt_signing_key=$JWT_SIGNING_KEY >> service/.credentials
+    - sudo echo persian_service_token=$PERSIAN_SERVICE_TOKEN >> service/.credentials
+    - sudo echo strava_client_id=$STRAVA_CLIENT_ID >> scheduler/.credentials
+    - sudo echo strava_refresh_token=$STRAVA_REFRESH_TOKEN >> scheduler/.credentials
+    - sudo echo strava_access_token=$STRAVA_ACCESS_TOKEN >> scheduler/.credentials
+    - sudo echo strava_client_secret=$STRAVA_CLIENT_SECRET >> scheduler/.credentials
     - sudo rm -rf ~/.m2/repository/me/pabloestrada/
     - sh lib/credentials/prod_build-persian.sh
     - sh lib/guice-quartz/prod_build-persian.sh
