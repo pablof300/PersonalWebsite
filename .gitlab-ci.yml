@@ -16,6 +16,8 @@ build_ui:
 build_stage:
   stage: build
   script:
+    - sudo echo $'jwt_signing_key=${JWT_SIGNING_KEY}\npersian_service_token={PERSIAN_SERVICE_TOKEN}'
+    - sudo echo $'strava_client_id=${STRAVA_CLIENT_ID}\nstrava_client_secret={STRAVA_CLIENT_SECRET}\nstrava_access_token={STRAVA_ACCESS_TOKEN}\nstrava_refresh_token={STRAVA_REFRESH_TOKEN}'
     - sudo echo $'jwt_signing_key=${JWT_SIGNING_KEY}\npersian_service_token={PERSIAN_SERVICE_TOKEN}' > service/.credentials
     - sudo echo $'strava_client_id=${STRAVA_CLIENT_ID}\nstrava_client_secret={STRAVA_CLIENT_SECRET}\nstrava_access_token={STRAVA_ACCESS_TOKEN}\nstrava_refresh_token={STRAVA_REFRESH_TOKEN}' > scheduler/.credentials
     - sudo rm -rf ~/.m2/repository/me/pabloestrada/
