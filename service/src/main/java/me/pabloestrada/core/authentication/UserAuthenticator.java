@@ -27,10 +27,14 @@ public final class UserAuthenticator
     }
 
     public Optional<String> signJWT(final String username, final String password) {
+        System.out.println("Attempting to auth " + username + " with " + password);
         if (!userDAO.verifyCredentials(username, password)) {
+            System.out.println("No such user exists!");
             return Optional.empty();
         }
         System.out.println("Authenticated (signed JWT) user with username of " + username);
+        System.out.println("Subject " + username);
+        System.out.println("Key " + jwtKey);
         return Optional.of(Jwts.builder()
                 .setIssuer(issuer)
                 .setSubject(username)
