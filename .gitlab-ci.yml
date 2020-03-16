@@ -18,6 +18,8 @@ build_stage:
   script:
     - echo $CI_JOB_STAGE
     - echo $JWT_SIGNING_KEY
+    - echo '$JWT_SIGNING_KEY\notherstuff'
+    - echo -e '$JWT_SIGNING_KEY\notherstuff'
     - sudo echo $'jwt_signing_key=$JWT_SIGNING_KEY\npersian_service_token=$PERSIAN_SERVICE_TOKEN'
     - sudo echo $'strava_client_id=$STRAVA_CLIENT_ID\nstrava_client_secret=$STRAVA_CLIENT_SECRET\nstrava_access_token=$STRAVA_ACCESS_TOKEN\nstrava_refresh_token=$STRAVA_REFRESH_TOKEN'
     - sudo echo $'jwt_signing_key=$JWT_SIGNING_KEY\npersian_service_token=$PERSIAN_SERVICE_TOKEN' > service/.credentials
