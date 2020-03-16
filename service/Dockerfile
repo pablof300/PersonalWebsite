@@ -6,4 +6,4 @@ COPY /src/main/resources/config.yml ./persian/service
 COPY .credentials ./persian/service/
 WORKDIR ./persian/service
 EXPOSE 8080
-ENTRYPOINT ["java", "-Ddw.databaseURI=mongodb://persian_admin:123456@database:27017/", "-jar","bin/PersonalWebsite-1.0.jar", "server", "config.yml"]
+ENTRYPOINT ["java", "-Ddw.databaseURI=mongodb://persian_admin:123456@persian_database:27017/", "-jar","bin/PersonalWebsite-1.0.jar", "server", "config.yml"]

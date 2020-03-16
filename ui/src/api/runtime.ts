@@ -12,9 +12,9 @@
  * Do not edit the class manually.
  */
 
-
+import Config from "../config/config";
 declare type GlobalFetch = WindowOrWorkerGlobalScope
-export const BASE_PATH = "http://localhost:8080/api".replace(/\/+$/, "");
+export const BASE_PATH = Config.apiHost.replace(/\/+$/, "");
 
 const isBlob = (value: any) => typeof Blob !== 'undefined' && value instanceof Blob;
 

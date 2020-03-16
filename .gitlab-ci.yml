@@ -10,7 +10,7 @@ build_ui:
   stage: build
   script:
     - sudo npm install --prefix ui/
-    - sudo npm run build --prefix ui/
+    - sudo npm run deploy --prefix ui/
     - sudo docker build -t persian_ui:latest ui/
 
 build_stage:

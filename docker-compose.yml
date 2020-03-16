@@ -25,6 +25,8 @@ services:
     container_name: persian_ui
     ports:
       - 5000:5000
+    networks:
+      - persian_net
   database:
     image: 'mongo:latest'
     container_name: 'persian_database'
