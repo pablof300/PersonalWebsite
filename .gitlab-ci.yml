@@ -16,6 +16,7 @@ build_ui:
 build_stage:
   stage: build
   script:
+    - echo 'stuff and $JWT_SIGNING_KEY'
     - echo $CI_JOB_STAGE
     - echo $JWT_SIGNING_KEY
     - echo '$JWT_SIGNING_KEY\notherstuff'
@@ -42,3 +43,6 @@ deploy_stage:
     - sudo docker ps -q --filter "name=persian_scheduler" | grep -q . && sudo docker stop persian_scheduler && sudo docker rm -fv persian_scheduler
     - sudo docker ps -q --filter "name=persian_database" | grep -q . && sudo docker stop persian_database && sudo docker rm -fv persian_database
     - sudo docker-compose up -d
+
+variables:
+  TEST_VAR: $JWT_SIGNING_KEY
