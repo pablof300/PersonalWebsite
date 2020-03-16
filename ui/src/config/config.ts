@@ -10,7 +10,7 @@ const config: { [environment: string]: Configuration } = {
         apiHost: "http://localhost:8080/api"
     },
     "production": {
-        apiHost: "http://persian_rest:8080/api"
+        apiHost: "http://simplelinuxvm-bawdzgnfesgv2.centralus.cloudapp.azure.com:8080/api"
     }
 }
 
