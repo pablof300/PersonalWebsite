@@ -20,7 +20,7 @@ export class ProjectRowComponent extends React.Component<Props, {}> {
       <Card.Group centered stackable>
         {
           this.props.projects.map(projectData => {
-            return <Card><ProjectComponent projectData={projectData} /></Card>
+            return <ProjectComponent projectData={projectData} />
           })
         }
       </Card.Group>

@@ -18,7 +18,7 @@ export class SkillsComponent extends React.Component<Props, {}> {
   render() {
     return (
       <>
-        <Grid>
+        <Grid id={'skills'}>
           <Grid.Column width={2} />
           <Grid.Column width={12} centered className={styles.Container}>
             <Segment padded="very" piled className={styles.Segment}>

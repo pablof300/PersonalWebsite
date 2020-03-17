@@ -20,7 +20,7 @@ export class ContactComponent extends React.Component<{}, {}> {
   render() {
     return (
       <>
-        <Grid stackable className={styles.Margin}>
+        <Grid id={'contact'} stackable className={styles.Margin}>
           <Grid.Column width={4} />
           <Grid.Column width={8}>
             <Segment padded="very" raised className={styles.Container}>

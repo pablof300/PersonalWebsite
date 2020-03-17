@@ -16,7 +16,7 @@ export class ResumeComponent extends React.Component<{}, {}> {
   render() {
     return (
       <>
-        <Grid stackable className={styles.Margin}>
+        <Grid id={'resume'} stackable className={styles.Margin}>
           <Grid.Column width={4} />
           <Grid.Column width={8}>
             <Segment

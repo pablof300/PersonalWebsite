@@ -13,6 +13,7 @@ import {
   Divider
 } from "semantic-ui-react"
 import {ETServiceComponent} from "../services/exercise-tracker/ETServiceComponent";
+import isUserAuthenticated from "../../utility/AuthenticationHelper";
 
 interface State {
   authenticated: boolean
@@ -34,20 +35,10 @@ export class DashboardComponent extends React.Component<{}, State> {
   // TODO:
   // Find source of bug for verified being of type string?
   componentDidMount() {
-    const token = Cookies.get("jwt")
-    if (token) {
-      const requestParams = { token: token }
-      console.log("Found JWT token, veryfing...")
-      this.authApi.verifyJWT(requestParams).then(verified => {
-        // @ts-ignore
-        this.setState({ authenticated: verified == "true", loading: false })
-        console.log("JWT token status is " + verified)
-      })
-    } else {
-      console.log("No JWT token available")
-      this.setState({ authenticated: false, loading: false })
-    }
-
+    const token = Cookies.get("jwt");
+    isUserAuthenticated(token, this.authApi).then(authenticated => {
+      this.setState({authenticated: authenticated, loading: false})
+    })
     this.exerciseApi.getExerciseSummary({bearerAuth: token}).then(e => console.log(e))
   }
 

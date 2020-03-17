@@ -14,6 +14,7 @@ import {
   Form,
   Input
 } from "semantic-ui-react"
+import isUserAuthenticated from "../../utility/AuthenticationHelper";
 
 interface State {
   username: string
@@ -39,6 +40,17 @@ export class LoginComponent extends React.Component<{}, State> {
     this.setPassword = this.setPassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.getJWT = this.getJWT.bind(this)
+  }
+
+  componentDidMount() {
+    const token = Cookies.get("jwt");
+    isUserAuthenticated(token, this.authApi).then(authenticated => {
+      if (authenticated) {
+        this.setState({ redirect: true })
+      } else {
+        this.getJWT()
+      }
+    })
   }
 
   setUsername(e: React.ChangeEvent<HTMLInputElement>) {

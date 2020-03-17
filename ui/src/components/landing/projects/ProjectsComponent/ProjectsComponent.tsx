@@ -27,7 +27,7 @@ export class ProjectsComponent extends React.Component<Props, {}> {
   render() {
     return (
       <>
-        <Segment raised className={styles.ProjectsContainer}>
+        <Segment id={'projects'} raised className={styles.ProjectsContainer}>
           <Header
             as="h2"
             textAlign="center"
