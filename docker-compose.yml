@@ -39,6 +39,7 @@ services:
       - persian_volume:/data/db
 volumes:
   persian_volume:
+    external: true
 networks:
   persian_net:
     driver: bridge
