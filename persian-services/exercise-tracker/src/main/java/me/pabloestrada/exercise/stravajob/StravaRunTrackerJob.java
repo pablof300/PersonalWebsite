@@ -33,7 +33,7 @@ public final class StravaRunTrackerJob
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         final List<StravaRun> runs =  stravaClient
-                .getStravaRuns(getEpochOfStartOfCurrentDay())
+                .getStravaRuns(exerciseDAO.hasStravaRuns()? getEpochOfStartOfCurrentDay() : 0)
                 .orElse(new ArrayList<>());
         System.out.println("Inserting " + runs.size() + " Strava runs");
         System.out.println(runs);

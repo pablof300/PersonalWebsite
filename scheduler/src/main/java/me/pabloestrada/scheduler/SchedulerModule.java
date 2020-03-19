@@ -1,7 +1,9 @@
 package me.pabloestrada.scheduler;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Singleton;
 import com.mongodb.ConnectionString;
+import me.pabloestrada.database.PersianDatabase;
 import me.pabloestrada.exercise.stravajob.StravaRunTrackerModule;
 import net.halflite.guicequartzsample.config.ConfigModule;
 
@@ -13,6 +15,7 @@ final class SchedulerModule
     @Override
     protected void configure() {
         bind(ConnectionString.class).toInstance(getConnectionString());
+        bind(PersianDatabase.class).in(Singleton.class);
         install(new ConfigModule());
         install(new StravaRunTrackerModule());
     }

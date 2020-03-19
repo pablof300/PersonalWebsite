@@ -4,6 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import me.pabloestrada.credentials.CredentialsHelper;
 import me.pabloestrada.exercise.client.StravaClient;
+import me.pabloestrada.exercise.core.ExerciseDAO;
 import me.pabloestrada.exercise.stravajob.StravaRunTrackerJob;
 import me.pabloestrada.exercise.stravajob.StravaRunTrackerModule;
 import net.halflite.guicequartzsample.scheduler.Quartz;

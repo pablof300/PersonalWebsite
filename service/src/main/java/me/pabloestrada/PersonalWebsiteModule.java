@@ -15,13 +15,14 @@ import me.pabloestrada.core.authentication.UserAuthenticator;
 import me.pabloestrada.core.user.UserDAO;
 import me.pabloestrada.core.personalwebsite.WebsiteInfoDAO;
 import me.pabloestrada.credentials.CredentialsHelper;
+import me.pabloestrada.database.PersianDatabase;
+import me.pabloestrada.exercise.client.StravaClientModule;
 
 public class PersonalWebsiteModule
     extends AbstractModule
 {
     @Override
     protected void configure() {
-        bind(ExerciseTrackerService.class).to(ExerciseTrackerServiceImpl.class);
         bind(AuthenticationService.class).to(AuthenticationServiceImpl.class);
         bind(PersonalWebsiteService.class).to(PersonalWebsiteServiceImpl.class);
         bind(ConnectionString.class).toInstance(new ConnectionString(DatabaseConstants.getMongoConnectionString()));
@@ -30,5 +31,10 @@ public class PersonalWebsiteModule
         bind(WebsiteInfoDAO.class).in(Singleton.class);
         bind(UserAuthenticator.class).in(Singleton.class);
         bind(CredentialsHelper.class).in(Singleton.class);
+
+        // Exercise Tracker service
+        install(new StravaClientModule());
+        bind(PersianDatabase.class).in(Singleton.class);
+        bind(ExerciseTrackerService.class).to(ExerciseTrackerServiceImpl.class);
     }
 }

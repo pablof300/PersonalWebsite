@@ -43,6 +43,12 @@
     </dependencyManagement>
 
     <dependencies>
+        <!--        Needed for HTTP Logging Interceptor-->
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>1.3.50</version>
+        </dependency>
         <dependency>
             <groupId>me.pabloestrada</groupId>
             <artifactId>credentials</artifactId>

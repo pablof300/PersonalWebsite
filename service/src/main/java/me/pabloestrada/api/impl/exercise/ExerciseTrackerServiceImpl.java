@@ -3,25 +3,23 @@ package me.pabloestrada.api.impl.exercise;
 import com.google.inject.Inject;
 import me.pabloestrada.api.ExerciseTrackerService;
 import me.pabloestrada.api.dto.ExerciseSummaryDTO;
+import me.pabloestrada.exercise.client.StravaClient;
 import me.pabloestrada.exercise.core.ExerciseDAO;
 import me.pabloestrada.exercise.core.exercise.ExerciseSummary;
 import me.pabloestrada.exercise.core.helpers.MeasurementHelper;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 public final class ExerciseTrackerServiceImpl
     extends ExerciseTrackerService
 {
-    private ExerciseDAO exerciseDAO;
-    private Optional<String> stravaCode;
-    private boolean isAuthenticated;
+    private final ExerciseDAO exerciseDAO;
+    private final StravaClient stravaClient;
 
     @Inject
-    public ExerciseTrackerServiceImpl(final ExerciseDAO exerciseDAO) {
+    public ExerciseTrackerServiceImpl(final ExerciseDAO exerciseDAO, final StravaClient stravaClient) {
         this.exerciseDAO = exerciseDAO;
-        this.stravaCode = Optional.empty();
-        this.isAuthenticated = false;
+        this.stravaClient = stravaClient;
     }
 
     @Override
@@ -40,26 +38,20 @@ public final class ExerciseTrackerServiceImpl
     }
 
     @Override
-    public String getStravaCode() {
-        return stravaCode.orElse(null);
-    }
-
-    @Override
     public void addStravaCode(final String code) {
         if (code == null) {
             return;
         }
-        stravaCode = Optional.of(code);
-    }
-
-    @Override
-    public void setStravaStatus(final boolean status) {
-        isAuthenticated = status;
+        stravaClient.getAuthenticationToken(code).ifPresent(token -> {
+            System.out.println("Successfully added new auth token for Strava client! " + token);
+            exerciseDAO.setAccessToken(token.getAccess_token());
+            exerciseDAO.setRefreshToken(token.getRefresh_token());
+        });
     }
 
     @Override
     public boolean getStravaStatus() {
-        return isAuthenticated;
+        return exerciseDAO.getExerciseCredentials().isValid();
     }
 
     private int getLengthOfStreakInDaysFromToday(final LocalDate dateOfToday) {

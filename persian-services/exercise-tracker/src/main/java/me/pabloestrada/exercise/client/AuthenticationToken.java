@@ -1,6 +1,6 @@
 package me.pabloestrada.exercise.client;
 
-final class AuthenticationToken {
+public final class AuthenticationToken {
     private String refresh_token;
     private String access_token;
     private long expires_at;

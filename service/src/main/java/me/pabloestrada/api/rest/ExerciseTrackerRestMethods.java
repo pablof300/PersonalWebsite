@@ -34,13 +34,6 @@ public final class ExerciseTrackerRestMethods
         return responseAuthenticator.authenticateAndCatchErrors(bearerAuth, response, () -> delegate.getExerciseSummary());
     }
 
-    @GET
-    @ApiOperation(value = "Get authorization code for Strava auth")
-    @Path("/strava")
-    public String getStravaCode(@HeaderParam("bearerAuth") final String bearerAuth,
-                                @Context final HttpServletResponse response) {
-        return responseAuthenticator.authenticateAndCatchErrors(bearerAuth, response, () -> delegate.getStravaCode());
-    }
 
     @POST
     @ApiOperation(value = "add strava code")
@@ -59,14 +52,6 @@ public final class ExerciseTrackerRestMethods
         return responseAuthenticator.authenticateAndCatchErrors(bearerAuth, response, () -> delegate.getStravaStatus());
     }
 
-    @POST
-    @ApiOperation(value = "setStravaStatus")
-    @Path("/strava-status")
-    public void setStravaStatus(@QueryParam("status") final boolean status,
-                                @HeaderParam("bearerAuth") final String bearerAuth,
-                                @Context final HttpServletResponse response) {
-        responseAuthenticator.authenticate(bearerAuth, response, () -> delegate.setStravaStatus(status));
-    }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

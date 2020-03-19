@@ -49,8 +49,6 @@ public final class ExerciseSummary {
     }
 
     public float getNumberOfMilesRan() {
-        System.out.println("Number of strava runs are " + stravaRuns.size());
-        System.out.println("And the runs are " + stravaRuns);
         double numberOfMetersRan = stravaRuns.stream().mapToDouble(Exercise::getRunningDistanceInMeters).sum()
                 + gymSessions.stream().mapToDouble(Exercise::getRunningDistanceInMeters).sum();
         return MeasurementHelper.convertMetersToMiles(numberOfMetersRan);

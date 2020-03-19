@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>logging-interceptor</artifactId>
-            <version>4.3.0</version>
+            <version>4.4.1</version>
         </dependency>
         <dependency>
             <groupId>me.pabloestrada</groupId>
@@ -29,6 +29,11 @@
         <dependency>
             <groupId>me.pabloestrada</groupId>
             <artifactId>persian-jobs</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>me.pabloestrada</groupId>
+            <artifactId>persian-database</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
