@@ -22,7 +22,7 @@ services:
     image: persian_ui:latest
     container_name: persian_ui
     ports:
-      - 5000:80
+      - 80:80
     networks:
       - persian_net
   database:

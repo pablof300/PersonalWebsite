@@ -5,4 +5,4 @@ RUN mkdir persian/ui
 
 COPY /build ./persian/ui/build
 WORKDIR ./persian/ui/build
-CMD ["npx", "serve", "-s"]
+CMD ["npx", "serve", "-s", "-l", "80"]
