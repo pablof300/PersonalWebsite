@@ -77,8 +77,12 @@ public final class StravaClient {
                     updateStravaAuthTokens(authToken);
                     return authToken.getAccess_token();
                 });
-        System.out.println(
-                possibleAccessToken.isPresent() ? "Successfully refresh access token from refresh token!" : "Failed to refresh access token!");
+        if (possibleAccessToken.isPresent()) {
+            System.out.println("Successfully refresh access token from refresh token!");
+        } else {
+            System.out.println("Failed to refresh access token!");
+            exerciseDAO.clearExerciseCredentials();
+        }
         return possibleAccessToken;
     }
 
@@ -88,6 +92,7 @@ public final class StravaClient {
     }
 
     private Optional<AuthenticationToken> getRefreshedToken(final String refreshToken) {
+        System.out.println("Attempting to get refreshed token");
         try {
             return Optional.ofNullable(authenticationClient
                     .getRefreshAuthenticationToken(clientId, clientSecret, refreshToken, REFRESH_GRANT_TYPE)
@@ -96,6 +101,7 @@ public final class StravaClient {
             );
         } catch (IOException e) {
             System.out.println("Could not make request to Strava API to get refreshed token");
+            e.printStackTrace();
             return Optional.empty();
         }
     }
@@ -120,7 +126,6 @@ public final class StravaClient {
                         .getSummaryActivity("Bearer " + token, epoch)
                         .execute().body();
             } catch (final IOException e) {
-                exerciseDAO.clearExerciseCredentials();
                 e.printStackTrace();
                 return null;
             }

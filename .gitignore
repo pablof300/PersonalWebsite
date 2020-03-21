@@ -20,3 +20,4 @@ service/dependency-reduced-pom.xml
 service/logs
 persian-services/exercise-tracker/logs
 scheduler/dependency-reduced-pom.xml
+service/local-persian-repository/me/pabloestrada/exercise-tracker/maven-metadata-local.xml
