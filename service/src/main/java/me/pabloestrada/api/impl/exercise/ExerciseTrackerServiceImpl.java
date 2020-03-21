@@ -25,11 +25,12 @@ public final class ExerciseTrackerServiceImpl
     @Override
     public ExerciseSummaryDTO getExerciseSummary() {
         final LocalDate dateOfToday = LocalDate.now();
-        return exerciseDAO
-                .getExerciseSummary(LocalDate.now())
-                .map(exerciseSummary -> new ExerciseSummaryDTO(
-                        getLengthOfStreakInDaysFromToday(dateOfToday), exerciseSummary.getNumberOfMilesRan(),exerciseSummary.getNumberOfMinutesInGym()))
-                .orElse(new ExerciseSummaryDTO(0,0,0));
+        final ExerciseSummary exerciseSummaryOfToday = exerciseDAO.getExerciseSummary(LocalDate.now());
+        return new ExerciseSummaryDTO(
+                getLengthOfStreakInDaysFromToday(dateOfToday),
+                exerciseSummaryOfToday.getNumberOfMilesRan(),
+                exerciseSummaryOfToday.getNumberOfMinutesInGym()
+        );
     }
 
     @Override
@@ -55,15 +56,12 @@ public final class ExerciseTrackerServiceImpl
     }
 
     private int getLengthOfStreakInDaysFromToday(final LocalDate dateOfToday) {
-        int lengthOfStreakInDays = 0;
+        final boolean isTodaySuccessful = exerciseDAO.getExerciseSummary(dateOfToday.minusDays(0)).isSuccessfulDay();
+        int lengthOfStreakInDays = 1;
 
-        while (exerciseDAO
-                .getExerciseSummary(
-                        dateOfToday.minusDays(lengthOfStreakInDays)).map(ExerciseSummary::isSuccessfulDay)
-                .orElse(false))
-        {
+        while (exerciseDAO.getExerciseSummary(dateOfToday.minusDays(lengthOfStreakInDays)).isSuccessfulDay()) {
             lengthOfStreakInDays++;
         }
-        return lengthOfStreakInDays;
+        return lengthOfStreakInDays - (isTodaySuccessful ? 0 : 1);
     }
 }

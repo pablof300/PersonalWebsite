@@ -7,6 +7,7 @@ import me.pabloestrada.exercise.core.ExerciseDAO;
 import me.pabloestrada.exercise.core.exercise.StravaRun;
 import okhttp3.OkHttpClient;
 import retrofit2.Converter;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -72,6 +73,7 @@ public final class StravaClient {
     }
 
     private Optional<String> updateAccessTokenFromRefreshToken() {
+        System.out.println("Attempting to update access token from refreshed token");
         final Optional<String> possibleAccessToken = exerciseDAO.getRefreshToken().flatMap(this::getRefreshedToken)
                 .map(authToken -> {
                     updateStravaAuthTokens(authToken);
@@ -118,13 +120,18 @@ public final class StravaClient {
         }
     }
     public Optional<List<StravaRun>> getStravaRuns(final long epoch) {
+        System.out.println("Attempting to fetch Strava runs");
         final Optional<String> accessToken = getAccessToken();
 
         return accessToken.map(token -> {
             try {
-                return summaryActivityClient
+                final Response<List<StravaRun>> response = summaryActivityClient
                         .getSummaryActivity("Bearer " + token, epoch)
-                        .execute().body();
+                        .execute();
+                if (response.code() == 401) {
+                    updateAccessTokenFromRefreshToken();
+                }
+                return response.body();
             } catch (final IOException e) {
                 e.printStackTrace();
                 return null;

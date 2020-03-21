@@ -46,11 +46,6 @@ public final class StravaRunTrackerJob
     }
 
     public static void main(String[] args) {
-        final Injector schedulerInjector = Guice.createInjector(new StravaRunTrackerModule());
-        try {
-            schedulerInjector.getInstance(StravaRunTrackerJob.class).execute(null);
-        } catch (JobExecutionException e) {
-            e.printStackTrace();
-        }
+        final Injector schedulerInjector = Guice.createInjector(new TestTrackerModule());
     }
 }

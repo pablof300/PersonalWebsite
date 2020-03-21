@@ -31,7 +31,7 @@ public final class SchedulerApplication {
             final Trigger stravaRunTrackerJobTrigger = newTrigger()
                     .withIdentity("stravaRunTrackerTrigger", "exercise")
                     .startNow()
-                    .withSchedule(simpleSchedule().withIntervalInMinutes(1).repeatForever())
+                    .withSchedule(simpleSchedule().withIntervalInMinutes(30).repeatForever())
                     .build();
 
             // tell scheduler to schedule the job using the trigger

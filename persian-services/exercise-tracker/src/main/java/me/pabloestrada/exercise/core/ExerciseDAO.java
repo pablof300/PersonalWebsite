@@ -5,10 +5,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import me.pabloestrada.database.PersianDatabase;
-import me.pabloestrada.exercise.core.exercise.ExerciseCredentials;
-import me.pabloestrada.exercise.core.exercise.ExerciseSummary;
-import me.pabloestrada.exercise.core.exercise.GymSession;
-import me.pabloestrada.exercise.core.exercise.StravaRun;
+import me.pabloestrada.exercise.core.exercise.*;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
@@ -61,20 +58,31 @@ public class ExerciseDAO {
                updateExerciseToSummary(run.getStartDate().toLocalDate(), Updates.push("stravaRuns", run));
            }
         });
+        if (exerciseSummaryCollection.find(Filters.eq("date", LocalDate.now())).first() == null) {
+            createEmptyExerciseSummary(LocalDate.now());
+        }
+    }
+
+    private ExerciseSummary createEmptyExerciseSummary(final LocalDate date) {
+        final ExerciseSummary newExerciseSummary = new ExerciseSummary(date);
+        exerciseSummaryCollection.insertOne(newExerciseSummary);
+        return newExerciseSummary;
     }
 
     // Exercise Summary
     private void updateExerciseToSummary(final LocalDate date, Bson update) {
         final Bson findQuery = Filters.eq("date", date);
         if (exerciseSummaryCollection.find(findQuery).first() == null) {
-            exerciseSummaryCollection.insertOne(new ExerciseSummary(date));
+            createEmptyExerciseSummary(date);
         }
         exerciseSummaryCollection.updateOne(findQuery, update);
     }
 
-    public Optional<ExerciseSummary> getExerciseSummary(final LocalDate date) {
-        final ExerciseSummary exerciseSummary = exerciseSummaryCollection.find(Filters.eq("date", date)).first();
-        return exerciseSummary == null ? Optional.empty() : Optional.of(exerciseSummary);
+    public ExerciseSummary getExerciseSummary(final LocalDate date) {
+        return Optional
+                .ofNullable(
+                    exerciseSummaryCollection.find(Filters.eq("date", date)).first())
+                .orElse(createEmptyExerciseSummary(date));
     }
 
     // Gym exercise
