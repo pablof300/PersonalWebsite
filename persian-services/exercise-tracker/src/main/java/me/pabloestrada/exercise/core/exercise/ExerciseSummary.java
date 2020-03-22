@@ -1,6 +1,7 @@
 package me.pabloestrada.exercise.core.exercise;
 
 import me.pabloestrada.exercise.core.helpers.MeasurementHelper;
+import org.bson.codecs.pojo.annotations.BsonIgnore;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,16 +45,19 @@ public final class ExerciseSummary {
         this.gymSessions = gymSessions;
     }
 
+    @BsonIgnore
     public boolean isSuccessfulDay() {
         return stravaRuns.stream().anyMatch(Exercise::isSuccessfulExercise) || gymSessions.stream().anyMatch(Exercise::isSuccessfulExercise);
     }
 
+    @BsonIgnore
     public float getNumberOfMilesRan() {
         double numberOfMetersRan = stravaRuns.stream().mapToDouble(Exercise::getRunningDistanceInMeters).sum()
                 + gymSessions.stream().mapToDouble(Exercise::getRunningDistanceInMeters).sum();
         return MeasurementHelper.convertMetersToMiles(numberOfMetersRan);
     }
 
+    @BsonIgnore
     public int getNumberOfMinutesInGym() {
         return gymSessions
                 .stream()
