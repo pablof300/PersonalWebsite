@@ -58,15 +58,16 @@ public class ExerciseDAO {
                updateExerciseToSummary(run.getStartDate().toLocalDate(), Updates.push("stravaRuns", run));
            }
         });
-        if (exerciseSummaryCollection.find(Filters.eq("date", LocalDate.now())).first() == null) {
-            createEmptyExerciseSummary(LocalDate.now());
-        }
+        createEmptyExerciseSummary(LocalDate.now());
     }
 
     private ExerciseSummary createEmptyExerciseSummary(final LocalDate date) {
-        final ExerciseSummary newExerciseSummary = new ExerciseSummary(date);
-        exerciseSummaryCollection.insertOne(newExerciseSummary);
-        return newExerciseSummary;
+        return Optional.ofNullable(exerciseSummaryCollection.find(Filters.eq("date", LocalDate.now())).first())
+            .orElseGet(() -> {
+                final ExerciseSummary newExerciseSummary = new ExerciseSummary(date);
+                exerciseSummaryCollection.insertOne(newExerciseSummary);
+                return newExerciseSummary;
+            });
     }
 
     // Exercise Summary
