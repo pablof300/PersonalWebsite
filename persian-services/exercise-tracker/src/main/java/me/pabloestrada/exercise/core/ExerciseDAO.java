@@ -62,7 +62,7 @@ public class ExerciseDAO {
     }
 
     private ExerciseSummary createEmptyExerciseSummary(final LocalDate date) {
-        return Optional.ofNullable(exerciseSummaryCollection.find(Filters.eq("date", LocalDate.now())).first())
+        return Optional.ofNullable(exerciseSummaryCollection.find(Filters.eq("date", date)).first())
             .orElseGet(() -> {
                 final ExerciseSummary newExerciseSummary = new ExerciseSummary(date);
                 exerciseSummaryCollection.insertOne(newExerciseSummary);

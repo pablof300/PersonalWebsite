@@ -26,6 +26,9 @@ public final class ExerciseTrackerServiceImpl
     public ExerciseSummaryDTO getExerciseSummary() {
         final LocalDate dateOfToday = LocalDate.now();
         final ExerciseSummary exerciseSummaryOfToday = exerciseDAO.getExerciseSummary(LocalDate.now());
+        System.out.println("SUMMARY ");
+        System.out.println(exerciseSummaryOfToday.getNumberOfMilesRan());
+        System.out.println(exerciseSummaryOfToday.getStravaRuns());
         return new ExerciseSummaryDTO(
                 getLengthOfStreakInDaysFromToday(dateOfToday),
                 exerciseSummaryOfToday.getNumberOfMilesRan(),
@@ -60,6 +63,8 @@ public final class ExerciseTrackerServiceImpl
         int lengthOfStreakInDays = 1;
 
         while (exerciseDAO.getExerciseSummary(dateOfToday.minusDays(lengthOfStreakInDays)).isSuccessfulDay()) {
+            System.out.println("Successful streak for " + dateOfToday.minusDays(lengthOfStreakInDays));
+            System.out.println("Miles " + exerciseDAO.getExerciseSummary(dateOfToday.minusDays(lengthOfStreakInDays)).getNumberOfMilesRan());
             lengthOfStreakInDays++;
         }
         return lengthOfStreakInDays - (isTodaySuccessful ? 0 : 1);
