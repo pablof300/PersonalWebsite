@@ -26,6 +26,7 @@ First, point the DNS servers to this resource. Then, setup the following records
 - A record: www, A, 3600, 40.122.43.44
 5) SSH into VM and install all needed requirements
 
+```bash
     sudo apt-get update
     curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
     sudo apt-get install -y nodejs
@@ -36,6 +37,7 @@ First, point the DNS servers to this resource. Then, setup the following records
     sudo apt install openjdk-11-jre-headless
     sudo apt install maven
     sudo apt install docker.io
+```
 
 6) Add the runner to Gitlab by running this command
 
