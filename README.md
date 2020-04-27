@@ -1,29 +1,42 @@
 # Persian
 
-Perisan is a Python library for dealing with word pluralization.
+Persian is a centralized API gateway for a microservice architecture of personal projects.
 
-## Installation
+# Requirements
+- OpenJDK 12.0.1
+- Node v13.6.0
+- Maven
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+# Deployment
 
-```bash
-pip install foobar
-```
+### Deployment using Azure
+1) Create a resource group named *Persian*
+2) Create a virtual machine named *PersianVM* running *Ubuntu Server 18.04 LTS*
 
-## Usage
+Make sure to configure the SSH connection credentials and the following networking rules:
+- Allow Backend 8080 (this one will be configured after server creation)
+- Allow Frontend 80
+- Allow SSH 22 (TCP)
+- Allow SSL 443
+3) Create a key vault called *PersianVault*
+Import the .pfx certificate into the vault
+4) Create a DNS Zone called *pabloestrada.me*
+First, point the DNS servers to this resource. Then, setup the following records
+- A record: @, A, 3600, 40.122.43.44
+- A record: www, A, 3600, 40.122.43.44
+5) SSH into VM and install all needed requirements
 
-```python
-import foobar
+    sudo apt-get update
+    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+    sudo apt-get install gitlab-runner
+    sudo nano /etc/sudoers
+    // add gitlab-runner ALL=(ALL) NOPASSWD: ALL to the bottom
+    sudo apt install openjdk-11-jre-headless
+    sudo apt install maven
+    sudo apt install docker.io
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+6) Add the runner to Gitlab by running this command
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+sudo gitlab-runner register --non-interactive --url "https://gitlab.com" --r "za3PWhg-dqCmusbL5fqJ" --executor "shell" --tag-list "PersianCI" --run-untagged --pre-clone-script "sudo chown -R gitlab-runner:gitlab-runner ."
