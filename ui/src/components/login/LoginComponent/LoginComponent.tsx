@@ -44,13 +44,15 @@ export class LoginComponent extends React.Component<{}, State> {
 
   componentDidMount() {
     const token = Cookies.get("jwt");
-    isUserAuthenticated(token, this.authApi).then(authenticated => {
-      if (authenticated) {
-        this.setState({ redirect: true })
-      } else {
-        this.getJWT()
-      }
-    })
+    if (token) {
+      isUserAuthenticated(token, this.authApi).then(authenticated => {
+        if (authenticated) {
+          this.setState({ redirect: true })
+        } else {
+          this.getJWT()
+        }
+      })
+    }
   }
 
   setUsername(e: React.ChangeEvent<HTMLInputElement>) {
