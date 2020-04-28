@@ -7,8 +7,8 @@ server:
   applicationConnectors:
     - type: http
       port: 8080
-  - type: https
-    port: 8443
-    keyStorePath: /ssl/keystore.jks
-    keyStorePassword: "#PASSWORD"
-    validateCerts: false
+    - type: https
+      port: 8443
+      keyStorePath: /ssl/keystore.jks
+      keyStorePassword: "#PASSWORD"
+      validateCerts: false
