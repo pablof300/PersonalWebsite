@@ -10,7 +10,7 @@ const config: { [environment: string]: Configuration } = {
         apiHost: "http://localhost:8080/api"
     },
     "production": {
-        apiHost: "http://104.45.195.63:8080/api"
+        apiHost: "https://pabloestrada.me:8080/api"
     }
 }
 
