@@ -1,5 +1,13 @@
 server:
   rootPath: /api
+  applicationConnectors:
+    - type: http
+      port: 8080
+    - type: https
+      port: 8443
+      keyStorePath: /ssl/962B91F0D924EA9F1D50018AC9D40B8CCF6D3993.crt
+      keyStorePassword: /ssl/962B91F0D924EA9F1D50018AC9D40B8CCF6D3993.prv
+      validateCerts: false
 swagger:
   resourcePackage: me.pabloestrada.api
   uriPrefix: '/api'
