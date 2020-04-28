@@ -1,6 +1,10 @@
 FROM openjdk:12
 
 RUN mkdir -p persian/service/bin
+RUN mkdir /ssl
+COPY /ssl ./ssl
+RUN ls
+RUN ls ./ssl
 COPY /target/PersonalWebsite-1.0.jar ./persian/service/bin
 COPY /src/main/resources/config.yml ./persian/service
 COPY .credentials ./persian/service/
