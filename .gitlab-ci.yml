@@ -16,6 +16,7 @@ build_ui:
 build_service:
   stage: build
   script:
+    - sudo cp -r /ssl/ service/
     - sed "s/#PASSWORD/$KEYSTORE_PASSWORD/g" service/config.yml > ./config.yml && sudo mv ./config.yml service/config.yml
     - sudo echo jwt_signing_key=$JWT_SIGNING_KEY >> service/.credentials
     - sudo echo strava_client_id=$STRAVA_CLIENT_ID >> service/.credentials
