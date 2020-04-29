@@ -7,8 +7,6 @@ COPY /ssl/keystore.jks ./persian/service/ssl
 COPY /target/PersonalWebsite-1.0.jar ./persian/service/bin
 COPY /config.yml ./persian/service
 COPY .credentials ./persian/service/
-RUN ls
-RUN ls ./ssl
 WORKDIR ./persian/service
 EXPOSE 8080
 EXPOSE 8443
