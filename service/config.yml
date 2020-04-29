@@ -9,6 +9,6 @@ server:
       port: 8080
     - type: https
       port: 8443
-      keyStorePath: /ssl/keystore.jks
+      keyStorePath: ssl/keystore.jks
       keyStorePassword: "#PASSWORD"
       validateCerts: false
