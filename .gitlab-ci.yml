@@ -9,6 +9,7 @@ after_script:
 build_ui:
   stage: build
   script:
+    - sudo cp -r /ssl/ ui/
     - sudo npm install --prefix ui/
     - sudo npm run build --prefix ui/
     - sudo docker build -t persian_ui:latest ui/
