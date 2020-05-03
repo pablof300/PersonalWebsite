@@ -1,5 +1,6 @@
 .DS_Store
 service/.idea/
+service/devConfig.yml
 ui/node_modules/.cache/
 service/target/*
 service/PersonalWebsite.iml
