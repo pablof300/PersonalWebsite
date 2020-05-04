@@ -11,7 +11,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-
+import Config from "../config/config";
 
 declare type GlobalFetch = WindowOrWorkerGlobalScope
 export const BASE_PATH = Config.apiHost.replace(/\/+$/, "");
