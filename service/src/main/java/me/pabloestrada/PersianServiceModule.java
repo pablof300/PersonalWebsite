@@ -18,7 +18,7 @@ import me.pabloestrada.credentials.CredentialsHelper;
 import me.pabloestrada.database.PersianDatabase;
 import me.pabloestrada.exercise.client.StravaClientModule;
 
-public class PersonalWebsiteModule
+public class PersianServiceModule
     extends AbstractModule
 {
     @Override

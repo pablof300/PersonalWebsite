@@ -29,7 +29,8 @@ export class ETServiceComponent extends React.Component<{}, State> {
 
   async getStravaApiStatus() {
     this.api.getStravaStatus({bearerAuth: Cookies.get("jwt")}).then(status => {
-      this.setState({isStravaApiAuthenticated: status})
+      // @ts-ignore
+      this.setState({isStravaApiAuthenticated: status === 'true'})
     }).catch(e => {
       console.log(e)
     })
