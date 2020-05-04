@@ -5,7 +5,7 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import me.pabloestrada.core.DatabaseConstants;
+import me.pabloestrada.core.CoreServiceConstants;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.bson.codecs.configuration.CodecRegistries;
@@ -28,8 +28,8 @@ public final class UserDAO
                 .applyConnectionString(connectionString)
                 .build();
         userCollection = MongoClients.create(settings)
-                .getDatabase(DatabaseConstants.DATABASE_NAME)
-                .getCollection(DatabaseConstants.USER_COLLECTION_NAME, User.class);
+                .getDatabase(CoreServiceConstants.DATABASE_NAME)
+                .getCollection(CoreServiceConstants.USER_COLLECTION_NAME, User.class);
     }
 
     public boolean verifyCredentials(final String username, final String password) {

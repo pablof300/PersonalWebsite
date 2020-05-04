@@ -7,7 +7,7 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import me.pabloestrada.core.DatabaseConstants;
+import me.pabloestrada.core.CoreServiceConstants;
 import me.pabloestrada.core.personalwebsite.websiteinfo.BaseWebsiteInfo;
 import me.pabloestrada.core.personalwebsite.projects.ProjectInfo;
 import org.bson.Document;
@@ -38,9 +38,9 @@ public final class WebsiteInfoDAO
                 .codecRegistry(userCodecRegistry)
                 .applyConnectionString(connectionString)
                 .build();
-        final MongoDatabase database = MongoClients.create(settings).getDatabase(DatabaseConstants.DATABASE_NAME);
-        baseWebsiteInfoCollection = database.getCollection(DatabaseConstants.BASE_WEBSITE_INFO_COLLECTION_NAME, BaseWebsiteInfo.class);
-        projectInfoCollection = database.getCollection(DatabaseConstants.PROJECT_INFO_COLLECTION_NAME, ProjectInfo.class);
+        final MongoDatabase database = MongoClients.create(settings).getDatabase(CoreServiceConstants.DATABASE_NAME);
+        baseWebsiteInfoCollection = database.getCollection(CoreServiceConstants.BASE_WEBSITE_INFO_COLLECTION_NAME, BaseWebsiteInfo.class);
+        projectInfoCollection = database.getCollection(CoreServiceConstants.PROJECT_INFO_COLLECTION_NAME, ProjectInfo.class);
     }
 
     public BaseWebsiteInfo getBaseWebsiteInfo() {

@@ -35,16 +35,15 @@ export interface GetExerciseSummaryRequest {
     bearerAuth?: string;
 }
 
-export interface GetStravaCodeRequest {
+export interface GetStravaCallbackRequest {
+    code?: string;
+}
+
+export interface GetStravaOAuthURLRequest {
     bearerAuth?: string;
 }
 
 export interface GetStravaStatusRequest {
-    bearerAuth?: string;
-}
-
-export interface SetStravaStatusRequest {
-    status?: boolean;
     bearerAuth?: string;
 }
 
@@ -154,19 +153,19 @@ export class ExerciseApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get authorization code for Strava auth
+     * Callback URL for OAuth for Strava API
      */
-    async getStravaCodeRaw(requestParameters: GetStravaCodeRequest): Promise<runtime.ApiResponse<string>> {
+    async getStravaCallbackRaw(requestParameters: GetStravaCallbackRequest): Promise<runtime.ApiResponse<boolean>> {
         const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.code !== undefined) {
+            queryParameters['code'] = requestParameters.code;
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
-            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
-        }
-
         const response = await this.request({
-            path: `/exercise/strava`,
+            path: `/exercise/strava-callback`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -176,10 +175,40 @@ export class ExerciseApi extends runtime.BaseAPI {
     }
 
     /**
-     * Get authorization code for Strava auth
+     * Callback URL for OAuth for Strava API
      */
-    async getStravaCode(requestParameters: GetStravaCodeRequest): Promise<string> {
-        const response = await this.getStravaCodeRaw(requestParameters);
+    async getStravaCallback(requestParameters: GetStravaCallbackRequest): Promise<boolean> {
+        const response = await this.getStravaCallbackRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Get OAuth Strava URL for Authentication
+     */
+    async getStravaOAuthURLRaw(requestParameters: GetStravaOAuthURLRequest): Promise<runtime.ApiResponse<string>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
+            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
+        }
+
+        const response = await this.request({
+            path: `/exercise/strava-oauth`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.TextApiResponse(response) as any;
+    }
+
+    /**
+     * Get OAuth Strava URL for Authentication
+     */
+    async getStravaOAuthURL(requestParameters: GetStravaOAuthURLRequest): Promise<string> {
+        const response = await this.getStravaOAuthURLRaw(requestParameters);
         return await response.value();
     }
 
@@ -211,39 +240,6 @@ export class ExerciseApi extends runtime.BaseAPI {
     async getStravaStatus(requestParameters: GetStravaStatusRequest): Promise<boolean> {
         const response = await this.getStravaStatusRaw(requestParameters);
         return await response.value();
-    }
-
-    /**
-     * setStravaStatus
-     */
-    async setStravaStatusRaw(requestParameters: SetStravaStatusRequest): Promise<runtime.ApiResponse<void>> {
-        const queryParameters: runtime.HTTPQuery = {};
-
-        if (requestParameters.status !== undefined) {
-            queryParameters['status'] = requestParameters.status;
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
-            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
-        }
-
-        const response = await this.request({
-            path: `/exercise/strava-status`,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.VoidApiResponse(response);
-    }
-
-    /**
-     * setStravaStatus
-     */
-    async setStravaStatus(requestParameters: SetStravaStatusRequest): Promise<void> {
-        await this.setStravaStatusRaw(requestParameters);
     }
 
 }

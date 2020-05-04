@@ -7,6 +7,8 @@ import Cookies from "js-cookie";
 
 interface State {
   exerciseSummary?: ExerciseSummaryDTO;
+  isStravaApiAuthenticated: boolean;
+  redirectToOAuth: boolean;
 }
 
 export class ETServiceComponent extends React.Component<{}, State> {
@@ -14,17 +16,36 @@ export class ETServiceComponent extends React.Component<{}, State> {
 
   constructor(props: {}) {
     super(props)
-    this.state = { exerciseSummary: undefined }
+    this.state = { exerciseSummary: undefined, isStravaApiAuthenticated: false, redirectToOAuth: false }
     this.updateExerciseSummaryInfo = this.updateExerciseSummaryInfo.bind(this)
+    this.getStravaApiStatus = this.getStravaApiStatus.bind(this)
+    this.redirectToOAuthUrl = this.redirectToOAuthUrl.bind(this)
   }
 
   componentDidMount(): void {
     this.updateExerciseSummaryInfo()
+    this.getStravaApiStatus()
+  }
+
+  async getStravaApiStatus() {
+    this.api.getStravaStatus({bearerAuth: Cookies.get("jwt")}).then(status => {
+      this.setState({isStravaApiAuthenticated: status})
+    }).catch(e => {
+      console.log(e)
+    })
   }
 
   async updateExerciseSummaryInfo() {
     this.api.getExerciseSummary({bearerAuth: Cookies.get("jwt")}).then(exerciseSummary => {
       this.setState({exerciseSummary: exerciseSummary})
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+
+  redirectToOAuthUrl() {
+    this.api.getStravaOAuthURL({bearerAuth: Cookies.get("jwt")}).then(url => {
+      window.location.href = url;
     }).catch(e => {
       console.log(e)
     })
@@ -91,7 +112,10 @@ export class ETServiceComponent extends React.Component<{}, State> {
                     </Grid.Row>
                   </Grid>
                 </Card.Content>
-                {/*<Button color={'red'}>authenticate</Button>*/}
+                {
+                  !this.state.isStravaApiAuthenticated &&
+                    <Button color={'orange'} onClick={this.redirectToOAuthUrl} >authenticate</Button>
+                }
               </Card>
             </Card.Description>
           </Card.Content>

@@ -8,7 +8,9 @@ public abstract class ExerciseTrackerService
 
     public abstract void addGymSession(float runningDistanceInMiles, int durationInMinutes);
 
-    public abstract void addStravaCode(String code);
+    public abstract String getOAuthURL();
+
+    public abstract boolean addStravaCode(String code);
 
     public abstract boolean getStravaStatus();
 }

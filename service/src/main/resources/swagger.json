@@ -116,26 +116,6 @@
       }
     },
     "/exercise/strava" : {
-      "get" : {
-        "tags" : [ "exercise" ],
-        "summary" : "Get authorization code for Strava auth",
-        "description" : "",
-        "operationId" : "getStravaCode",
-        "parameters" : [ {
-          "name" : "bearerAuth",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
       "post" : {
         "tags" : [ "exercise" ],
         "summary" : "add strava code",
@@ -179,26 +159,48 @@
             }
           }
         }
-      },
-      "post" : {
+      }
+    },
+    "/exercise/strava-callback" : {
+      "get" : {
         "tags" : [ "exercise" ],
-        "summary" : "setStravaStatus",
+        "summary" : "Callback URL for OAuth for Strava API",
         "description" : "",
-        "operationId" : "setStravaStatus",
+        "operationId" : "getStravaCallback",
         "parameters" : [ {
-          "name" : "status",
+          "name" : "code",
           "in" : "query",
           "required" : false,
-          "type" : "boolean"
-        }, {
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/exercise/strava-oauth" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Get OAuth Strava URL for Authentication",
+        "description" : "",
+        "operationId" : "getStravaOAuthURL",
+        "parameters" : [ {
           "name" : "bearerAuth",
           "in" : "header",
           "required" : false,
           "type" : "string"
         } ],
         "responses" : {
-          "default" : {
-            "description" : "successful operation"
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
           }
         }
       }

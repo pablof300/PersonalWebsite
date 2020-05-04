@@ -29,18 +29,33 @@ public final class ExerciseTrackerRestMethods
     @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Getting exercise summary")
     @Path("/exercise-summary")
-    public ExerciseSummaryDTO getExerciseSummary(@HeaderParam("bearerAuth") final String bearerAuth,
-                                                 @Context final HttpServletResponse response) {
+    public ExerciseSummaryDTO getExerciseSummary(@HeaderParam("bearerAuth") final String bearerAuth, @Context final HttpServletResponse response) {
         return responseAuthenticator.authenticateAndCatchErrors(bearerAuth, response, () -> delegate.getExerciseSummary());
     }
 
+
+    @GET
+    @ApiOperation(value = "Callback URL for OAuth for Strava API")
+    @Path("/strava-callback")
+    public boolean getStravaCallback(@QueryParam("code") final String code,
+                                @Context final HttpServletResponse response) {
+        return delegate.addStravaCode(code);
+    }
+
+    @GET
+    @ApiOperation(value = "Get OAuth Strava URL for Authentication")
+    @Path("/strava-oauth")
+    public String getStravaOAuthURL(@HeaderParam("bearerAuth") final String bearerAuth,
+                               @Context final HttpServletResponse response) {
+        return responseAuthenticator.authenticateAndCatchErrors(bearerAuth, response, () -> delegate.getOAuthURL());
+    }
 
     @POST
     @ApiOperation(value = "add strava code")
     @Path("/strava")
     public void addStravaCode(@QueryParam("code") final String code,
-                                @HeaderParam("bearerAuth") final String bearerAuth,
-                                @Context final HttpServletResponse response) {
+                              @HeaderParam("bearerAuth") final String bearerAuth,
+                              @Context final HttpServletResponse response) {
         responseAuthenticator.authenticate(bearerAuth, response, () -> delegate.addStravaCode(code));
     }
 

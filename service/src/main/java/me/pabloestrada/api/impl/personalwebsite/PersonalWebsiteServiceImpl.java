@@ -8,7 +8,8 @@ import me.pabloestrada.core.personalwebsite.WebsiteInfoDAO;
 import me.pabloestrada.core.personalwebsite.websiteinfo.FullWebsiteInfo;
 import org.bson.types.ObjectId;
 
-public class PersonalWebsiteServiceImpl extends PersonalWebsiteService
+public class PersonalWebsiteServiceImpl
+        extends PersonalWebsiteService
 {
     private final WebsiteInfoDAO websiteInfoDAO;
 

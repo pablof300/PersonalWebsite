@@ -2,6 +2,9 @@ swagger:
   resourcePackage: me.pabloestrada.api
   uriPrefix: '/api'
 databaseURI: 'mongodb://localhost:27017/'
+environment:
+  type: "prod"
+  host: "https://pabloestrada.me:8433"
 server:
   rootPath: /api
   applicationConnectors:

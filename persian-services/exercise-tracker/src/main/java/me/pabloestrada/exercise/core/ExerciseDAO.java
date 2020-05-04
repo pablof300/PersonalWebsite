@@ -16,14 +16,8 @@ import java.util.Optional;
 
 // TODO:
 // Generalize DAO classes for Mongo (lib class)
-// Refactor DAO to eliminate useless instance vars
 
 public class ExerciseDAO {
-    private final static String RUNS_COLLECTION_NAME = "run_sessions";
-    private final static String GYM_SESSIONS_COLLECTION_NAME = "gym_sessions";
-    private final static String EXERCISE_SUMMARY_COLLECTION_NAME = "exercise_summary";
-    private final static String EXERCISE_CREDENTIALS_COLLECTION_NAME = "exercise_credentials";
-
     // TODO:
     // Abstract into other DAOs
     private final MongoCollection<StravaRun> runsCollection;
@@ -33,10 +27,14 @@ public class ExerciseDAO {
 
     @Inject
     public ExerciseDAO(final PersianDatabase persianDatabase) {
-        runsCollection = persianDatabase.getDatabase().getCollection(RUNS_COLLECTION_NAME, StravaRun.class);
-        gymSessionsCollection = persianDatabase.getDatabase().getCollection(GYM_SESSIONS_COLLECTION_NAME, GymSession.class);
-        exerciseSummaryCollection = persianDatabase.getDatabase().getCollection(EXERCISE_SUMMARY_COLLECTION_NAME, ExerciseSummary.class);
-        exerciseCredentialsCollection = persianDatabase.getDatabase().getCollection(EXERCISE_CREDENTIALS_COLLECTION_NAME, ExerciseCredentials.class);
+        runsCollection = persianDatabase.getDatabase()
+                .getCollection(ExerciseDatabaseConstants.RUNS_COLLECTION_NAME, StravaRun.class);
+        gymSessionsCollection = persianDatabase.getDatabase()
+                .getCollection(ExerciseDatabaseConstants.GYM_SESSIONS_COLLECTION_NAME, GymSession.class);
+        exerciseSummaryCollection = persianDatabase.getDatabase()
+                .getCollection(ExerciseDatabaseConstants.EXERCISE_SUMMARY_COLLECTION_NAME, ExerciseSummary.class);
+        exerciseCredentialsCollection = persianDatabase.getDatabase()
+                .getCollection(ExerciseDatabaseConstants.EXERCISE_CREDENTIALS_COLLECTION_NAME, ExerciseCredentials.class);
     }
 
     // Strava Runs

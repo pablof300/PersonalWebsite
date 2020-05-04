@@ -3,7 +3,6 @@ package me.pabloestrada;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import io.dropwizard.Application;
-import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.jersey.filter.AllowedMethodsFilter;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -12,7 +11,8 @@ import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import me.pabloestrada.api.rest.AuthenticationServiceRestMethods;
 import me.pabloestrada.api.rest.ExerciseTrackerRestMethods;
 import me.pabloestrada.api.rest.PersonalWebsiteRestMethods;
-import me.pabloestrada.core.DatabaseConstants;
+import me.pabloestrada.core.CoreServiceConstants;
+import me.pabloestrada.core.configuration.PersonalWebsiteConfiguration;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 import javax.servlet.DispatcherType;
@@ -40,7 +40,8 @@ public class PersonalWebsiteApplication
         final FilterRegistration.Dynamic cors = environment.servlets()
                 .addFilter("CORSFilter", CrossOriginFilter.class);
 
-        DatabaseConstants.setMongoConnectionString(configuration.databaseURI);
+        CoreServiceConstants.setMongoConnectionString(configuration.databaseURI);
+        CoreServiceConstants.setHost(configuration.environmentConfiguration.host);
 
         cors.addMappingForUrlPatterns(
                 EnumSet.allOf(DispatcherType.class), false, environment.getApplicationContext().getContextPath() + "*");

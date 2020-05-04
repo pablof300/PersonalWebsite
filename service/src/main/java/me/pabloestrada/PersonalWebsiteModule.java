@@ -10,7 +10,7 @@ import me.pabloestrada.api.PersonalWebsiteService;
 import me.pabloestrada.api.impl.authentication.AuthenticationServiceImpl;
 import me.pabloestrada.api.impl.exercise.ExerciseTrackerServiceImpl;
 import me.pabloestrada.api.impl.personalwebsite.PersonalWebsiteServiceImpl;
-import me.pabloestrada.core.DatabaseConstants;
+import me.pabloestrada.core.CoreServiceConstants;
 import me.pabloestrada.core.authentication.UserAuthenticator;
 import me.pabloestrada.core.user.UserDAO;
 import me.pabloestrada.core.personalwebsite.WebsiteInfoDAO;
@@ -25,7 +25,7 @@ public class PersonalWebsiteModule
     protected void configure() {
         bind(AuthenticationService.class).to(AuthenticationServiceImpl.class);
         bind(PersonalWebsiteService.class).to(PersonalWebsiteServiceImpl.class);
-        bind(ConnectionString.class).toInstance(new ConnectionString(DatabaseConstants.getMongoConnectionString()));
+        bind(ConnectionString.class).toInstance(new ConnectionString(CoreServiceConstants.getMongoConnectionString()));
         bind(Gson.class).in(Singleton.class);
         bind(UserDAO.class).in(Singleton.class);
         bind(WebsiteInfoDAO.class).in(Singleton.class);
