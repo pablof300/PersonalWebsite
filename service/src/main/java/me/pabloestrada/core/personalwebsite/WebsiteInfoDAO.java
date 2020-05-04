@@ -16,6 +16,7 @@ import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,6 +56,7 @@ public final class WebsiteInfoDAO
     public List<ProjectInfo> getProjects() {
         final List<ProjectInfo> projectInfoList = new ArrayList<>();
         projectInfoCollection.find().iterator().forEachRemaining(projectInfoList::add);
+        projectInfoList.sort(Comparator.comparingInt(ProjectInfo::getPriority));
         return projectInfoList;
     }
 

@@ -1,15 +1,9 @@
 import React from "react"
 import styles from "./ProjectsComponent.module.css"
 import { PersonalWebsiteApi, ProjectInfo } from "../../../../../api/index"
-import {
-  Grid,
-  Icon,
-  Card,
-  Header,
-  Message
-} from "semantic-ui-react"
+import { Grid, Icon, Card, Header, Message } from "semantic-ui-react"
 import { ProjectComponent } from "../ProjectComponent/index"
-import Cookies from "js-cookie";
+import Cookies from "js-cookie"
 
 interface Props {
   personalWebsiteApi: PersonalWebsiteApi
@@ -34,19 +28,23 @@ export class ProjectsComponent extends React.Component<Props, State> {
   addNewProject() {
     let currentProjects = this.state.projects
 
-    if (currentProjects[currentProjects.length - 1] != undefined &&
-       this.isNewProject(currentProjects[currentProjects.length - 1])) {
+    if (
+      currentProjects[currentProjects.length - 1] != undefined &&
+      this.isNewProject(currentProjects[currentProjects.length - 1])
+    ) {
       return
     }
     currentProjects.push({
       description: "",
       funFact: "",
       id: "",
-      imagePath: "",
       name: "",
+      firstImagePath: "",
+      secondImagePath: "",
       type: "",
       url: "",
-      year: 0
+      year: 0,
+      priority: -1
     })
     this.setState({ projects: currentProjects })
   }
@@ -58,16 +56,18 @@ export class ProjectsComponent extends React.Component<Props, State> {
       description: projectData.description,
       funFact: projectData.funFact,
       url: projectData.url,
-      imagePath: projectData.imagePath,
+      firstImage: projectData.firstImagePath,
+      secondImage: projectData.secondImagePath,
+      priority: projectData.priority,
       year: projectData.year,
-      bearerAuth: Cookies.get("jwt"),
+      bearerAuth: Cookies.get("jwt")
     }
     if (this.isNewProject(projectData)) {
       return this.props.personalWebsiteApi
         .addProjectInfo(requestData)
         .then(id => {
           this.addNewProject()
-          this.setState({ updateMessage: "Added new project" })
+          this.setState({ updateMessage: "Added new project!" })
           return id
         })
         .catch(error => {
@@ -76,8 +76,9 @@ export class ProjectsComponent extends React.Component<Props, State> {
         })
     } else {
       return this.props.personalWebsiteApi
-        .updateProjectInfo({...requestData, id: projectData.id})
+        .updateProjectInfo({ ...requestData, id: projectData.id })
         .then(id => {
+          this.setState({ updateMessage: "Updated project!" })
           return "Successful"
         })
         .catch(error => {
@@ -100,27 +101,23 @@ export class ProjectsComponent extends React.Component<Props, State> {
           {this.state.updateMessage && (
             <Message>{this.state.updateMessage}</Message>
           )}
-          <Grid>
+          <Grid className={styles.VeryPadded}>
             <Grid.Row centered>
               <Header as="h1">
                 <Icon name="question circle" />
                 Projects
               </Header>
             </Grid.Row>
-            <Grid.Row centered>
-              <Card.Content className={styles.Padded}>
-                <Card.Group centered={true} fluid itemsPerRow={Math.min(this.state.projects.length, 5).toString() as '1' | '2' | '3' | '4' | '5'}>
-                  {this.state.projects.map(projectData => {
-                    return (
-                        <ProjectComponent
-                          projectData={projectData}
-                          sendProjectData={this.sendProjectData}
-                        />
-                    )
-                  })}
-                </Card.Group>
-              </Card.Content>
-            </Grid.Row>
+            {this.state.projects.map(projectData => {
+              return (
+                <Grid.Row padded centered>
+                  <ProjectComponent
+                    projectData={projectData}
+                    sendProjectData={this.sendProjectData}
+                  />
+                </Grid.Row>
+              )
+            })}
           </Grid>
         </Card.Content>
       </Card>

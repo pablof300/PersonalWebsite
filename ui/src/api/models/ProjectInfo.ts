@@ -54,13 +54,25 @@ export interface ProjectInfo {
      * @type {string}
      * @memberof ProjectInfo
      */
-    imagePath: string;
+    firstImagePath: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ProjectInfo
+     */
+    secondImagePath: string;
     /**
      * 
      * @type {number}
      * @memberof ProjectInfo
      */
     year: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ProjectInfo
+     */
+    priority: number;
     /**
      * 
      * @type {string}
@@ -84,8 +96,10 @@ export function ProjectInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'description': json['description'],
         'funFact': json['funFact'],
         'url': json['url'],
-        'imagePath': json['imagePath'],
+        'firstImagePath': json['firstImagePath'],
+        'secondImagePath': json['secondImagePath'],
         'year': json['year'],
+        'priority': json['priority'],
         'id': json['id'],
     };
 }
@@ -104,8 +118,10 @@ export function ProjectInfoToJSON(value?: ProjectInfo | null): any {
         'description': value.description,
         'funFact': value.funFact,
         'url': value.url,
-        'imagePath': value.imagePath,
+        'firstImagePath': value.firstImagePath,
+        'secondImagePath': value.secondImagePath,
         'year': value.year,
+        'priority': value.priority,
         'id': value.id,
     };
 }

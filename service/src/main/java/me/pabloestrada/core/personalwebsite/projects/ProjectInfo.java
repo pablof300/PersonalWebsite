@@ -24,10 +24,16 @@ public final class ProjectInfo
     private String url;
 
     @JsonProperty(required = true)
-    private String imagePath;
+    private String firstImagePath;
+
+    @JsonProperty(required = true)
+    private String secondImagePath;
 
     @JsonProperty(required = true)
     private int year;
+
+    @JsonProperty(required = true)
+    private int priority;
 
     @JsonProperty(required = true)
     @JsonSerialize(using = ObjectIdSerializer.class)
@@ -37,26 +43,28 @@ public final class ProjectInfo
     public ProjectInfo() {
     }
 
-    public ProjectInfo(final String name, final String type, final String description, final String funFact,
-                       final String url, final String imagePath, final int year) {
+    public ProjectInfo(final String name, final String type, final String description, final String funFact,  final String url,
+                       final String firstImagePath, final String secondImagePath, final int year, final int priority) {
         this.name = name;
         this.type = type;
         this.description = description;
         this.funFact = funFact;
         this.url = url;
-        this.imagePath = imagePath;
+        this.firstImagePath = firstImagePath;
+        this.secondImagePath = secondImagePath;
+        this.priority = priority;
         this.year = year;
     }
 
-    public ProjectInfo(final String name, final String type, final String description, final String funFact,
-                       final String url, final String imagePath, final int year, final String id) {
-        this(name, type, description, funFact, url, imagePath, year);
+    public ProjectInfo(final String name, final String type, final String description, final String funFact, final String url,
+                       final String firstImagePath, final String secondImagePath, final int year, final int priority, final String id) {
+        this(name, type, description, funFact, url, firstImagePath, secondImagePath, year, priority);
         this.id = new ObjectId(id);
     }
 
-    public ProjectInfo(final String name, final String type, final String description, final String funFact,
-                       final String url, final String imagePath, final int year, final ObjectId id) {
-        this(name, type, description, funFact, url, imagePath, year);
+    public ProjectInfo(final String name, final String type, final String description, final String funFact, final String url,
+                       final String firstImagePath, final String secondImagePath, final int year, final int priority, final ObjectId id) {
+        this(name, type, description, funFact, url, firstImagePath, secondImagePath, year, priority);
         this.id = id;
     }
 
@@ -100,12 +108,20 @@ public final class ProjectInfo
         this.url = url;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public String getFirstImagePath() {
+        return firstImagePath;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setFirstImagePath(String firstImagePath) {
+        this.firstImagePath = firstImagePath;
+    }
+
+    public String getSecondImagePath() {
+        return secondImagePath;
+    }
+
+    public void setSecondImagePath(String secondImagePath) {
+        this.secondImagePath = secondImagePath;
     }
 
     public int getYear() {
@@ -124,6 +140,14 @@ public final class ProjectInfo
         this.id = id;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
     @Override
     public String toString() {
         return "ProjectInfo{" +
@@ -132,8 +156,10 @@ public final class ProjectInfo
                 ", description='" + description + '\'' +
                 ", funFact='" + funFact + '\'' +
                 ", url='" + url + '\'' +
-                ", imagePath='" + imagePath + '\'' +
+                ", firstImagePath='" + firstImagePath + '\'' +
+                ", secondImagePath='" + secondImagePath + '\'' +
                 ", year=" + year +
+                ", priority=" + priority +
                 ", id=" + id +
                 '}';
     }

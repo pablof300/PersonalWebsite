@@ -31,15 +31,17 @@ public class PersonalWebsiteServiceImpl
         );
     }
 
-    public void updateProjectInfo(final String name, final String type, final String description,
-                                  final String funFact, final String url, final String imagePath, int year, final String id) {
-        websiteInfoDAO.updateProjectInfo(new ProjectInfo(name, type, description, funFact, url, imagePath, year, id));
+    public void updateProjectInfo(final String name, final String type, final String description, final String funFact, final String url,
+                                  final String firstImage, final String secondImage, final int year, final int priority, final String id) {
+        websiteInfoDAO.updateProjectInfo(new ProjectInfo(name, type, description, funFact, url, firstImage, secondImage, year, priority, id));
     }
 
-    public ObjectId addProjectInfo(final String name, final String type, final String description,
-                                   final String funFact, final String url, final String imagePath, int year) {
+    public ObjectId addProjectInfo(final String name, final String type, final String description, final String funFact,
+                                   final String url, final String firstImage, final String secondImage, final int year, final int priority) {
+        System.out.println("PRIORITYYY");
+        System.out.println(priority);
         final ObjectId idOfNewProject = new ObjectId();
-        websiteInfoDAO.addProjectInfo(new ProjectInfo(name, type, description, funFact, url, imagePath, year, idOfNewProject));
+        websiteInfoDAO.addProjectInfo(new ProjectInfo(name, type, description, funFact, url, firstImage, secondImage, year, priority, idOfNewProject));
         return idOfNewProject;
     }
 }

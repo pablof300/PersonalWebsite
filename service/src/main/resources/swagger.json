@@ -60,6 +60,50 @@
         }
       }
     },
+    "/exercise/strava-callback" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Callback URL for OAuth for Strava API",
+        "description" : "",
+        "operationId" : "getStravaCallback",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/exercise/strava-oauth" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Get OAuth Strava URL for Authentication",
+        "description" : "",
+        "operationId" : "getStravaOAuthURL",
+        "parameters" : [ {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
     "/exercise/exercise-summary" : {
       "get" : {
         "tags" : [ "exercise" ],
@@ -161,50 +205,6 @@
         }
       }
     },
-    "/exercise/strava-callback" : {
-      "get" : {
-        "tags" : [ "exercise" ],
-        "summary" : "Callback URL for OAuth for Strava API",
-        "description" : "",
-        "operationId" : "getStravaCallback",
-        "parameters" : [ {
-          "name" : "code",
-          "in" : "query",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "boolean"
-            }
-          }
-        }
-      }
-    },
-    "/exercise/strava-oauth" : {
-      "get" : {
-        "tags" : [ "exercise" ],
-        "summary" : "Get OAuth Strava URL for Authentication",
-        "description" : "",
-        "operationId" : "getStravaOAuthURL",
-        "parameters" : [ {
-          "name" : "bearerAuth",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
     "/personal-website/base-website" : {
       "put" : {
         "tags" : [ "personal-website" ],
@@ -291,12 +291,23 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "imagePath",
+          "name" : "firstImage",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "secondImage",
           "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "year",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "priority",
           "in" : "query",
           "required" : false,
           "type" : "integer",
@@ -347,12 +358,23 @@
           "required" : false,
           "type" : "string"
         }, {
-          "name" : "imagePath",
+          "name" : "firstImage",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "secondImage",
           "in" : "query",
           "required" : false,
           "type" : "string"
         }, {
           "name" : "year",
+          "in" : "query",
+          "required" : false,
+          "type" : "integer",
+          "format" : "int32"
+        }, {
+          "name" : "priority",
           "in" : "query",
           "required" : false,
           "type" : "integer",
@@ -451,7 +473,7 @@
     },
     "ProjectInfo" : {
       "type" : "object",
-      "required" : [ "description", "funFact", "id", "imagePath", "name", "type", "url", "year" ],
+      "required" : [ "description", "firstImagePath", "funFact", "id", "name", "priority", "secondImagePath", "type", "url", "year" ],
       "properties" : {
         "name" : {
           "type" : "string"
@@ -468,10 +490,17 @@
         "url" : {
           "type" : "string"
         },
-        "imagePath" : {
+        "firstImagePath" : {
+          "type" : "string"
+        },
+        "secondImagePath" : {
           "type" : "string"
         },
         "year" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "priority" : {
           "type" : "integer",
           "format" : "int32"
         },

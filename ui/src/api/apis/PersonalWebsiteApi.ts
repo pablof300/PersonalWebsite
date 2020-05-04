@@ -26,8 +26,10 @@ export interface AddProjectInfoRequest {
     description?: string;
     funFact?: string;
     url?: string;
-    imagePath?: string;
+    firstImage?: string;
+    secondImage?: string;
     year?: number;
+    priority?: number;
     bearerAuth?: string;
 }
 
@@ -48,8 +50,10 @@ export interface UpdateProjectInfoRequest {
     description?: string;
     funFact?: string;
     url?: string;
-    imagePath?: string;
+    firstImage?: string;
+    secondImage?: string;
     year?: number;
+    priority?: number;
     id?: string;
     bearerAuth?: string;
 }
@@ -85,12 +89,20 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
             queryParameters['url'] = requestParameters.url;
         }
 
-        if (requestParameters.imagePath !== undefined) {
-            queryParameters['imagePath'] = requestParameters.imagePath;
+        if (requestParameters.firstImage !== undefined) {
+            queryParameters['firstImage'] = requestParameters.firstImage;
+        }
+
+        if (requestParameters.secondImage !== undefined) {
+            queryParameters['secondImage'] = requestParameters.secondImage;
         }
 
         if (requestParameters.year !== undefined) {
             queryParameters['year'] = requestParameters.year;
+        }
+
+        if (requestParameters.priority !== undefined) {
+            queryParameters['priority'] = requestParameters.priority;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -226,12 +238,20 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
             queryParameters['url'] = requestParameters.url;
         }
 
-        if (requestParameters.imagePath !== undefined) {
-            queryParameters['imagePath'] = requestParameters.imagePath;
+        if (requestParameters.firstImage !== undefined) {
+            queryParameters['firstImage'] = requestParameters.firstImage;
+        }
+
+        if (requestParameters.secondImage !== undefined) {
+            queryParameters['secondImage'] = requestParameters.secondImage;
         }
 
         if (requestParameters.year !== undefined) {
             queryParameters['year'] = requestParameters.year;
+        }
+
+        if (requestParameters.priority !== undefined) {
+            queryParameters['priority'] = requestParameters.priority;
         }
 
         if (requestParameters.id !== undefined) {

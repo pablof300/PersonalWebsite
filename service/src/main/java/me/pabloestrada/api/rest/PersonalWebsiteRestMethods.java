@@ -57,14 +57,16 @@ public final class PersonalWebsiteRestMethods {
                                   @QueryParam("description") final String description,
                                   @QueryParam("funFact") final String funFact,
                                   @QueryParam("url") final String url,
-                                  @QueryParam("imagePath") final String imagePath,
+                                  @QueryParam("firstImage") final String firstImage,
+                                  @QueryParam("secondImage") final String secondImage,
                                   @QueryParam("year") final int year,
+                                  @QueryParam("priority") final int priority,
                                   @QueryParam("id") final String id,
                                   @HeaderParam("bearerAuth") final String bearerAuth,
                                   @Context final HttpServletResponse response)
     {
         responseAuthenticator.authenticate(bearerAuth, response,
-                () -> delegate.updateProjectInfo(name, type, description, funFact, url, imagePath, year, id));
+                () -> delegate.updateProjectInfo(name, type, description, funFact, url, firstImage, secondImage, year, priority, id));
     }
 
     @POST
@@ -75,13 +77,15 @@ public final class PersonalWebsiteRestMethods {
                                  @QueryParam("description") final String description,
                                  @QueryParam("funFact") final String funFact,
                                  @QueryParam("url") final String url,
-                                 @QueryParam("imagePath") final String imagePath,
+                                 @QueryParam("firstImage") final String firstImage,
+                                 @QueryParam("secondImage") final String secondImage,
                                  @QueryParam("year") final int year,
+                                 @QueryParam("priority") final int priority,
                                  @HeaderParam("bearerAuth") final String bearerAuth,
                                  @Context final HttpServletResponse response)
     {
         return responseAuthenticator.authenticateAndCatchErrors(
-                bearerAuth, response, () -> delegate.addProjectInfo(name, type, description, funFact, url, imagePath, year).toString());
+                bearerAuth, response, () -> delegate.addProjectInfo(name, type, description, funFact, url, firstImage, secondImage, year, priority).toString());
     }
 }
 

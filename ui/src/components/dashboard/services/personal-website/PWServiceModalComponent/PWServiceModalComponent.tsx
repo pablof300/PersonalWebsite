@@ -95,7 +95,7 @@ export class PWServiceModalComponent extends React.Component<{}, State> {
       )
     }
     return (
-      <Modal size="large" dimmer="blurring" open={this.state.isDataLoaded}>
+      <Modal size="fullscreen" dimmer="blurring" open={this.state.isDataLoaded}>
         <Modal.Content scrolling>
           <Card.Group itemsPerRow={3} stackable>
             <Card>
