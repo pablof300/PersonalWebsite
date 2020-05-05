@@ -4,7 +4,7 @@ swagger:
 databaseURI: 'mongodb://localhost:27017/'
 environment:
   type: "prod"
-  host: "https://pabloestrada.me:8433"
+  host: "https://pabloestrada.me:8443"
 server:
   rootPath: /api
   applicationConnectors:
