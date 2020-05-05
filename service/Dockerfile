@@ -4,7 +4,7 @@ RUN mkdir -p persian/service/bin
 RUN mkdir persian/service/ssl
 
 COPY /ssl/keystore.jks ./persian/service/ssl
-COPY /target/PersonalWebsite-1.0.jar ./persian/service/bin
+COPY /target/Persian-1.0.jar ./persian/service/bin
 COPY /config.yml ./persian/service
 COPY .credentials ./persian/service/
 WORKDIR ./persian/service

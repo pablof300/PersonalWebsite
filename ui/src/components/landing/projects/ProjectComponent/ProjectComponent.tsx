@@ -2,6 +2,7 @@ import React from "react"
 import styles from "./ProjectComponent.module.css"
 import { Image, Icon, Card, Reveal, Popup, Rating } from "semantic-ui-react"
 import { ProjectInfo } from '../../../../api/index'
+import img from "../../../../assets/images/1.jpg"
 
 interface Props {
   projectData: ProjectInfo
@@ -15,6 +16,7 @@ export class ProjectComponent extends React.Component<Props, {}> {
   // TODO:
   // Randomize move & move right
   render() {
+    let firstImagePath = '../../../../../assets/images/' + this.props.projectData.firstImagePath;
     return (
       <Popup
         header='Fun Fact'
@@ -24,10 +26,10 @@ export class ProjectComponent extends React.Component<Props, {}> {
         <Card>
           <Reveal animated='move'>
             <Reveal.Content visible>
-              <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' />
+              <Image src={require('../../../../assets/images/' + this.props.projectData.firstImagePath)} />
             </Reveal.Content>
             <Reveal.Content hidden>
-              <Image src='https://react.semantic-ui.com/images/avatar/large/chris.jpg' />
+              <Image src={require('../../../../assets/images/' + this.props.projectData.secondImagePath)} />
             </Reveal.Content>
           </Reveal>
           <Card.Content>
