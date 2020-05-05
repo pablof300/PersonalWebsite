@@ -20,6 +20,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
     super(props)
     this.state = { projects: props.projects, updateMessage: "" }
     this.sendProjectData = this.sendProjectData.bind(this)
+    this.deleteProject = this.deleteProject.bind(this)
     this.addNewProject = this.addNewProject.bind(this)
 
     this.addNewProject()
@@ -47,6 +48,33 @@ export class ProjectsComponent extends React.Component<Props, State> {
       priority: -1
     })
     this.setState({ projects: currentProjects })
+  }
+
+  deleteProject(id: string): void {
+    this.props.personalWebsiteApi.deleteProjectInfo({id: id, bearerAuth: Cookies.get("jwt")
+    }).then(() => {
+      let currentProjects: ProjectInfo[] = []
+      console.log(this.state.projects.length)
+      this.state.projects.forEach( (project, index) => {
+        // TODO
+        // Fix glitch with project deletion
+        console.log("- = -")
+        console.log(typeof project.id)
+        console.log(project.id)
+        console.log(typeof id)
+        console.log(id)
+        console.log(project.id !== id)
+
+        if(project.id !== id) {
+          console.log("NEW PROJECT? " + this.isNewProject(project))
+          currentProjects.push(project)
+        }
+      });
+      this.setState({projects: currentProjects})
+      console.log(this.state.projects.length)
+    }).catch(error => {
+      console.log(error)
+    })
   }
 
   async sendProjectData(projectData: ProjectInfo): Promise<string> {
@@ -95,6 +123,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
   }
 
   render() {
+    let projects = this.state.projects
     return (
       <Card fluid>
         <Card.Content>
@@ -108,12 +137,14 @@ export class ProjectsComponent extends React.Component<Props, State> {
                 Projects
               </Header>
             </Grid.Row>
-            {this.state.projects.map(projectData => {
+            { projects.map(projectData => {
+              console.log(projectData)
               return (
                 <Grid.Row padded centered>
                   <ProjectComponent
                     projectData={projectData}
                     sendProjectData={this.sendProjectData}
+                    deleteProject={this.deleteProject}
                   />
                 </Grid.Row>
               )

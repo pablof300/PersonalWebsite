@@ -60,50 +60,6 @@
         }
       }
     },
-    "/exercise/strava-callback" : {
-      "get" : {
-        "tags" : [ "exercise" ],
-        "summary" : "Callback URL for OAuth for Strava API",
-        "description" : "",
-        "operationId" : "getStravaCallback",
-        "parameters" : [ {
-          "name" : "code",
-          "in" : "query",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "boolean"
-            }
-          }
-        }
-      }
-    },
-    "/exercise/strava-oauth" : {
-      "get" : {
-        "tags" : [ "exercise" ],
-        "summary" : "Get OAuth Strava URL for Authentication",
-        "description" : "",
-        "operationId" : "getStravaOAuthURL",
-        "parameters" : [ {
-          "name" : "bearerAuth",
-          "in" : "header",
-          "required" : false,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "type" : "string"
-            }
-          }
-        }
-      }
-    },
     "/exercise/exercise-summary" : {
       "get" : {
         "tags" : [ "exercise" ],
@@ -205,6 +161,50 @@
         }
       }
     },
+    "/exercise/strava-callback" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Callback URL for OAuth for Strava API",
+        "description" : "",
+        "operationId" : "getStravaCallback",
+        "parameters" : [ {
+          "name" : "code",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/exercise/strava-oauth" : {
+      "get" : {
+        "tags" : [ "exercise" ],
+        "summary" : "Get OAuth Strava URL for Authentication",
+        "description" : "",
+        "operationId" : "getStravaOAuthURL",
+        "parameters" : [ {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
     "/personal-website/base-website" : {
       "put" : {
         "tags" : [ "personal-website" ],
@@ -262,7 +262,7 @@
     "/personal-website/projects" : {
       "post" : {
         "tags" : [ "personal-website" ],
-        "summary" : "Add a new project and get its id",
+        "summary" : "Add a new project and get its ID",
         "description" : "",
         "operationId" : "addProjectInfo",
         "parameters" : [ {
@@ -380,6 +380,28 @@
           "type" : "integer",
           "format" : "int32"
         }, {
+          "name" : "id",
+          "in" : "query",
+          "required" : false,
+          "type" : "string"
+        }, {
+          "name" : "bearerAuth",
+          "in" : "header",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "personal-website" ],
+        "summary" : "Delete a project by its ID",
+        "description" : "",
+        "operationId" : "deleteProjectInfo",
+        "parameters" : [ {
           "name" : "id",
           "in" : "query",
           "required" : false,

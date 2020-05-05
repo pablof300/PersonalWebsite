@@ -70,7 +70,7 @@ public final class PersonalWebsiteRestMethods {
     }
 
     @POST
-    @ApiOperation(value = "Add a new project and get its id")
+    @ApiOperation(value = "Add a new project and get its ID")
     @Path("/projects")
     public String addProjectInfo(@QueryParam("name") final String name,
                                  @QueryParam("type") final String type,
@@ -86,6 +86,16 @@ public final class PersonalWebsiteRestMethods {
     {
         return responseAuthenticator.authenticateAndCatchErrors(
                 bearerAuth, response, () -> delegate.addProjectInfo(name, type, description, funFact, url, firstImage, secondImage, year, priority).toString());
+    }
+
+    @DELETE
+    @ApiOperation(value = "Delete a project by its ID")
+    @Path("/projects")
+    public void deleteProjectInfo(@QueryParam("id") final String id,
+                                 @HeaderParam("bearerAuth") final String bearerAuth,
+                                 @Context final HttpServletResponse response)
+    {
+        responseAuthenticator.authenticate(bearerAuth, response, () -> delegate.deleteProjectInfo(id));
     }
 }
 

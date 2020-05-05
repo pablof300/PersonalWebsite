@@ -37,4 +37,6 @@ public abstract class PersonalWebsiteService {
             final String secondImage,
             final int year,
             final int priority);
+
+    public abstract void deleteProjectInfo(final String id);
 }

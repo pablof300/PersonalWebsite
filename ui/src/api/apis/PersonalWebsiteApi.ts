@@ -33,6 +33,11 @@ export interface AddProjectInfoRequest {
     bearerAuth?: string;
 }
 
+export interface DeleteProjectInfoRequest {
+    id?: string;
+    bearerAuth?: string;
+}
+
 export interface UpdateBaseWebsiteInfoRequest {
     firstParagraphOfAboutMe?: string;
     secondParagraphOfAboutMe?: string;
@@ -64,7 +69,7 @@ export interface UpdateProjectInfoRequest {
 export class PersonalWebsiteApi extends runtime.BaseAPI {
 
     /**
-     * Add a new project and get its id
+     * Add a new project and get its ID
      */
     async addProjectInfoRaw(requestParameters: AddProjectInfoRequest): Promise<runtime.ApiResponse<string>> {
         const queryParameters: runtime.HTTPQuery = {};
@@ -122,11 +127,44 @@ export class PersonalWebsiteApi extends runtime.BaseAPI {
     }
 
     /**
-     * Add a new project and get its id
+     * Add a new project and get its ID
      */
     async addProjectInfo(requestParameters: AddProjectInfoRequest): Promise<string> {
         const response = await this.addProjectInfoRaw(requestParameters);
         return await response.value();
+    }
+
+    /**
+     * Delete a project by its ID
+     */
+    async deleteProjectInfoRaw(requestParameters: DeleteProjectInfoRequest): Promise<runtime.ApiResponse<void>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.id !== undefined) {
+            queryParameters['id'] = requestParameters.id;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (requestParameters.bearerAuth !== undefined && requestParameters.bearerAuth !== null) {
+            headerParameters['bearerAuth'] = String(requestParameters.bearerAuth);
+        }
+
+        const response = await this.request({
+            path: `/personal-website/projects`,
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Delete a project by its ID
+     */
+    async deleteProjectInfo(requestParameters: DeleteProjectInfoRequest): Promise<void> {
+        await this.deleteProjectInfoRaw(requestParameters);
     }
 
     /**

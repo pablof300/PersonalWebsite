@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.mongodb.client.model.Filters;
+import org.bson.types.ObjectId;
 
 public final class WebsiteInfoDAO
 {
@@ -62,6 +63,12 @@ public final class WebsiteInfoDAO
 
     public void addProjectInfo(final ProjectInfo projectInfo) {
         projectInfoCollection.insertOne(projectInfo);
+    }
+
+    public void deleteProjectInfo(final String id) {
+        System.out.println("Deleting for id " + new ObjectId(id));
+        System.out.println(projectInfoCollection.find(Filters.eq("_id", new ObjectId(id))).first());
+        projectInfoCollection.deleteOne(Filters.eq("_id", new ObjectId(id)));
     }
 
     public void updateProjectInfo(final ProjectInfo projectInfo) {

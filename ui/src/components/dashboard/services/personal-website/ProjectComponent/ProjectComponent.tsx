@@ -6,6 +6,7 @@ import { Card, Button, Label, Form, TextArea, Input } from "semantic-ui-react"
 interface Props {
   projectData: ProjectInfo
   sendProjectData: (projectData: ProjectInfo) => Promise<string>
+  deleteProject: (id: string) => void
 }
 
 export class ProjectComponent extends React.Component<Props, ProjectInfo> {
@@ -145,7 +146,7 @@ export class ProjectComponent extends React.Component<Props, ProjectInfo> {
             >
               {newProject ? "Create" : "Update"}
             </Button>
-            <Button color={'red'} disabled>
+            <Button color={'red'} disabled={this.isNewProject()} onClick={e => this.props.deleteProject(this.state.id)}>
               Delete
             </Button>
           </Form>
