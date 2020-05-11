@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./ETServiceComponent.module.css"
 import { Grid, Image, Card, Header, Divider, Button } from "semantic-ui-react"
-import logo from '../../../../../assets/images/exercise-tracker-service.png'
+import logo from '../../../../../assets/images/exercise-tracker-service.webp'
 import {ExerciseSummaryDTO, ExerciseApi} from "../../../../../api/index";
 import Cookies from "js-cookie";
 

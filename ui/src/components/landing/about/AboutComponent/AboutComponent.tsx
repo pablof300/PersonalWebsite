@@ -1,6 +1,7 @@
 import React from "react"
 import styles from "./AboutComponent.module.css"
 import { SocialMediaButton } from '../SocialMediaButton/index'
+import avatar from '../../../../assets/images/avatar.webp'
 import {
   Grid,
   Image,
@@ -35,7 +36,7 @@ export class AboutComponent extends React.Component<Props, {}> {
                 size="small"
                 circular
                 centered
-                src="https://avatars0.githubusercontent.com/u/25207181?s=460&v=4"
+                src={avatar}
               />
               <Header as="h1" textAlign="center" className={styles.Title}>
                 Hello, I am Pablo Estrada.

@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./PWServiceComponent.module.css"
 import { PWServiceModalComponent } from "../PWServiceModalComponent/index"
 import { Grid, Icon, Image, Card, Accordion } from "semantic-ui-react"
-import logo from '../../../../../assets/images/personal-website-service.png'
+import logo from '../../../../../assets/images/personal-website-service.webp'
 
 interface State {
   activeIndex: number
