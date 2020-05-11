@@ -8,8 +8,12 @@ import {
   Button,
 } from "semantic-ui-react"
 
-export class ResumeComponent extends React.Component<{}, {}> {
-  constructor(props: {}) {
+interface Props {
+  resumeLink: string
+}
+
+export class ResumeComponent extends React.Component<Props, {}> {
+  constructor(props: Props) {
     super(props)
   }
 
@@ -30,7 +34,7 @@ export class ResumeComponent extends React.Component<{}, {}> {
                 View my resume
               </Header>
               <Grid stackable centered className={styles.ButtonContainer}>
-                <Button animated primary as="a" href="http://google.com">
+                <Button animated primary as="a" href={this.props.resumeLink}>
                   <Button.Content visible>Pablo Estrada</Button.Content>
                   <Button.Content hidden>
                     <Icon name="arrow right" />

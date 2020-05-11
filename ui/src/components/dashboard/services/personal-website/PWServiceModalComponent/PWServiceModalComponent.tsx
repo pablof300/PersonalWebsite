@@ -212,7 +212,7 @@ export class PWServiceModalComponent extends React.Component<{}, State> {
                 <Segment raised color="teal">
                   <Form onSubmit={this.handleSubmit}>
                     <Form.Field
-                      label="List of tools"
+                      label="Resume link"
                       control={TextArea}
                       onChange={(e: any) =>
                         this.setState({ resumePath: e.target.value })
