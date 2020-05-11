@@ -1,14 +1,6 @@
 import React from "react"
 import styles from "./SocialMediaButton.module.css"
-import {
-  Grid,
-  Image,
-  Segment,
-  Header,
-  Divider,
-  Icon,
-  Button
-} from "semantic-ui-react"
+import { Icon, Button } from "semantic-ui-react"
 
 interface Props {
   link: string
@@ -16,10 +8,6 @@ interface Props {
 }
 
 export class SocialMediaButton extends React.Component<Props, {}> {
-  constructor(props: Props) {
-    super(props)
-  }
-
   render() {
     return (
       <Button

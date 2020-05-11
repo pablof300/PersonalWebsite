@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./ProjectRowComponent.module.css"
 import { ProjectComponent } from "../ProjectComponent/index"
-import { Segment, Header, Icon, Card } from "semantic-ui-react"
+import { Card } from "semantic-ui-react"
 import { ProjectInfo } from '../../../../api/index'
 
 interface Props {
@@ -9,11 +9,8 @@ interface Props {
 }
 
 export class ProjectRowComponent extends React.Component<Props, {}> {
-  constructor(props: Props) {
-    super(props)
-  }
-
-  // Create componenet ProjectRowComponent
+  // TODO:
+  // Create component ProjectRowComponent
 
   render() {
     return (

@@ -8,10 +8,6 @@ interface Props {
 }
 
 export class SkillComponent extends React.Component<Props, {}> {
-  constructor(props: Props) {
-    super(props)
-  }
-
   render() {
     return (
       <>

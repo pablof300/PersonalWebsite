@@ -1,18 +1,13 @@
 import React from "react"
 import styles from "./ProjectComponent.module.css"
-import { Image, Icon, Card, Reveal, Popup, Rating } from "semantic-ui-react"
+import { Image, Icon, Card, Reveal, Popup } from "semantic-ui-react"
 import { ProjectInfo } from '../../../../api/index'
-import img from "../../../../assets/images/1.jpg"
 
 interface Props {
   projectData: ProjectInfo
 }
 
 export class ProjectComponent extends React.Component<Props, {}> {
-  constructor(props: Props) {
-    super(props)
-  }
-
   // TODO:
   // Randomize move & move right
   render() {

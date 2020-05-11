@@ -30,7 +30,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
     let currentProjects = this.state.projects
 
     if (
-      currentProjects[currentProjects.length - 1] != undefined &&
+      currentProjects[currentProjects.length - 1] !== undefined &&
       this.isNewProject(currentProjects[currentProjects.length - 1])
     ) {
       return
@@ -119,7 +119,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
   // TODO:
   // Refactor this to be abstracted in its own module
   isNewProject(projectData: ProjectInfo) {
-    return projectData.id.length == 0
+    return projectData.id.length === 0
   }
 
   render() {

@@ -1,13 +1,6 @@
 import React from "react"
 import styles from "./MenuComponent.module.css"
 import { Grid, Menu } from "semantic-ui-react"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
 
 interface Props {
   name: string

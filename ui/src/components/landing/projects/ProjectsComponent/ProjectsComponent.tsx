@@ -1,7 +1,6 @@
 import React from "react"
 import styles from "./ProjectsComponent.module.css"
-import { ProjectComponent } from "../ProjectComponent/index"
-import { Segment, Header, Icon, Card } from "semantic-ui-react"
+import { Segment, Header, Icon } from "semantic-ui-react"
 import { ProjectRowComponent } from "../ProjectRowComponent/index"
 import { ProjectInfo } from '../../../../api/index'
 
@@ -11,10 +10,6 @@ interface Props {
 
 
 export class ProjectsComponent extends React.Component<Props, {}> {
-  constructor(props: Props) {
-    super(props)
-  }
-
   getProjectsInGroupsOfThree(): Array<Array<ProjectInfo>> {
     const numberOfProjectsInRow = 3
     let projects: Array<Array<ProjectInfo>> = []

@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./ProjectComponent.module.css"
 import { ProjectInfo } from "../../../../../api/index"
-import { Card, Button, Label, Form, TextArea, Input } from "semantic-ui-react"
+import { Card, Button, Label, Form } from "semantic-ui-react"
 
 interface Props {
   projectData: ProjectInfo
