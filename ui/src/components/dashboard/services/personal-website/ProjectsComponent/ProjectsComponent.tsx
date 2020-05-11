@@ -21,60 +21,25 @@ export class ProjectsComponent extends React.Component<Props, State> {
     this.state = { projects: props.projects, updateMessage: "" }
     this.sendProjectData = this.sendProjectData.bind(this)
     this.deleteProject = this.deleteProject.bind(this)
-    this.addNewProject = this.addNewProject.bind(this)
-
-    this.addNewProject()
-  }
-
-  addNewProject() {
-    let currentProjects = this.state.projects
-
-    if (
-      currentProjects[currentProjects.length - 1] !== undefined &&
-      this.isNewProject(currentProjects[currentProjects.length - 1])
-    ) {
-      return
-    }
-    currentProjects.push({
-      description: "",
-      funFact: "",
-      id: "",
-      name: "",
-      firstImagePath: "",
-      secondImagePath: "",
-      type: "",
-      url: "",
-      year: 0,
-      priority: -1
-    })
-    this.setState({ projects: currentProjects })
   }
 
   deleteProject(id: string): void {
-    this.props.personalWebsiteApi.deleteProjectInfo({id: id, bearerAuth: Cookies.get("jwt")
-    }).then(() => {
-      let currentProjects: ProjectInfo[] = []
-      console.log(this.state.projects.length)
-      this.state.projects.forEach( (project, index) => {
-        // TODO
-        // Fix glitch with project deletion
-        console.log("- = -")
-        console.log(typeof project.id)
-        console.log(project.id)
-        console.log(typeof id)
-        console.log(id)
-        console.log(project.id !== id)
-
-        if(project.id !== id) {
-          console.log("NEW PROJECT? " + this.isNewProject(project))
-          currentProjects.push(project)
-        }
-      });
-      this.setState({projects: currentProjects})
-      console.log(this.state.projects.length)
-    }).catch(error => {
-      console.log(error)
-    })
+    this.props.personalWebsiteApi
+      .deleteProjectInfo({ id: id, bearerAuth: Cookies.get("jwt") })
+      .then(() => {
+        let currentProjects: ProjectInfo[] = []
+        console.log(this.state.projects.length)
+        this.state.projects.forEach(project => {
+          if (project.id !== id) {
+            currentProjects.push(project)
+          }
+        })
+        this.setState({ projects: currentProjects })
+        console.log(this.state.projects.length)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   async sendProjectData(projectData: ProjectInfo): Promise<string> {
@@ -94,8 +59,11 @@ export class ProjectsComponent extends React.Component<Props, State> {
       return this.props.personalWebsiteApi
         .addProjectInfo(requestData)
         .then(id => {
-          this.addNewProject()
-          this.setState({ updateMessage: "Added new project!" })
+          projectData['id'] = id
+          this.setState({
+            updateMessage: "Added new project!",
+            projects: [...this.state.projects, projectData]
+          })
           return id
         })
         .catch(error => {
@@ -105,7 +73,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
     } else {
       return this.props.personalWebsiteApi
         .updateProjectInfo({ ...requestData, id: projectData.id })
-        .then(id => {
+        .then(() => {
           this.setState({ updateMessage: "Updated project!" })
           return "Successful"
         })
@@ -123,7 +91,24 @@ export class ProjectsComponent extends React.Component<Props, State> {
   }
 
   render() {
-    let projects = this.state.projects
+    const newProject = {
+      description: "",
+      funFact: "",
+      id: "",
+      name: "",
+      firstImagePath: "",
+      secondImagePath: "",
+      type: "",
+      url: "",
+      year: 0,
+      priority: -1
+    }
+
+    let projects = this.state.projects.slice()
+    projects.push(newProject)
+
+    console.log(projects)
+
     return (
       <Card fluid>
         <Card.Content>
@@ -137,7 +122,7 @@ export class ProjectsComponent extends React.Component<Props, State> {
                 Projects
               </Header>
             </Grid.Row>
-            { projects.map(projectData => {
+            {projects.map(projectData => {
               console.log(projectData)
               return (
                 <Grid.Row padded centered>

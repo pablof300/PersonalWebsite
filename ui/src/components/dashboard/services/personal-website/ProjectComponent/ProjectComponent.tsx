@@ -17,10 +17,18 @@ export class ProjectComponent extends React.Component<Props, ProjectInfo> {
     this.isNewProject = this.isNewProject.bind(this)
   }
 
+
+  componentWillReceiveProps(nextProps: Readonly<Props>, nextContext: any): void {
+    if (this.isNewProject()) {
+      return
+    }
+    this.setState(nextProps.projectData)
+  }
+
   // TODO:
   // Refactor this to be abstracted in its own module
   isNewProject() {
-    return this.state.id.length == 0
+    return this.state.id.length === 0
   }
 
   submitProjectInfo() {
