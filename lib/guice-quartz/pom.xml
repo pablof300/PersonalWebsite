@@ -31,7 +31,7 @@
         <!-- Version -->
         <version.java>1.8</version.java>
         <version.guice>4.0</version.guice>
-        <version.quartz>2.2.1</version.quartz>
+        <version.quartz>2.3.2</version.quartz>
         <version.slf4j>1.7.5</version.slf4j>
         <version.logback>1.0.13</version.logback>
         <version.junit>4.12</version.junit>
