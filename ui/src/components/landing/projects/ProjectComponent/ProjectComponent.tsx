@@ -2,10 +2,16 @@ import React from "react"
 import styles from "./ProjectComponent.module.css"
 import { Image, Icon, Card, Reveal, Popup } from "semantic-ui-react"
 import { ProjectInfo } from '../../../../api/index'
+import {BoldedTextComponent} from "../../../utility/BoldedTextComponent";
 
 interface Props {
   projectData: ProjectInfo
 }
+
+const boldedWords = [
+    'Swift', 'Spritekit', 'Ruby on Rails', 'FourSquare API', 'Amazon S3',
+    'UHack 2018', 'Raspberry Pi', 'Python', 'Java', 'JavaFX'
+]
 
 export class ProjectComponent extends React.Component<Props, {}> {
   // TODO:
@@ -35,7 +41,7 @@ export class ProjectComponent extends React.Component<Props, {}> {
               <a>{this.props.projectData.type}</a>
             </Card.Meta>
             <Card.Description>
-              {this.props.projectData.description}
+              <BoldedTextComponent boldedWords={boldedWords} text={this.props.projectData.description} />
             </Card.Description>
           </Card.Content>
           <Card.Content extra>

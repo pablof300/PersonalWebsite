@@ -10,7 +10,7 @@ interface Props {
 
 export class ProjectRowComponent extends React.Component<Props, {}> {
   // TODO:
-  // Create component ProjectRowComponent
+  // Create component ExperiencesComponent
 
   render() {
     return (

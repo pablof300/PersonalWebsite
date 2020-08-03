@@ -25,7 +25,7 @@ export class SkillsComponent extends React.Component<Props, {}> {
               <Grid stackable>
                 <Grid.Row centered>
                   <Header as="h2" icon>
-                    <Icon circular name="code" className={styles.Icon} />
+                    <Icon circular name="list" className={styles.Icon} />
                     Skills
                   </Header>
                 </Grid.Row>

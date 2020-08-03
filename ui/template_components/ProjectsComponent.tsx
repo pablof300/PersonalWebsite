@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./ProjectsComponent.module.css"
-import { ProjectComponent, ProjectData } from "../ProjectComponent/index"
+import { ProjectComponent, ProjectData } from "../ExperienceComponent/index"
 import { Segment, Header, Icon, Card } from "semantic-ui-react"
 
 interface Props {
@@ -26,7 +26,7 @@ export class ProjectsComponent extends React.Component<{}, {}> {
     super(props)
   }
 
-  // Create componenet ProjectRowComponent
+  // Create componenet ExperiencesComponent
 
   render() {
     return (

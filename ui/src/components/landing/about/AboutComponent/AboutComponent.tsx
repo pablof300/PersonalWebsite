@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./AboutComponent.module.css"
 import { SocialMediaButton } from '../SocialMediaButton/index'
-import avatar from '../../../../assets/images/avatar.webp'
+import avatar from '../../../../assets/images/avatar.jpeg'
 import {
   Grid,
   Image,
