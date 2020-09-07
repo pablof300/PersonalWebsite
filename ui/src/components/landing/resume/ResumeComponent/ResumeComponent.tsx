@@ -34,7 +34,7 @@ export class ResumeComponent extends React.Component<Props, {}> {
                 View my resume
               </Header>
               <Grid stackable centered className={styles.ButtonContainer}>
-                <Button animated primary as="a" href={this.props.resumeLink}>
+                <Button animated primary as="a" target="_blank" href={this.props.resumeLink}>
                   <Button.Content visible>Pablo Estrada</Button.Content>
                   <Button.Content hidden>
                     <Icon name="arrow right" />

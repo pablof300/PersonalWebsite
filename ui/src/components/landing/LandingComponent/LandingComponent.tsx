@@ -99,9 +99,9 @@ export class LandingComponent extends React.Component<{}, State> {
         <DownIconComponent />
         <ProjectsComponent projects={projects}/>
         <DownIconComponent />
-        <SkillsComponent techLanguages={'Java, TypeScript, Python, C++, Swift, Ruby'} frameworks={'React, Kafka, Rails, JavaFX, SpriteKit'} tools={'Docker, CI/CD, Git, SQL & BigQuery, Photoshop'} languages={'English, Spanish (Fluent)'} />
+        <SkillsComponent techLanguages={'Java, TypeScript, Python, C++, Swift, Ruby, SQL & BigQuery'} frameworks={'React, Kafka, Rails, JavaFX, SpriteKit'} tools={'Docker, CI/CD, Git, Photoshop, Mode'} languages={'English, Spanish (Fluent)'} />
         <DownIconComponent />
-        <ResumeComponent resumeLink={'https://www.dropbox.com/s/s8bj1n868zlb8b3/resume.pdf?dl=0'}/>
+        <ResumeComponent resumeLink={'https://www.dropbox.com/s/01it19mwxg9fq4o/EstradaPablo.pdf?dl=0s'}/>
         <DownIconComponent />
         <ContactComponent />
       </>
