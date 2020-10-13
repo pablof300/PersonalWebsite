@@ -34,7 +34,7 @@
         <version.quartz>2.2.1</version.quartz>
         <version.slf4j>1.7.5</version.slf4j>
         <version.logback>1.0.13</version.logback>
-        <version.junit>4.12</version.junit>
+        <version.junit>4.13.1</version.junit>
         <version.jacoco>0.7.5.201505241946</version.jacoco>
     </properties>
 
