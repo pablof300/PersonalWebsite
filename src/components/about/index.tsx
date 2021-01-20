@@ -11,6 +11,7 @@ import './About.css';
 import avatar from '../../assets/images/avatar.jpeg';
 import BoldedText from '../util/BoldedText';
 import SocialMediaButton from '../util/SocialMediaButton';
+import socialMediaData from '../../data/socialMediaData'
 
 interface Props {
   firstParagraph: string;
@@ -50,9 +51,9 @@ const About = (props: Props) => {
               </Header>
             </Divider>
             <Grid centered stackable className="SocialMediaContainer">
-              <SocialMediaButton icon="mail" link="#contact" />
-              <SocialMediaButton icon="linkedin" link="https://www.linkedin.com/in/pablo-estrada/" />
-              <SocialMediaButton icon="github" link="https://github.com/pablof300" />
+              <SocialMediaButton icon="mail" link={socialMediaData.mailLink} />
+              <SocialMediaButton icon="linkedin" link={socialMediaData.linkedInLink}/>
+              <SocialMediaButton icon="github" link={socialMediaData.githubLink} />
             </Grid>
           </Segment>
         </Grid.Column>
