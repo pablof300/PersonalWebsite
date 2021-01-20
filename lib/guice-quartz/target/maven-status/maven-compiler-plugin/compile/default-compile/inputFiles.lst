@@ -1,7 +1,0 @@
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/config/ConfigModule.java
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/config/ConfigServletModule.java
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/scheduler/GuiceJobFactory.java
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/scheduler/Quartz.java
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/job/DefaultJob.java
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/helper/DateHelper.java
-/Users/pabloestrada/Desktop/PersonalWebsite/lib/guice-quartz-sample/src/main/java/net/halflite/guicequartzsample/servlet/InitializeServletContextListener.java

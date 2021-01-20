@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: net.halflite.guicequartzsample.servlet.InitializeServletContextListenerTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.252 sec - in net.halflite.guicequartzsample.servlet.InitializeServletContextListenerTest

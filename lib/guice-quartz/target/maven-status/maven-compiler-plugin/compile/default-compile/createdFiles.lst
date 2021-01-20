@@ -1,7 +1,0 @@
-net/halflite/guicequartzsample/scheduler/Quartz.class
-net/halflite/guicequartzsample/scheduler/GuiceJobFactory.class
-net/halflite/guicequartzsample/job/DefaultJob.class
-net/halflite/guicequartzsample/config/ConfigModule.class
-net/halflite/guicequartzsample/servlet/InitializeServletContextListener.class
-net/halflite/guicequartzsample/config/ConfigServletModule.class
-net/halflite/guicequartzsample/helper/DateHelper.class

@@ -1,0 +1,14 @@
+body {
+  color: #002f21 !important;
+  background: #4ac29a !important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A) !important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #BDFFF3, #4AC29A) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@font-face {
+    font-family: 'radnika';
+    src: url('./assets/fonts/radnika-medium-webfont.woff2') format('woff2'),
+         url('./assets/fonts/radnika-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
