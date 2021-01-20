@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <MenuComponent />
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/" component={() => <LandingScreen />} />
         {/* <Route exact path="/login" component={() => <LoginComponent />} /> */}
         {/* <Route exact path="/dashboard" component={() => <DashboardComponent />} /> */}
