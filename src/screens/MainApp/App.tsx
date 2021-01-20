@@ -1,7 +1,7 @@
 import React from 'react';
-import { MenuComponent } from '../../components/navbar/index'
-import { LandingScreen } from '../LandingScreen/index'
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import MenuComponent from '../../components/navbar';
+import LandingScreen from '../LandingScreen';
 import './App.css';
 
 function App() {
