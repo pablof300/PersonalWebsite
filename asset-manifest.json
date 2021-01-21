@@ -1,28 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a32306d.chunk.css",
-    "main.js": "/static/js/main.b368dd33.chunk.js",
-    "main.js.map": "/static/js/main.b368dd33.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.8142d75a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.8142d75a.js.map",
+    "main.css": "/static/css/main.5b73ec30.chunk.css",
+    "main.js": "/static/js/main.8d492fee.chunk.js",
+    "main.js.map": "/static/js/main.8d492fee.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.84bd6110.js",
+    "runtime-main.js.map": "/static/js/runtime-main.84bd6110.js.map",
     "static/css/2.85f7760d.chunk.css": "/static/css/2.85f7760d.chunk.css",
-    "static/js/2.4629479e.chunk.js": "/static/js/2.4629479e.chunk.js",
-    "static/js/2.4629479e.chunk.js.map": "/static/js/2.4629479e.chunk.js.map",
-    "static/js/3.25c01231.chunk.js": "/static/js/3.25c01231.chunk.js",
-    "static/js/3.25c01231.chunk.js.map": "/static/js/3.25c01231.chunk.js.map",
+    "static/js/2.f83c2df1.chunk.js": "/static/js/2.f83c2df1.chunk.js",
+    "static/js/2.f83c2df1.chunk.js.map": "/static/js/2.f83c2df1.chunk.js.map",
+    "static/js/3.722ebc83.chunk.js": "/static/js/3.722ebc83.chunk.js",
+    "static/js/3.722ebc83.chunk.js.map": "/static/js/3.722ebc83.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.85f7760d.chunk.css.map": "/static/css/2.85f7760d.chunk.css.map",
-    "static/css/main.1a32306d.chunk.css.map": "/static/css/main.1a32306d.chunk.css.map",
-    "static/js/2.4629479e.chunk.js.LICENSE.txt": "/static/js/2.4629479e.chunk.js.LICENSE.txt",
+    "static/css/main.5b73ec30.chunk.css.map": "/static/css/main.5b73ec30.chunk.css.map",
+    "static/js/2.f83c2df1.chunk.js.LICENSE.txt": "/static/js/2.f83c2df1.chunk.js.LICENSE.txt",
     "static/media/avatar.15552979.jpeg": "/static/media/avatar.15552979.jpeg",
     "static/media/semantic.min.css": "/static/media/outline-icons.ddae9b1b.woff",
-    "static/media/index.css": "/static/media/radnika-medium-webfont.fc37b8b1.woff2"
+    "static/media/codekids_logo.e12d1e39.png": "/static/media/codekids_logo.e12d1e39.png",
+    "static/media/index.css": "/static/media/radnika-medium-webfont.fc37b8b1.woff2",
+    "static/media/two_sigma.05aa2c4c.png": "/static/media/two_sigma.05aa2c4c.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8142d75a.js",
+    "static/js/runtime-main.84bd6110.js",
     "static/css/2.85f7760d.chunk.css",
-    "static/js/2.4629479e.chunk.js",
-    "static/css/main.1a32306d.chunk.css",
-    "static/js/main.b368dd33.chunk.js"
+    "static/js/2.f83c2df1.chunk.js",
+    "static/css/main.5b73ec30.chunk.css",
+    "static/js/main.8d492fee.chunk.js"
   ]
 }
