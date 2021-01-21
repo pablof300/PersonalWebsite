@@ -9,7 +9,7 @@ import {
 } from 'semantic-ui-react';
 import './About.css';
 import avatar from '../../assets/images/avatar.jpeg';
-import BoldedText from '../util/BoldedText';
+import BoldedText from '../util/BoldedText/';
 import SocialMediaButton from '../util/SocialMediaButton';
 import socialMediaData from '../../data/socialMediaData'
 
@@ -42,9 +42,9 @@ const About = (props: Props) => {
                 About me
               </Header>
             </Divider>
-            <BoldedText boldedWords={[]} text={firstParagraph} />
+            <BoldedText boldedWords={['University of Florida']} text={firstParagraph} />
             <Divider hidden />
-            <BoldedText boldedWords={['University of Florida']} text={secondParagraph} />
+            <BoldedText boldedWords={[]} text={secondParagraph} />
             <Divider horizontal>
               <Header as="h4">
                 <Icon name="address book" />

@@ -2,20 +2,19 @@
     font-family: "radnika";
   }
   
-  .MainCard {
-    background: #d3fff2 !important;
-  }
+.MainCard {
+  background: #d3fff2 !important;
+}
   
-  .MainContainer {
-    margin-top: 2vh;
-    font-family: "radnika";
-  }
+.MainContainer {
+  margin-top: 2vh;
+  font-family: "radnika";
+}
   
-  .SocialMediaContainer {
-    padding: 1vw !important;
-  }
-  
-  .Cat {
-    font-size: 1000px !important;
-  }
-  
+.SocialMediaContainer {
+  padding: 1vw !important;
+}
+
+.Cat {
+  font-size: 1000px !important;
+}
