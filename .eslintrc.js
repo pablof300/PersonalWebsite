@@ -24,6 +24,7 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx', '.ts'] }],
+    'react/jsx-props-no-spreading': ['off'],
     'import/extensions': ['off'],
   },
   settings: {
@@ -36,5 +37,8 @@ module.exports = {
         project: 'packages/*/tsconfig.json',
       },
     },
+  },
+  globals: {
+    JSX: true,
   },
 };

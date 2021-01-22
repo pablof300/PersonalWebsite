@@ -4,17 +4,15 @@ import MenuComponent from '../../components/Navbar';
 import LandingScreen from '../LandingScreen';
 import './App.css';
 
-function App() {
-  return (
-    <>
-      <MenuComponent />
-      <Router basename={process.env.PUBLIC_URL}>
-        <Route exact path="/" component={() => <LandingScreen />} />
-        {/* <Route exact path="/login" component={() => <LoginComponent />} /> */}
-        {/* <Route exact path="/dashboard" component={() => <DashboardComponent />} /> */}
-      </Router>
-    </>
-  );
-}
+const App = () => (
+  <>
+    <MenuComponent />
+    <Router basename={process.env.PUBLIC_URL}>
+      <Route exact path="/" component={() => <LandingScreen />} />
+      {/* <Route exact path="/login" component={() => <LoginComponent />} /> */}
+      {/* <Route exact path="/dashboard" component={() => <DashboardComponent />} /> */}
+    </Router>
+  </>
+);
 
 export default App;

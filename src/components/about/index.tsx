@@ -9,9 +9,9 @@ import {
 } from 'semantic-ui-react';
 import './About.css';
 import avatar from '../../assets/images/avatar.jpeg';
-import BoldedText from '../util/BoldedText/';
+import BoldedText from '../util/BoldedText';
 import SocialMediaButton from '../util/SocialMediaButton';
-import socialMediaData from '../../data/socialMediaData'
+import socialMediaData from '../../data/socialMediaData';
 
 interface Props {
   firstParagraph: string;
@@ -52,7 +52,7 @@ const About = (props: Props) => {
             </Divider>
             <Grid centered stackable className="SocialMediaContainer">
               <SocialMediaButton icon="mail" link={socialMediaData.mailLink} />
-              <SocialMediaButton icon="linkedin" link={socialMediaData.linkedInLink}/>
+              <SocialMediaButton icon="linkedin" link={socialMediaData.linkedInLink} />
               <SocialMediaButton icon="github" link={socialMediaData.githubLink} />
             </Grid>
           </Segment>
