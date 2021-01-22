@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "homepage": "https://pabloestrada.me",
   "dependencies": {
@@ -15,6 +15,7 @@
     "memoize-one": "^5.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0",
     "react-highlight-words": "^0.17.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",

@@ -9,6 +9,7 @@ const LandingScreen = () => (
     <About firstParagraph={aboutData.firstParagraph} secondParagraph={aboutData.secondParagraph} />
     <DownIcon />
     <Experience />
+    <DownIcon />
   </>
 );
 
